@@ -119,7 +119,8 @@ if (isset($config->homemode) && $config->homemode) {
     if ( !$editing && $cache->has($cachekey) && !$previewdataid) {
         $pages = json_decode($cache->get($cachekey));
     } else {
-        $pages = $DB->get_records("theme_boost_training_pages", ["local" => "home", "lang" => $lang], "sort ASC");
+        $where = "local='home' AND lang IN(:lang, 'all')";
+        $pages = $DB->get_records_select("theme_boost_training_pages", $where, ['lang' => $lang], "sort ASC");
         $pages = compile_pages($pages);
 
         if (!$editing && !$previewdataid) {
