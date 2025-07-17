@@ -115,20 +115,19 @@
 {{/haschildren}}
 
 {{#js}}
-    /*<script>*/
-    require(['jquery'], function($) {
-        if (!window.primary_navigation_executed) {
-            $(".navbar .primary-navigation .nav-item > .nav-link").each(function () {
-                let $element = $(this);
-                let text = $element.text();
-                $element.html(`<span class="primary-navigation-tooltip">${text}</span>`);
-            });
-            $("#usernavigation > .popover-region").each(function (){
-                let $element = $(this);
-                let text = $element.find(".popover-region-toggle").attr("aria-label");
-                $element.append(`<span class="primary-navigation-tooltip">${text}</span>`);
-            })
-            window.primary_navigation_executed = true;
-        }
-    });
+require(['jquery'], function($) {
+    if (!window.primary_navigation_executed) {
+        $(".navbar .primary-navigation .nav-item > .nav-link").each(function () {
+            let $element = $(this);
+            let text = $element.text();
+            $element.html(`<span class="primary-navigation-tooltip">${text}</span>`);
+        });
+        $("#usernavigation > .popover-region").each(function (){
+            let $element = $(this);
+            let text = $element.find(".popover-region-toggle").attr("aria-label");
+            $element.append(`<span class="primary-navigation-tooltip">${text}</span>`);
+        })
+        window.primary_navigation_executed = true;
+    }
+});
 {{/js}}

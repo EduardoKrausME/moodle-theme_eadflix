@@ -194,72 +194,70 @@
 </body>
 </html>
 {{#js}}
-    /*<script>*/
-    M.util.js_pending("theme_boost/loader");
-    require(["jquery", "theme_boost/loader", "theme_boost/drawer"], function ($, Loader, Drawer) {
-        Drawer.init();
-        M.util.js_complete("theme_boost/loader");
+M.util.js_pending("theme_boost/loader");
+require(["jquery", "theme_boost/loader", "theme_boost/drawer"], function ($, Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete("theme_boost/loader");
 
-        $(".editmode-block-form")
-                .show(300, function () {
-                    $(this).css({"display": "flex"})
-                });
-        $("#homemode-editingswitch").click(function () {
-            $("#homemode-editingswitch-form").submit();
-        });
-
-        // Move pages.
-        function moveItem($item, $target, isUp) {
-            $item.slideUp(400, function () {
-                if (isUp) {
-                    $target.before($item);
-                } else {
-                    $target.after($item);
-                }
-                $item.slideDown(400, function () {
-                    saveOrder(); // <-- salvar após animação.
-                });
+    $(".editmode-block-form")
+            .show(300, function () {
+                $(this).css({"display": "flex"})
             });
-        }
-
-        // Butons move page.
-        $(".homemode-pages .btn-move-up").click(function () {
-            let $item = $(this).closest('.editmode-page-item');
-            let $prev = $item.prev('.editmode-page-item');
-            if ($prev.length) {
-                moveItem($item, $prev, true);
-            }
-        });
-        $(".homemode-pages .btn-move-down").click( function () {
-            let $item = $(this).closest('.editmode-page-item');
-            let $next = $item.next('.editmode-page-item');
-            if ($next.length) {
-                moveItem($item, $next, false);
-            }
-        });
-
-        function saveOrder() {
-            let order = [];
-
-            $('.editmode-page-item').each(function () {
-                order.push($(this).data('pageid'));
-            });
-
-            $.ajax({
-                url: '{{config.wwwroot}}/theme/boost_training/_editor/actions.php?action=page-order&chave=home',
-                type: 'POST',
-                data: {
-                    order: order,
-                    sesskey:"{{{config.sesskey}}}",
-                },
-                success: function (response) {
-                    console.log('Ordem salva com sucesso!', response);
-                },
-                error: function () {
-                    console.error('Erro ao salvar a ordem');
-                }
-            });
-        }
-
+    $("#homemode-editingswitch").click(function () {
+        $("#homemode-editingswitch-form").submit();
     });
+
+    // Move pages.
+    function moveItem($item, $target, isUp) {
+        $item.slideUp(400, function () {
+            if (isUp) {
+                $target.before($item);
+            } else {
+                $target.after($item);
+            }
+            $item.slideDown(400, function () {
+                saveOrder(); // <-- salvar após animação.
+            });
+        });
+    }
+
+    // Butons move page.
+    $(".homemode-pages .btn-move-up").click(function () {
+        let $item = $(this).closest('.editmode-page-item');
+        let $prev = $item.prev('.editmode-page-item');
+        if ($prev.length) {
+            moveItem($item, $prev, true);
+        }
+    });
+    $(".homemode-pages .btn-move-down").click( function () {
+        let $item = $(this).closest('.editmode-page-item');
+        let $next = $item.next('.editmode-page-item');
+        if ($next.length) {
+            moveItem($item, $next, false);
+        }
+    });
+
+    function saveOrder() {
+        let order = [];
+
+        $('.editmode-page-item').each(function () {
+            order.push($(this).data('pageid'));
+        });
+
+        $.ajax({
+            url: '{{config.wwwroot}}/theme/boost_training/_editor/actions.php?action=page-order&chave=home',
+            type: 'POST',
+            data: {
+                order: order,
+                sesskey:"{{{config.sesskey}}}",
+            },
+            success: function (response) {
+                console.log('Ordem salva com sucesso!', response);
+            },
+            error: function () {
+                console.error('Erro ao salvar a ordem');
+            }
+        });
+    }
+});
 {{/js}}
