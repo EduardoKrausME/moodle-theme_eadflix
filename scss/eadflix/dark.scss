@@ -882,10 +882,10 @@ ol.checklist {
 // alert
 .alert {
     &.alert-info * {
-        color: var(--bs-gray-700, #495057);
+        color: var(--bs-gray-700, #495057) !important;
     }
     &.alert-warning * {
-        color: #684b22;
+        color: #684b22 !important;
     }
 }
 #plugins-check-page .pluginupdateinfo,
