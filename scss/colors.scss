@@ -1,0 +1,18 @@
+///////////////////
+// heme-select-item
+.boost_training-theme-select-item {
+    float: left;
+    .preview {
+        padding: 13px;
+        font-family: monospace;
+        font-weight: bold;
+        margin: 1.5px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: .3s ease-out;
+        span {
+            color: #ffffff;
+        }
+    }
+}
+@import "../../boost_training/scss/moodle/minicolors";

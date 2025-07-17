@@ -1,0 +1,265 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_eadflix/frontpage
+
+    EadFlix drawer template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - attributes for the body tag as a string of html attributes
+    * sidepreblocks - HTML for the blocks
+    * regionmainsettingsmenu - HTML for the region main settings menu
+    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         },
+        "bodyattributes":"",
+        "sidepreblocks": "<h2>Blocks html goes here</h2>",
+        "navdraweropen": false,
+        "blockdraweropen": true,
+        "regionmainsettingsmenu": "",
+        "hasregionmainsettingsmenu": false,
+        "addblockbutton": ""
+    }
+}}
+{{> theme_eadflix/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+<div id="page-wrapper" class="d-print-block">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    {{> theme_eadflix/navbar }}
+
+    <div id="page" data-region="mainpage" data-usertour="scroller"
+         class="drawers  {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
+        <div id="topofscroll" class="container main-inner">
+            {{#editing}}
+                <div class="editmode-page-item editmode-block-form" style="display:none">
+                    <div class="me-4">{{#str}}frontpage_change_editor, theme_boost_training{{/str}}</div>
+                    <form action="{{{homemode_form_action}}}"
+                          method="post" class="d-flex align-items-center editmode-switch-form"
+                          id="homemode-editingswitch-form">
+                        <div class="input-group">
+                            <div class="custom-control form-switch">
+                                <input type="checkbox" {{#homemode_status}} checked {{/homemode_status}}
+                                       id="homemode-editingswitch"
+                                       name="homemode"
+                                       value="1"
+                                       class="form-check-input">
+                                <span class="custom-control-label">&nbsp;</span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="sesskey" value="{{{config.sesskey}}}">
+                        <input type="submit" class="d-none">
+                    </form>
+                </div>
+            {{/editing}}
+
+            {{^homemode_status}}
+                {{{ output.full_header }}}
+                {{#secondarymoremenu}}
+                    <div class="secondary-navigation d-print-none">
+                        {{> core/moremenu}}
+                    </div>
+                {{/secondarymoremenu}}
+                <div id="page-content" class="pb-3 d-print-block">
+                    <div id="region-main-box">
+                        {{#hasregionmainsettingsmenu}}
+                            <div id="region-main-settings-menu" class="d-print-none">
+                                <div> {{{ regionmainsettingsmenu }}} </div>
+                            </div>
+                        {{/hasregionmainsettingsmenu}}
+                        <section id="region-main"
+                                 {{#hasnavbarcourse}}class="hasnavbarcourse"{{/hasnavbarcourse}}
+                                 aria-label="{{#str}}content{{/str}}">
+
+                            {{#hasregionmainsettingsmenu}}
+                                <div class="region_main_settings_menu_proxy"></div>
+                            {{/hasregionmainsettingsmenu}}
+                            {{{ output.course_content_header }}}
+                            {{#headercontent}}
+                                {{> core/activity_header }}
+                            {{/headercontent}}
+                            {{#overflow}}
+                                <div class="container-fluid tertiary-navigation">
+                                    <div class="navitem">
+                                        {{> core/url_select}}
+                                    </div>
+                                </div>
+                            {{/overflow}}
+
+                            {{#course_summary}}
+                                <div class="course-section">
+                                    <div class="section-item">
+                                        {{{course_summary}}}
+                                    </div>
+                                </div>
+                            {{/course_summary}}
+
+                            {{{ output.main_content }}}
+                            {{{ output.activity_navigation }}}
+                            {{{ output.course_content_footer }}}
+
+                        </section>
+                    </div>
+                </div>
+            {{/homemode_status}}
+            {{#homemode_status}}
+                <!-- {{{ output.main_content }}} -->
+
+                <div class="homemode-pages">
+                    {{#homemode_pages}}
+                        <div class="block block-home-{{template}} {{#editing}} editmode-page-item {{/editing}}" data-pageid="{{{id}}}">
+                            {{{html}}}
+
+                            {{#editing}}
+                                <div class="d-flex align-items-center">
+                                    <a class="btn btn-lg btn-success me-3"
+                                       href="{{config.wwwroot}}/theme/boost_training/_editor/editor.php?dataid={{id}}">
+                                    {{#str}}edit_block, theme_eadflix{{/str}}</a>
+                                    <a class="btn btn-lg btn-danger me-3"
+                                       href="{{config.wwwroot}}/theme/boost_training/_editor/editor.php?dataid={{id}}&delete=1">
+                                    {{#str}}delete{{/str}}</a>
+
+                                    <div class="d-flex align-items-center ms-5 gap-1">
+                                        <div class="btn btn-link btn-move-up p-1"
+                                             title="{{#str}}moveup{{/str}}">
+                                            <i class="fa fa-up-long"></i>
+                                        </div>
+                                        <div class=" btn btn-link btn-move-down p-1"
+                                             title="{{#str}}movedown{{/str}}">
+                                            <i class="fa fa-down-long"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/editing}}
+                        </div>
+                    {{/homemode_pages}}
+                </div>
+
+                {{#editing}}
+                    <div class="course-content w-100 mt-3">
+                        <div class="divider bulk-hidden d-flex justify-content-center align-items-center always-visible my-3">
+                            <hr>
+                            <div class="divider-content px-3">
+                                <div class="dropdown">
+                                    <span id="frontpage_add_block"
+                                          class="btn add-content d-flex justify-content-center align-items-center p-1 icon-no-margin">
+                                        {{#str}}frontpage_add_block, theme_eadflix{{/str}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none" id="frontpage_add_block_modal"
+                         data-title="{{#str}}frontpage_add_block_title, theme_eadflix{{/str}}">
+                    </div>
+                {{/editing}}
+                {{#homemode_page_warningnopages}}
+                    <div class="alert alert-warning">{{#str}}
+                        frontpage_enable_editing, theme_eadflix{{/str}}</div>
+                {{/homemode_page_warningnopages}}
+            {{/homemode_status}}
+        </div>
+    </div>
+    {{> theme_eadflix/footer }}
+    {{{ output.standard_after_main_region_html }}}
+</div>
+
+</body>
+</html>
+{{#js}}
+    /*<script>*/
+    M.util.js_pending("theme_boost/loader");
+    require(["jquery", "theme_boost/loader", "theme_boost/drawer"], function ($, Loader, Drawer) {
+        Drawer.init();
+        M.util.js_complete("theme_boost/loader");
+
+        $(".editmode-block-form")
+                .show(300, function () {
+                    $(this).css({"display": "flex"})
+                });
+        $("#homemode-editingswitch").click(function () {
+            $("#homemode-editingswitch-form").submit();
+        });
+
+        // Move pages.
+        function moveItem($item, $target, isUp) {
+            $item.slideUp(400, function () {
+                if (isUp) {
+                    $target.before($item);
+                } else {
+                    $target.after($item);
+                }
+                $item.slideDown(400, function () {
+                    saveOrder(); // <-- salvar após animação.
+                });
+            });
+        }
+
+        // Butons move page.
+        $(".homemode-pages .btn-move-up").click(function () {
+            let $item = $(this).closest('.editmode-page-item');
+            let $prev = $item.prev('.editmode-page-item');
+            if ($prev.length) {
+                moveItem($item, $prev, true);
+            }
+        });
+        $(".homemode-pages .btn-move-down").click( function () {
+            let $item = $(this).closest('.editmode-page-item');
+            let $next = $item.next('.editmode-page-item');
+            if ($next.length) {
+                moveItem($item, $next, false);
+            }
+        });
+
+        function saveOrder() {
+            let order = [];
+
+            $('.editmode-page-item').each(function () {
+                order.push($(this).data('pageid'));
+            });
+
+            $.ajax({
+                url: '{{config.wwwroot}}/theme/boost_training/_editor/actions.php?action=page-order&chave=home',
+                type: 'POST',
+                data: {
+                    order: order,
+                    sesskey:"{{{config.sesskey}}}",
+                },
+                success: function (response) {
+                    console.log('Ordem salva com sucesso!', response);
+                },
+                error: function () {
+                    console.error('Erro ao salvar a ordem');
+                }
+            });
+        }
+
+    });
+{{/js}}

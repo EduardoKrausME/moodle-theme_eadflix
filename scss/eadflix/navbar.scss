@@ -1,0 +1,188 @@
+@media (max-width: 767px) {
+    .navbar-left-ottflix {
+        display: none;
+    }
+    .navbar-top-ottflix {
+        display: flex;
+    }
+    .navbar {
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+@media (min-width: 768px) {
+    .navbar-left-ottflix {
+        display: flex;
+    }
+    .navbar-top-ottflix,
+    .drawer.drawer-left.show {
+        display: none;
+    }
+    @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+    .navbar > .container-fluid {
+        display: block;
+    }
+    .navbar-expand .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0 !important;
+        gap: 12px;
+    }
+    .navbar.fixed-top {
+        width: 100px;
+        height: auto;
+        box-shadow: none;
+        background-color: transparent !important;
+        .navbar-brand .logo {
+            width: 100%;
+            margin: 20px 2px 21px;
+        }
+    }
+    .primary-navigation,
+    #usernavigation {
+        a,
+        .popover-region {
+            span.primary-navigation-tooltip {
+                display: none;
+                position: absolute;
+                left: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 6px 10px;
+                border-radius: 0 6px 6px 0;
+                white-space: nowrap;
+                z-index: 1000;
+                font-size: 14px;
+                opacity: 0;
+                transition: all .2s;
+                color: #ffffff;
+                background-color: $primary;
+                &::before {
+                    border-color: transparent $primary transparent transparent;
+                    content: "";
+                    position: absolute;
+                    left: -32px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-width: 16px;
+                    border-style: solid;
+                }
+            }
+            &:hover {
+                background-color: $primary;
+                span.primary-navigation-tooltip {
+                    display: block;
+                    left: 98px;
+                    opacity: 1;
+                }
+            }
+        }
+        .nav-link,
+        .fa {
+            display: flex !important;
+            justify-content: center !important;
+            height: 52px !important;
+            padding: 0 !important;
+            font-size: 0 !important;
+            border-top: none !important;
+            border-bottom: none !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            &::before {
+                font-family: "Material Symbols Outlined" !important;
+                font-size: 33px;
+                color: #ffffff;
+            }
+            &.active {
+                color: #d7d7d7;
+                &::before {
+                    color: #d7d7d7;
+                }
+            }
+        }
+        .popover-region-toggle::before,
+        .popover-region-toggle::after {
+            display: none;
+        }
+        .divider,
+        .simplesearchform,
+        [data-region=morebutton] {
+            display: none;
+        }
+        li {
+            width: 76px;
+            a {
+                position: relative;
+            }
+            .active,
+            a:hover {
+                background: $primary !important;
+                border-radius: 4px;
+            }
+        }
+        .nav-item {
+            &[data-key=""] {
+                .nav-link::before {
+                    content: "\ef42";
+                }
+            }
+            &.dropdown {
+                .nav-link {
+                    padding-left: 14px !important;
+                    &::before {
+                        content: "\e091";
+                    }
+                }
+            }
+            a[href*="kopere_dashboard"] {
+                &::before {
+                    content: "\e99b";
+                }
+            }
+        }
+        [data-key=home] {
+            .nav-link::before {
+                content: "\e88a";
+            }
+        }
+        [data-key=mycourses] {
+            .nav-link::before {
+                content: "\e80c";
+            }
+        }
+        [data-key=siteadminnode] {
+            .nav-link::before {
+                content: "\e8b8";
+            }
+        }
+        [data-key=koperedashboard] {
+            .nav-link::before {
+                content: "\e871";
+            }
+        }
+        .fa-bell::before {
+            content: "\e7f7";
+        }
+        .fa-message::before {
+            content: "\e0b9";
+        }
+        .fa-magnifying-glass::before {
+            content: "\f385";
+        }
+    }
+    [data-region=usermenu] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 5px;
+        &, & {
+            width: 100%;
+            text-align: center;
+        }
+        .editmode-switch-form {
+            .input-group {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

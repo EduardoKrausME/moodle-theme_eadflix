@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+    #page.drawers {
+        padding: 0;
+        margin: 0 0 0 100px;
+    }
+    .drawer-toggles .drawer-toggler.drawer-left-toggle {
+        top: 73px;
+        .btn {
+            padding-left: 115px !important;
+        }
+    }
+}

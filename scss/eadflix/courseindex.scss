@@ -1,0 +1,18 @@
+.courseindex {
+    .courseindex-section {
+        border: 1px solid rgba($primary, 0.3);
+    }
+    .courseindex-item {
+        &.courseindex-section-title {
+            background: rgba($primary, 0.1);
+        }
+        &:hover,
+        &:focus {
+            background: $primary;
+            .courseindex-link,
+            .courseindex-chevron {
+                color: #ffffff;
+            }
+        }
+    }
+}
