@@ -84,14 +84,3 @@ $string['settings_icons_upload_image'] = 'Block Image';
 $string['settings_icons_upload_image_desc'] = 'If an image is uploaded, the theme will convert the item link into a block and use this image as its background. The image must be 300x300 pixels.';
 $string['showfooter'] = 'Show footer';
 $string['userprofilesettings'] = 'User Profile';
-
-$string['frontpage_add_block'] = 'Adicionar novo bloco';
-$string['frontpage_add_block_title'] = 'Selecione o bloco exemplo para adicionar';
-$string['frontpage_enable_editing'] = 'Ative a edição para criar adicionar itens a home';
-$string['preview'] = 'Preview do Bloco';
-$string['add_block'] = '+ Adicionar novo Bloco';
-$string['access_course'] = 'Access the course';
-$string['edit_block'] = 'Editar bloco';
-$string['delete_block_title'] = 'Excluir bloco';
-$string['delete_block_confirm'] = 'Deseja realmente excluir o bloco?';
-$string['delete_block_success'] = 'Bloco excluído com successo?';
