@@ -26,8 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . "/lib.php");
 
-$CFG->showservicesandsupportcontent = $CFG->showcampaigncontent = $CFG->enableuserfeedback = false;
-
 $THEME->name = "eadflix";
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
