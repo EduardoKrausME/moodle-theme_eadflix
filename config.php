@@ -36,7 +36,6 @@ $THEME->parents = ["boost_training"];
 $THEME->usefallback = true;
 $THEME->extrascsscallback = "theme_eadflix_get_extra_scss";
 $THEME->prescsscallback = "theme_eadflix_get_pre_scss";
-//$THEME->precompiledcsscallback = "theme_eadflix_get_precompiled_css";
 $THEME->scss = function ($theme) {
     return theme_eadflix_get_main_scss_content($theme);
 };

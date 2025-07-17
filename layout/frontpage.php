@@ -22,7 +22,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined("MOODLE_INTERNAL") || die();
+defined('MOODLE_INTERNAL') || die();
 
 global $CFG, $PAGE, $OUTPUT, $USER, $DB;
 
@@ -79,8 +79,6 @@ $templatecontext = [
     "addblockbutton" => $addblockbutton,
 ];
 
-//var_dump($templatecontext["courseindex"]);
-
 $config = get_config("theme_eadflix");
 
 $templatecontext["footercount"] = 0;
@@ -105,7 +103,8 @@ if (isset($USER->editing) && $USER->editing) {
     $templatecontext["editing"] = true;
     $templatecontext["homemode_form_action"] =
         "{$CFG->wwwroot}/theme/boost_training/_editor/actions.php?action=homemode&chave=editing&sesskey={$sesskey}";
-    $templatecontext["homemode_add_action"] = "{$CFG->wwwroot}/theme/boost_training/_editor/?action=home&chave=editing&sesskey={$sesskey}";
+    $templatecontext["homemode_add_action"] =
+        "{$CFG->wwwroot}/theme/boost_training/_editor/?action=home&chave=editing&sesskey={$sesskey}";
 }
 
 if (isset($config->homemode) && $config->homemode) {

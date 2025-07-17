@@ -29,5 +29,5 @@ namespace theme_eadflix;
  *
  * @package theme_eadflix
  */
-class core_hook_output extends \theme_boost_training\core_hook_output{
+class core_hook_output extends \theme_boost_training\core_hook_output {
 }
