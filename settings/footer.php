@@ -55,7 +55,7 @@ $page->add($setting);
 for ($i = 1; $i <= 4; $i++) {
 
     $setting = new admin_setting_heading("theme_eadflix_footer_heading_{$i}",
-        get_string("footer_heading", "theme_eadflix", $i), "");
+        get_string("footer_heading", "theme_boost_training", $i), "");
     $page->add($setting);
 
     $setting = new admin_setting_configtext("theme_eadflix/footer_title_{$i}",
