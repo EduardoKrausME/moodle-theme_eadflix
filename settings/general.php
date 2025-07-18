@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 global $CFG, $OUTPUT, $PAGE;
 require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
-$page = new admin_settingpage("theme_eadflix_general", get_string("generalsettings", "theme_eadflix"));
+$page = new admin_settingpage("theme_eadflix_general", get_string("generalsettings", "theme_boost_training"));
 $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadflix/scss/colors.css\" />";
 
 $config = get_config("theme_eadflix");
@@ -42,7 +42,7 @@ if (!isset($config->startcolor[2])) {
 
     $setting = new admin_setting_configtext("theme_eadflix/startcolor",
         get_string('brandcolor', 'theme_eadflix'),
-        get_string('brandcolor_desc', 'theme_eadflix') .
+        get_string('brandcolor_desc', 'theme_boost_training') .
         "<div class='mb-3'>{$htmlselect}</div>",
         "#1a2a6c");
     $PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
@@ -60,7 +60,7 @@ if (!isset($config->startcolor[2])) {
     // We use an empty default value because the default colour should come from the preset.
     $setting = new admin_setting_configtext("theme_eadflix/brandcolor",
         get_string('brandcolor', 'theme_boost'),
-        get_string('brandcolor_desc', 'theme_eadflix') .
+        get_string('brandcolor_desc', 'theme_boost_training') .
         "<div class='mb-3'>{$htmlselect}</div>",
         '#1a2a6c');
     $setting->set_updatedcallback("theme_eadflix_change_color");
@@ -70,8 +70,8 @@ if (!isset($config->startcolor[2])) {
 
 // Login Background image setting.
 $name = "theme_eadflix/loginbackgroundimage";
-$title = get_string("loginbackgroundimage", "theme_eadflix");
-$description = get_string("loginbackgroundimage_desc", "theme_eadflix");
+$title = get_string("loginbackgroundimage", "theme_boost_training");
+$description = get_string("loginbackgroundimage_desc", "theme_boost_training");
 $setting = new admin_setting_configstoredfile($name, $title, $description, "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);

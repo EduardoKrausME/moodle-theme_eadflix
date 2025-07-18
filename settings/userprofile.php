@@ -26,12 +26,12 @@ defined('MOODLE_INTERNAL') || die;
 
 // User profile section.
 $page = new admin_settingpage("theme_eadflix_userprofile",
-    get_string("userprofilesettings", "theme_eadflix"));
+    get_string("userprofilesettings", "theme_boost_training"));
 
 // Profile background image.
 $setting = new admin_setting_configstoredfile("theme_eadflix/background_profile_image",
-    get_string("background_profile_image", "theme_eadflix"),
-    get_string("background_profile_image_desc", "theme_eadflix"),
+    get_string("background_profile_image", "theme_boost_training"),
+    get_string("background_profile_image_desc", "theme_boost_training"),
     "background_profile_image", 0,
     ["maxfiles" => 1, "accepted_types" => [".jpg", ".jpeg", ".svg", ".png"]]);
 $setting->set_updatedcallback("theme_reset_all_caches");

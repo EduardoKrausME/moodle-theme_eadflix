@@ -25,11 +25,11 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Course settings.
-$page = new admin_settingpage("theme_eadflix_course", get_string("coursesettings", "theme_eadflix"));
+$page = new admin_settingpage("theme_eadflix_course", get_string("coursesettings", "theme_boost_training"));
 
 $setting = new admin_setting_configcheckbox("theme_eadflix/course_summary",
-    get_string("course_summary", "theme_eadflix"),
-    get_string("course_summary_desc", "theme_eadflix"), 0);
+    get_string("course_summary", "theme_boost_training"),
+    get_string("course_summary_desc", "theme_boost_training"), 0);
 $page->add($setting);
 
 $settings->add($page);
