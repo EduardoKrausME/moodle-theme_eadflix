@@ -297,7 +297,7 @@ function theme_eadflix_coursemodule_edit_post_actions($data, $course) {
  * @return object
  * @throws dml_exception
  */
-function theme_eadflix_get_config(){
+function theme_eadflix_get_config() {
     $configboosttraining = get_config("theme_boost_training");
     $configeadflix = get_config("theme_eadflix");
     return (object)array_replace((array)$configboosttraining, (array)$configeadflix);
