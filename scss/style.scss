@@ -105,13 +105,87 @@ $enable-transitions: not $behatsite !default;
 $enable-smooth-scroll: not $behatsite !default;
 
 // Import FontAwesome.
-@import "../../boost_training/scss/fontawesome";
+$fa-version: "6.3.0" !default;
+@import "../../boost_training/scss/fontawesome/brands";
+@import "../../boost_training/scss/fontawesome/regular";
+@import "../../boost_training/scss/fontawesome/solid";
+@import "../../boost_training/scss/fontawesome/v4-shims";
+@import "../../boost_training/scss/fontawesome/fontawesome";
 
 // Import All of Bootstrap
 @import "../../boost_training/scss/bootstrap/bootstrap";
 
 // Import Core moodle CSS
-@import "moodle";
+// Old Moodle stuff from base theme.
+// Massive, needs broken up.
+@import "../../boost_training/scss/moodle/variables";
+@import "../../boost_training/scss/moodle/core";
+@import "../../boost_training/scss/moodle/action-menu";
+@import "../../boost_training/scss/moodle/icons";
+@import "../../boost_training/scss/moodle/admin";
+@import "../../boost_training/scss/moodle/blocks";
+@import "../../boost_training/scss/moodle/calendar";
+@import "../../boost_training/scss/moodle/contentbank";
+@import "../../boost_training/scss/moodle/course";
+@import "../../boost_training/scss/moodle/coursemanagement";
+@import "../../boost_training/scss/moodle/courselisting";
+@import "../../boost_training/scss/moodle/drawer";
+@import "../../boost_training/scss/moodle/filemanager";
+@import "../../boost_training/scss/moodle/message";
+@import "../../boost_training/scss/moodle/question";
+@import "../../boost_training/scss/moodle/user";
+@import "../../boost_training/scss/moodle/search";
+@import "../../boost_training/scss/moodle/forms";
+@import "../../boost_training/scss/moodle/login";
+@import "../../boost_training/scss/moodle/modules";
+@import "../../boost_training/scss/moodle/reports";
+@import "../../boost_training/scss/moodle/backup-restore";
+@import "../../boost_training/scss/moodle/tables";
+@import "../../boost_training/scss/moodle/buttons";
+@import "../../boost_training/scss/moodle/grade";
+@import "../../boost_training/scss/moodle/templates";
+@import "../../boost_training/scss/moodle/undo";
+@import "../../boost_training/scss/moodle/debug";
+@import "../../boost_training/scss/moodle/sticky-footer";
+@import "../../boost_training/scss/moodle/popover-region";
+@import "../../boost_training/scss/moodle/tool_usertours";
+@import "../../boost_training/scss/moodle/print";
+@import "../../boost_training/scss/moodle/modal";
+@import "../../boost_training/scss/moodle/layout";
+@import "../../boost_training/scss/moodle/prefixes";
+@import "../../boost_training/scss/moodle/atto";
+@import "../../boost_training/scss/moodle/toasts";
+@import "../../boost_training/scss/moodle/navbar";
+@import "../../boost_training/scss/moodle/reportbuilder";
+@import "../../boost_training/scss/moodle/courseindex";
+@import "../../boost_training/scss/moodle/frontpage";
+@import "../../boost_training/scss/moodle/moremenu";
+@import "../../boost_training/scss/moodle/primarynavigation";
+@import "../../boost_training/scss/moodle/secondarynavigation";
+@import "../../boost_training/scss/moodle/tertiarynavigation";
+@import "../../boost_training/scss/moodle/process-monitor";
+@import "../../boost_training/scss/moodle/moodlenet";
+@import "../../boost_training/scss/moodle/dropdown";
+@import "../../boost_training/scss/moodle/task-indicator";
+@import "../../boost_training/scss/moodle/acctoolbar";
+@import "../../boost_training/scss/moodle/format-block";
+
+// EadFlix
+@import "eadflix/admin";
+@import "eadflix/course";
+@import "eadflix/search";
+@import "eadflix/login";
+@import "eadflix/sticky-footer";
+@import "eadflix/popover-region";
+@import "eadflix/modal";
+@import "eadflix/layout";
+@import "eadflix/navbar";
+@import "eadflix/courseindex";
+@import "eadflix/primarynavigation";
+@import "eadflix/format-block";
+
+// EadFlix Dark
+@import "eadflix/dark";
 
 //
 // Preset CSS
