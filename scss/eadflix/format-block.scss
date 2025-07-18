@@ -1,0 +1,28 @@
+body.format-weeks,
+body.format-topics {
+    &:not(.editing) {
+        .theme-block {
+            box-shadow: 2px 2px 10px rgba(255, 255, 255, 10%);
+            border: 1px solid var(--bs-gray-900);
+            background: var(--bs-gray-900);
+            .activity-completion {
+                .btn-subtle-body {
+                    --bs-btn-bg: var(--bs-gray-900);
+                    --bs-btn-active-bg: var(--bs-gray-1100);
+                }
+            }
+            .activity-item {
+                .activity-availability {
+                    .showmore-container:not(.collapsed) {
+                        background-color: var(--bs-gray-900);
+                    }
+                }
+            }
+            .activity-grid {
+                .instancename {
+                    color: var(--bs-text-color);
+                }
+            }
+        }
+    }
+}

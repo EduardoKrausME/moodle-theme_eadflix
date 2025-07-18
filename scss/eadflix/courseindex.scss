@@ -14,5 +14,9 @@
                 color: #ffffff;
             }
         }
+        .courseindex-link,
+        .courseindex-chevron {
+            color: var(--bs-link-color, #98b6d9);
+        }
     }
 }

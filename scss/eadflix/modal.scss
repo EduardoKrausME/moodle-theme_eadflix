@@ -1,0 +1,42 @@
+.modal,
+.moodle-dialogue,
+.popover-process-monitor {
+    .modal-content,
+    .moodle-dialogue-wrap,
+    &.shadow {
+        background-color: var(--bs-gray-800, #191a1e);
+        border-color: var(--bs-gray-900, #2e3134);
+        .modal-header,
+        .moodle-dialogue-hd {
+            border-color: var(--bs-gray-900, #2e3134);
+            .modal-title {
+                color: var(--bs-gray-400, #ced4da);
+            }
+            .btn-close {
+                background-color: transparent;
+                color: var(--bs-gray-500, #adb5bd);
+                &:before {
+                    display: block;
+                    content: " ";
+                    background-image: url('[[pix:theme|dark/close-button]]');
+                    width: 24px;
+                    height: 24px;
+                }
+                span {
+                    display: none;
+                }
+            }
+            .closebutton::after {
+                color: var(--bs-write, #ffffff);
+            }
+        }
+    }
+}
+.drawer {
+    background: var(--bs-gray-800, #393e4f);
+}
+.modal-dialog.modchooser {
+    .modal-footer {
+        display: none;
+    }
+}
