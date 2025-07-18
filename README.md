@@ -1,8 +1,4 @@
-Claro! Aqui está a versão traduzida para **inglês (EN)**:
-
 ## ✅ At EadFlix, Education is for Everyone
-
-![Illustration about digital inclusion and accessibility](https://github.com/user-attachments/assets/c200384f-bcf9-4237-9492-b0bf880ed7d8)
 
 ### **Accessibility Features**
 
@@ -13,6 +9,8 @@ Claro! Aqui está a versão traduzida para **inglês (EN)**:
 * Highlighting of links and titles
 * Voice content reading (when supported by browser)
 * Custom color scheme options
+  ![Illustration about digital inclusion and accessibility](https://github.com/user-attachments/assets/c200384f-bcf9-4237-9492-b0bf880ed7d8)
+
 
 ## 🎬 Frontpage
 
