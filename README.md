@@ -6,13 +6,13 @@ Claro! Aqui está a versão traduzida para **inglês (EN)**:
 
 ### **Accessibility Features**
 
-* ✔️ Integration with [**VLibras**](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras) for automatic translation into Brazilian Sign Language (Portuguese only)
-* ✔️ Text resizing and contrast options
-* ✔️ Letter and line spacing adjustments
-* ✔️ Virtual keyboard for navigation
-* ✔️ Highlighting of links and titles
-* ✔️ Voice content reading (when supported by browser)
-* ✔️ Custom color scheme options
+* Integration with [**VLibras**](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras) for automatic translation into Brazilian Sign Language (Portuguese only)
+* Text resizing and contrast options
+* Letter and line spacing adjustments
+* Virtual keyboard for navigation
+* Highlighting of links and titles
+* Voice content reading (when supported by browser)
+* Custom color scheme options
 
 ## 🎬 Frontpage
 
