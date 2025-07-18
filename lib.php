@@ -156,7 +156,7 @@ function theme_eadflix_get_pre_scss($theme) {
         "brandcolor" => ["primary"],
     ];
 
-    $configboost = get_config("theme_eadflix");
+    $configboost = theme_eadflix_get_config();
     // Prepend variables first.
     foreach ($configurable as $configkey => $targets) {
         $value = isset($configboost->{$configkey}) ? $configboost->{$configkey} : null;
@@ -209,7 +209,7 @@ function theme_eadflix_setting_file_url($setting) {
  * @throws dml_exception
  */
 function theme_eadflix_change_color() {
-    $config = get_config("theme_eadflix");
+    $config = theme_eadflix_get_config();
     $configboost = get_config("theme_boost");
 
     if (isset($config->startcolor[5])) {
@@ -289,4 +289,16 @@ function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
 function theme_eadflix_coursemodule_edit_post_actions($data, $course) {
     require_once(__DIR__ . "/../boost_training/lib.php");
     return theme_boost_training_coursemodule_edit_post_actions($data, $course);
+}
+
+/**
+ * theme_eadflix_get_config
+ *
+ * @return object
+ * @throws dml_exception
+ */
+function theme_eadflix_get_config(){
+    $configboosttraining = get_config("theme_boost_training");
+    $configeadflix = get_config("theme_eadflix");
+    return (object)array_replace((array)$configboosttraining, (array)$configeadflix);
 }

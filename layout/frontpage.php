@@ -79,7 +79,7 @@ $templatecontext = [
     "addblockbutton" => $addblockbutton,
 ];
 
-$config = get_config("theme_eadflix");
+$config = theme_eadflix_get_config();
 
 $templatecontext["footercount"] = 0;
 $templatecontext["footercontents"] = [];

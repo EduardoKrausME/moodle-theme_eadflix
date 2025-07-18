@@ -30,7 +30,7 @@ require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 $page = new admin_settingpage("theme_eadflix_general", get_string("generalsettings", "theme_boost_training"));
 $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadflix/scss/colors.css\" />";
 
-$config = get_config("theme_eadflix");
+$config = theme_eadflix_get_config();
 if (!isset($config->startcolor[2])) {
     foreach (theme_eadflix_colors() as $color) {
         $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
