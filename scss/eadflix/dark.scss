@@ -140,7 +140,6 @@ html, body,
                 0 20px 40px rgba(0, 0, 0, 0.15); /* sombra mais distante */
     }
 }
-.card,
 .header-main,
 #header,
 #nav-drawer .list-group-item.active > div,
@@ -153,6 +152,11 @@ html, body,
         color: var(--bs-nav-drawer, #e8eaed);
         border-color: var(--bs-gray-900, var(--bs-gray-900, #2e3134));
     }
+}
+.card {
+    background-color: transparent;
+    color: var(--bs-nav-drawer, #e8eaed);
+    border-color: transparent;
 }
 #header {
     a {
