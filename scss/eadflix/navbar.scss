@@ -146,6 +146,11 @@
                 content: "\e88a";
             }
         }
+        [data-key=myhome] {
+            .nav-link::before {
+                content: "\e1bd";
+            }
+        }
         [data-key=mycourses] {
             .nav-link::before {
                 content: "\e80c";
