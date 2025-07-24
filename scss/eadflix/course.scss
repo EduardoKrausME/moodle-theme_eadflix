@@ -1,4 +1,4 @@
-.course-section .course-section-header {
+.course-section .course-section-header[id^="course-section-header-"] {
     $colorsection: $primary;
     background-color: mix(black, $colorsection, 70%);
     border: 1px solid mix(black, $colorsection, 50%);
