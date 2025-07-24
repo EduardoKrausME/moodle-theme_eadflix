@@ -24,7 +24,9 @@
 
 namespace theme_eadflix\events;
 
+use core\event\base;
 use core\event\course_module_deleted;
+use Exception;
 
 /**
  * Class event_observers
@@ -36,12 +38,11 @@ class event_observers {
     /**
      * Function process_event
      *
-     * @param \core\event\base $event
+     * @param base $event
      *
-     * @throws \dml_exception
-     * @throws \coding_exception
+     * @throws Exception
      */
-    public static function process_event(\core\event\base $event) {
+    public static function process_event(base $event) {
         $eventname = str_replace("\\\\", "\\", $event->eventname);
         switch ($eventname) {
             case '\core\event\course_deleted':
@@ -60,10 +61,14 @@ class event_observers {
      *
      * @param course_module_deleted $event
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public static function course_module_deleted(course_module_deleted $event) {
         global $DB;
+
+        if (!isset($event->other['coursemodule'])) {
+            return;
+        }
 
         $coursemodule = $event->other['coursemodule'];
         $sql = "
