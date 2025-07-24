@@ -31,42 +31,22 @@ $page = new admin_settingpage("theme_eadflix_general", get_string("generalsettin
 $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadflix/scss/colors.css\" />";
 
 $config = theme_eadflix_get_config();
-if (!isset($config->startcolor[2])) {
-    foreach (theme_eadflix_colors() as $color) {
-        $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
-                "background" => $color,
-                "startcolor" => true,
-                "color" => $color,
-            ]);
-    }
-
-    $setting = new admin_setting_configtext("theme_eadflix/startcolor",
-        get_string('brandcolor', 'theme_eadflix'),
-        get_string('brandcolor_desc', 'theme_boost_training') .
-        "<div class='mb-3'>{$htmlselect}</div>",
-        "#1a2a6c");
-    $PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
-    $setting->set_updatedcallback("theme_eadflix_change_color");
-    $page->add($setting);
-} else {
-    foreach (theme_eadflix_colors() as $color) {
-        $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
-                "background" => $color,
-                "brandcolor" => true,
-                "color" => $color,
-            ]);
-    }
-
-    // We use an empty default value because the default colour should come from the preset.
-    $setting = new admin_setting_configtext("theme_eadflix/brandcolor",
-        get_string('brandcolor', 'theme_boost'),
-        get_string('brandcolor_desc', 'theme_boost_training') .
-        "<div class='mb-3'>{$htmlselect}</div>",
-        '#1a2a6c');
-    $setting->set_updatedcallback("theme_eadflix_change_color");
-    $page->add($setting);
-    $PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
+foreach (theme_eadflix_colors() as $color) {
+    $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
+            "background" => $color,
+            "brandcolor" => true,
+            "color" => $color,
+        ]);
 }
+
+// We use an empty default value because the default colour should come from the preset.
+$setting = new admin_setting_configtext("theme_eadflix/brandcolor",
+    get_string('brandcolor', 'theme_boost'),
+    get_string('brandcolor_desc', 'theme_boost_training') .
+    "<div class='mb-3'>{$htmlselect}</div>",
+    '#1a2a6c');
+$page->add($setting);
+$PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
 
 // Login Background image setting.
 $name = "theme_eadflix/loginbackgroundimage";

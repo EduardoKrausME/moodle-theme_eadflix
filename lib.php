@@ -204,27 +204,6 @@ function theme_eadflix_setting_file_url($setting) {
 }
 
 /**
- * Change color.
- *
- * @throws dml_exception
- */
-function theme_eadflix_change_color() {
-    $config = theme_eadflix_get_config();
-    $configboost = get_config("theme_boost");
-
-    if (isset($config->startcolor[5])) {
-        $brandcolor = $config->startcolor;
-    } else {
-        $brandcolor = $configboost->brandcolor;
-    }
-
-    set_config("startcolor", "#000", "theme_eadflix");
-    set_config("footer_background_color", $brandcolor, "theme_eadflix");
-
-    theme_reset_all_caches();
-}
-
-/**
  * List colors.
  *
  * @return array
