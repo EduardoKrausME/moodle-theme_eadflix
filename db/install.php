@@ -29,7 +29,7 @@
  * @throws Exception
  */
 function xmldb_theme_eadflix_install() {
-    global $DB, $CFG;
+    global $CFG;
 
     // Profile background image.
     $fs = get_file_storage();
