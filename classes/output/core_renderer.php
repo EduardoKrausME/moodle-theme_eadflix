@@ -19,9 +19,10 @@ namespace theme_eadflix\output;
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_eadflix
- * @copyright  2012 Bas Brands, www.basbrands.nl
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_eadflix
+ * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
+ * @copyright based on work by 2016 Damyon Wiese
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost_training\output\core_renderer {
 }

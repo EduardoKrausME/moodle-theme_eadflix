@@ -18,7 +18,7 @@
  * A frontpage based layout for the boost theme.
  *
  * @package   theme_eadflix
- * @copyright 2025 Eduardo Kraus
+ * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -17,9 +17,10 @@
 /**
  * Theme functions.
  *
- * @package    theme_eadflix
- * @copyright  2016 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_eadflix
+ * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
+ * @copyright based on work by 2016 Frédéric Massart - FMCorz.net
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**

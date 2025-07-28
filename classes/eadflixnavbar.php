@@ -16,18 +16,13 @@
 
 namespace theme_eadflix;
 
-use core\navigation\views\view;
-use navigation_node;
-use moodle_url;
-use action_link;
-use lang_string;
-
 /**
  * Creates a navbar for boost that allows easy control of the navbar items.
  *
- * @package    theme_eadflix
- * @copyright  2021 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_eadflix
+ * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
+ * @copyright based on work by  2021 Adrian Greeve <adrian@moodle.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class eadflixnavbar extends \theme_boost_training\boost_trainingnavbar {
 }
