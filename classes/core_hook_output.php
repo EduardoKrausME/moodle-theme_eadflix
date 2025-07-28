@@ -25,7 +25,7 @@
 namespace theme_eadflix;
 
 defined('MOODLE_INTERNAL') || die;
-require_once("../../boost_training/classes/core_hook_output.php");
+require_once(__DIR__ . "/../../boost_training/classes/core_hook_output.php");
 
 /**
  * Class core_hook_output
