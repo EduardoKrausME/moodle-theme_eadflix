@@ -57,3 +57,18 @@
 </footer>
 
 {{{ output.standard_end_of_body_html }}}
+
+{{#js}}
+    require(["jquery"], function ($) {
+        $(".navbar .primary-navigation .nav-item > .nav-link").each(function () {
+            let $element = $(this);
+            let text = $element.text();
+            $element.html(`<span class="primary-navigation-tooltip">${text}</span>`);
+        });
+        $("#usernavigation > .popover-region").each(function () {
+            let $element = $(this);
+            let text = $element.find(".popover-region-toggle").attr("aria-label");
+            $element.append(`<span class="primary-navigation-tooltip">${text}</span>`);
+        });
+    });
+{{/js}}
