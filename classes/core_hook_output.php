@@ -24,6 +24,8 @@
 
 namespace theme_eadflix;
 
+require_once("../../boost_training/classes/core_hook_output.php");
+
 /**
  * Class core_hook_output
  *
