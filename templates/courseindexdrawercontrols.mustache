@@ -29,22 +29,19 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-            title="{{#str}}courseindexoptions, courseformat{{/str}}"
-    >
+            title="{{#str}}courseindexoptions, courseformat{{/str}}">
         <i class="icon fa fa-ellipsis-v fa-fw m-0" aria-hidden="true"></i>
     </button>
     <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item"
            href="#"
-           data-action="expandallcourseindexsections"
-        >
+           data-action="expandallcourseindexsections">
             {{#pix}} t/angles-down, core {{/pix}}
             {{#str}}expandall{{/str}}
         </a>
         <a class="dropdown-item"
            href="#"
-           data-action="collapseallcourseindexsections"
-        >
+           data-action="collapseallcourseindexsections">
             <span class="dir-rtl-hide">{{#pix}} t/angles-right, core {{/pix}}</span>
             <span class="dir-ltr-hide">{{#pix}} t/angles-left, core {{/pix}}</span>
             {{#str}}collapseall{{/str}}
@@ -52,7 +49,7 @@
     </div>
 </div>
 {{#js}}
-    require(['theme_boost/courseindexdrawercontrols'], function(component) {
-    component.init('courseindexdrawercontrols');
+    require(["theme_boost/courseindexdrawercontrols"], function(component) {
+        component.init("courseindexdrawercontrols");
     });
 {{/js}}

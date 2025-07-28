@@ -134,7 +134,8 @@
 
                 <div class="homemode-pages">
                     {{#homemode_pages}}
-                        <div class="block block-home-{{template}} {{#editing}} editmode-page-item {{/editing}}" data-pageid="{{{id}}}">
+                        <div class="block block-home-{{template}} {{#editing}} editmode-page-item {{/editing}}"
+                             data-pageid="{{{id}}}">
                             {{{html}}}
 
                             {{#editing}}
@@ -143,7 +144,8 @@
                                        href="{{config.wwwroot}}/theme/boost_training/_editor/editor.php?dataid={{id}}">
                                     {{#str}}edit_block, theme_boost_training{{/str}}</a>
                                     <a class="btn btn-lg btn-danger me-3"
-                                       href="{{config.wwwroot}}/theme/boost_training/_editor/editor.php?dataid={{id}}&delete=1">
+                                       href="{{config.wwwroot}}/theme/boost_training/_editor/editor.php?dataid={{id}}
+                                    &delete=1">
                                     {{#str}}delete{{/str}}</a>
 
                                     <div class="d-flex align-items-center ms-5 gap-1">
@@ -194,70 +196,70 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending("theme_boost/loader");
-require(["jquery", "theme_boost/loader", "theme_boost/drawer"], function ($, Loader, Drawer) {
-    Drawer.init();
-    M.util.js_complete("theme_boost/loader");
+    M.util.js_pending("theme_boost/loader");
+    require(["jquery", "theme_boost/loader", "theme_boost/drawer"], function ($, Loader, Drawer) {
+        Drawer.init();
+        M.util.js_complete("theme_boost/loader");
 
-    $(".editmode-block-form")
-            .show(300, function () {
-                $(this).css({"display": "flex"})
-            });
-    $("#homemode-editingswitch").click(function () {
-        $("#homemode-editingswitch-form").submit();
-    });
-
-    // Move pages.
-    function moveItem($item, $target, isUp) {
-        $item.slideUp(400, function () {
-            if (isUp) {
-                $target.before($item);
-            } else {
-                $target.after($item);
-            }
-            $item.slideDown(400, function () {
-                saveOrder(); // <-- salvar após animação.
-            });
-        });
-    }
-
-    // Butons move page.
-    $(".homemode-pages .btn-move-up").click(function () {
-        let $item = $(this).closest('.editmode-page-item');
-        let $prev = $item.prev('.editmode-page-item');
-        if ($prev.length) {
-            moveItem($item, $prev, true);
-        }
-    });
-    $(".homemode-pages .btn-move-down").click( function () {
-        let $item = $(this).closest('.editmode-page-item');
-        let $next = $item.next('.editmode-page-item');
-        if ($next.length) {
-            moveItem($item, $next, false);
-        }
-    });
-
-    function saveOrder() {
-        let order = [];
-
-        $('.editmode-page-item').each(function () {
-            order.push($(this).data('pageid'));
+        $(".editmode-block-form")
+                .show(300, function () {
+                    $(this).css({"display": "flex"})
+                });
+        $("#homemode-editingswitch").click(function () {
+            $("#homemode-editingswitch-form").submit();
         });
 
-        $.ajax({
-            url: '{{config.wwwroot}}/theme/boost_training/_editor/actions.php?action=page-order&chave=home',
-            type: 'POST',
-            data: {
-                order: order,
-                sesskey:"{{{config.sesskey}}}",
-            },
-            success: function (response) {
-                console.log('Ordem salva com sucesso!', response);
-            },
-            error: function () {
-                console.error('Erro ao salvar a ordem');
+        // Move pages.
+        function moveItem($item, $target, isUp) {
+            $item.slideUp(400, function () {
+                if (isUp) {
+                    $target.before($item);
+                } else {
+                    $target.after($item);
+                }
+                $item.slideDown(400, function () {
+                    saveOrder(); // <-- save after animation.
+                });
+            });
+        }
+
+        // Butons move page.
+        $(".homemode-pages .btn-move-up").click(function () {
+            let $item = $(this).closest(".editmode-page-item");
+            let $prev = $item.prev(".editmode-page-item");
+            if ($prev.length) {
+                moveItem($item, $prev, true);
             }
         });
-    }
-});
+        $(".homemode-pages .btn-move-down").click(function () {
+            let $item = $(this).closest(".editmode-page-item");
+            let $next = $item.next(".editmode-page-item");
+            if ($next.length) {
+                moveItem($item, $next, false);
+            }
+        });
+
+        function saveOrder() {
+            let order = [];
+
+            $(".editmode-page-item").each(function () {
+                order.push($(this).data("pageid"));
+            });
+
+            $.ajax({
+                url: "{{config.wwwroot}}/theme/boost_training/_editor/actions.php?action=page-order&chave=home",
+                type: "POST",
+                data: {
+                    order: order,
+                    sesskey: "{{{config.sesskey}}}",
+                },
+                success: function (response) {
+                    console.log("success!", response);
+                },
+                error: function (error) {
+                    console.error("Error:", error);
+                }
+            });
+        }
+    });
 {{/js}}

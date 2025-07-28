@@ -122,19 +122,19 @@
 {{> theme_eadflix/primary-drawer-mobile }}
 
 {{#js}}
-require(['jquery'], function ($) {
-    function theme_eadflix_navbar_resize() {
-        var height = $(window).height();
-        $("#page-wrapper").css({
-            "min-height": height,
-        });
-        $(".navbar-left-ottflix .container-fluid").css({
-            /* "max-height": height, */
-            /* "overflow-y": "auto", */
-        })
-    }
+    require(["jquery"], function ($) {
+        function theme_eadflix_navbar_resize() {
+            var height = $(window).height();
+            $("#page-wrapper").css({
+                "min-height": height,
+            });
+            $(".navbar-left-ottflix .container-fluid").css({
+                /* "max-height": height, */
+                /* "overflow-y": "auto", */
+            })
+        }
 
-    $(window).resize(theme_eadflix_navbar_resize);
-    theme_eadflix_navbar_resize();
-});
+        $(window).resize(theme_eadflix_navbar_resize);
+        theme_eadflix_navbar_resize();
+    });
 {{/js}}

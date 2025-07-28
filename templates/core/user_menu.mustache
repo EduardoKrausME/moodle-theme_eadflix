@@ -67,12 +67,12 @@
     {{/unauthenticateduser}}
 </div>
 {{#js}}
-require(["jquery", "core/modal_factory"], function ($, ModalFactory) {
-    var modal;
-    ModalFactory.create({
-        type: ModalFactory.types.DEFAULT,
-        title: "{{{userfullname}}}",
-        body: `
+    require(["jquery", "core/modal_factory"], function ($, ModalFactory) {
+        var modal;
+        ModalFactory.create({
+            type: ModalFactory.types.DEFAULT,
+            title: "{{{userfullname}}}",
+            body: `
             {{#avatardata}}
             <span class="avatar d-none {{classes}}">
                 {{{content}}}
@@ -84,82 +84,82 @@ require(["jquery", "core/modal_factory"], function ($, ModalFactory) {
                 </div>
                 <div class="usermenu-modal-tabs-content"></div>
             </div>`,
-    }).then(function (_modal) {
-        window.wmodal = modal = _modal;
+        }).then(function (_modal) {
+            window.wmodal = modal = _modal;
 
-        if (!modal.root) {
-            modal.root = modal._root;
-        }
+            if (!modal.root) {
+                modal.root = modal._root;
+            }
 
-        modal.root.find(".modal-dialog").addClass("modal-xl usermenu-modal-userlinks");
+            modal.root.find(".modal-dialog").addClass("modal-xl usermenu-modal-userlinks");
 
-        modal.root.find(".modal-header").append(`
+            modal.root.find(".modal-header").append(`
             <div class="user-action d-flex">
                 <div class="languages dropdown">
                     <a href="#" class="dropdown-toggle nav-link">{{#str}}language{{/str}}</a>
                     <div class="submenus" style="z-index:2">
                         {{#submenus}}
-                        {{>core/user_action_menu_submenu_items}}
-                    {{/submenus}}
+                {{>core/user_action_menu_submenu_items}}
+            {{/submenus}}
                     </div>
                 </div>
             </div>`);
-        modal.root.find(".modal-header button").appendTo(modal.root.find(".modal-header .user-action"));
+            modal.root.find(".modal-header button").appendTo(modal.root.find(".modal-header .user-action"));
 
-        usermodal_init();
-    });
-
-    $("#user-menu-toggle").click(function (event) {
-        event.preventDefault();
-        modal.show();
-
-        if ($(window).width() <= 575) {
-            /* se menor não faz nada */
-        } else {
-            var $menu = modal.root.find(".usermenu-modal-tabs .tabs-menu-link a:first-child");
-            console.log($menu);
-            setIframeUrl($menu);
-        }
-    });
-
-    function usermodal_init() {
-        modal.root.find(".usermenu-modal-tabs .tabs-menu-link a:first-child").addClass("active");
-        modal.root.find(".usermenu-modal-tabs .tabs-menu-link a").click(function () {
-            event.preventDefault();
-
-            var $menu = $(this);
-            setIframeUrl($menu);
+            usermodal_init();
         });
-    }
 
-    function setIframeUrl($menu) {
-        modal.root.find(".usermenu-modal-tabs .tabs-menu-link a").removeClass("active");
-        $menu.addClass("active");
+        $("#user-menu-toggle").click(function (event) {
+            event.preventDefault();
+            modal.show();
 
-        var href = $menu.attr("href");
+            if ($(window).width() <= 575) {
+                /* se menor não faz nada */
+            } else {
+                var $menu = modal.root.find(".usermenu-modal-tabs .tabs-menu-link a:first-child");
+                console.log($menu);
+                setIframeUrl($menu);
+            }
+        });
 
-        if ($(window).width() <= 575) {
-            location.href = href;
+        function usermodal_init() {
+            modal.root.find(".usermenu-modal-tabs .tabs-menu-link a:first-child").addClass("active");
+            modal.root.find(".usermenu-modal-tabs .tabs-menu-link a").click(function () {
+                event.preventDefault();
+
+                var $menu = $(this);
+                setIframeUrl($menu);
+            });
         }
 
-        if (href.includes("login/logout.php") ||
-                href.includes("switchrole.php") ||
-                href.includes("reportbuilder") ||
-                href.includes("user/files.php")) {
-            location.href = href;
-        } else if (href == "#") {
-            alert("ops...");
-        } else {
-            if (href.includes('?')) {
-                href += '&embed-frame-top=1';
-            } else {
-                href += '?embed-frame-top=1';
+        function setIframeUrl($menu) {
+            modal.root.find(".usermenu-modal-tabs .tabs-menu-link a").removeClass("active");
+            $menu.addClass("active");
+
+            var href = $menu.attr("href");
+
+            if ($(window).width() <= 575) {
+                location.href = href;
             }
 
-            if (href.includes("user/profile.php")) {
-                modal.root.find(".modal-header").addClass("show-avatar");
+            if (href.includes("login/logout.php") ||
+                    href.includes("switchrole.php") ||
+                    href.includes("reportbuilder") ||
+                    href.includes("user/files.php")) {
+                location.href = href;
+            } else if (href == "#") {
+                alert("ops...");
+            } else {
+                if (href.includes("?")) {
+                    href += "&embed-frame-top=1";
+                } else {
+                    href += "?embed-frame-top=1";
+                }
 
-                modal.root.find(".usermenu-modal-tabs-content").html(`
+                if (href.includes("user/profile.php")) {
+                    modal.root.find(".modal-header").addClass("show-avatar");
+
+                    modal.root.find(".usermenu-modal-tabs-content").html(`
                     <div class="user m-2">
                         {{#avatardata}}
                             <span class="avatar d-none {{classes}}">
@@ -170,15 +170,15 @@ require(["jquery", "core/modal_factory"], function ($, ModalFactory) {
                     </div>
                     <div class="usermenu-modal-tabs-content-internal"></div>`);
 
-                modal.root.find(".usermenu-modal-tabs-content-internal")
-                        .load(href);
-            } else {
-                modal.root.find(".modal-header").removeClass("show-avatar");
+                    modal.root.find(".usermenu-modal-tabs-content-internal")
+                            .load(href);
+                } else {
+                    modal.root.find(".modal-header").removeClass("show-avatar");
 
-                modal.root.find(".usermenu-modal-tabs-content")
-                        .load(href);
+                    modal.root.find(".usermenu-modal-tabs-content")
+                            .load(href);
+                }
             }
         }
-    }
-});
+    });
 {{/js}}
