@@ -24,6 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['cachedef_course_cache'] = 'Course data cache';
+$string['cachedef_course_module_cache'] = 'Course modules cache';
+$string['cachedef_css_cache'] = 'CSS stylesheets cache';
 $string['configtitle'] = 'EadFlix';
 $string['pluginname'] = 'EadFlix';
 $string['privacy:metadata'] = 'The EadFlix theme does not store any personal data about any user.';
