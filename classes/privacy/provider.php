@@ -24,6 +24,14 @@
 
 namespace theme_eadflix\privacy;
 
+use core_privacy\local\metadata\collection;
+use core_privacy\local\request\approved_contextlist;
+use core_privacy\local\request\approved_userlist;
+use core_privacy\local\request\contextlist;
+use core_privacy\local\request\userlist;
+use core_privacy\local\request\user_preference_provider;
+use core_privacy\local\request\writer;
+
 /**
  * The boost theme stores a user preference data.
  *
@@ -34,7 +42,7 @@ class provider implements
     // This plugin has data.
     \core_privacy\local\metadata\provider,
     // This plugin has some sitewide user preferences to export.
-    \core_privacy\local\request\user_preference_provider {
+    user_preference_provider {
 
     /** The user preferences for the course index. */
     const DRAWER_OPEN_INDEX = 'drawer-open-index';
@@ -71,7 +79,7 @@ class provider implements
             if ($draweropenindexpref == 1) {
                 $preferencestring = get_string('privacy:drawerindexopen', 'theme_boost_training');
             }
-            \core_privacy\local\request\writer::export_user_preference(
+            writer::export_user_preference(
                 'theme_eadflix',
                 self::DRAWER_OPEN_INDEX,
                 $draweropenindexpref,
@@ -86,7 +94,7 @@ class provider implements
             if ($draweropenblockpref == 1) {
                 $preferencestring = get_string('privacy:drawerblockopen', 'theme_boost_training');
             }
-            \core_privacy\local\request\writer::export_user_preference(
+            writer::export_user_preference(
                 'theme_eadflix',
                 self::DRAWER_OPEN_BLOCK,
                 $draweropenblockpref,
