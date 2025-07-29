@@ -98,46 +98,23 @@ for ($i = 1; $i <= 4; $i++) {
 }
 $templatecontext["footer_show_copywriter"] = $config->footer_show_copywriter;
 
-if (isset($USER->editing) && $USER->editing) {
+$editing = $PAGE->user_is_editing();
+if (isset($config->homemode) && $config->homemode) {
+    $templatecontext["homemode_status"] = 1;
+
+    $PAGE->requires->jquery();
+    $PAGE->requires->jquery_plugin("ui");
+    $PAGE->requires->jquery_plugin("ui-css");
+
+    if($editing){
+        $PAGE->requires->js_call_amd("theme_boost_training/frontpage", "editingswitch", []);
+        $PAGE->requires->js_call_amd("theme_boost_training/frontpage", "block_order", []);
+    }
+}
+if ($editing) {
     $sesskey = sesskey();
     $templatecontext["editing"] = true;
-    $templatecontext["homemode_form_action"] =
-        "{$CFG->wwwroot}/theme/boost_training/_editor/actions.php?action=homemode&chave=editing&sesskey={$sesskey}";
-    $templatecontext["homemode_add_action"] =
-        "{$CFG->wwwroot}/theme/boost_training/_editor/?action=home&chave=editing&sesskey={$sesskey}";
-}
-
-if (isset($config->homemode) && $config->homemode) {
-    require_once(__DIR__ . "/../../boost_training/_editor/editor-lib.php");
-
-    $editing = (!isset($USER->editing) || !$USER->editing);
-    $lang = $USER->lang ?? $CFG->lang;
-
-    $previewdataid = optional_param("dataid", false, PARAM_INT);
-    $cache = \cache::make("theme_boost_training", "frontpage_cache");
-    $cachekey = "homemode_pages";
-    if ( !$editing && $cache->has($cachekey) && !$previewdataid) {
-        $pages = json_decode($cache->get($cachekey));
-    } else {
-        $where = "local='home' AND lang IN(:lang, 'all')";
-        $pages = $DB->get_records_select("theme_boost_training_pages", $where, ['lang' => $lang], "sort ASC");
-        $pages = compile_pages($pages);
-
-        if (!$editing && !$previewdataid) {
-            $cache->set($cachekey, json_encode($pages));
-        }
-    }
-
-    $templatecontext["homemode_pages"] = $pages;
-    $templatecontext["homemode_status"] = $config->homemode;
-
-    if ($editing) {
-        if (count($pages) == 0 && has_capability("moodle/site:config", context_system::instance())) {
-            $templatecontext["homemode_page_warningnopages"] = true;
-        }
-    }
-    $PAGE->requires->strings_for_js(["preview"], "theme_boost_training");
-    $PAGE->requires->js_call_amd("theme_boost_training/frontpage", "init", [$lang]);
+    $templatecontext["homemode_form_action"] = "{$CFG->wwwroot}/theme/boost_training/_editor/actions.php?action=homemode&local=editing&sesskey={$sesskey}";
 }
 
 echo $OUTPUT->render_from_template("theme_eadflix/frontpage", $templatecontext);
