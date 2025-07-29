@@ -106,7 +106,7 @@ if (isset($config->homemode) && $config->homemode) {
     $PAGE->requires->jquery_plugin("ui");
     $PAGE->requires->jquery_plugin("ui-css");
 
-    if($editing){
+    if ($editing) {
         $PAGE->requires->js_call_amd("theme_boost_training/frontpage", "editingswitch", []);
         $PAGE->requires->js_call_amd("theme_boost_training/frontpage", "block_order", []);
     }
@@ -114,7 +114,8 @@ if (isset($config->homemode) && $config->homemode) {
 if ($editing) {
     $sesskey = sesskey();
     $templatecontext["editing"] = true;
-    $templatecontext["homemode_form_action"] = "{$CFG->wwwroot}/theme/boost_training/_editor/actions.php?action=homemode&local=editing&sesskey={$sesskey}";
+    $url = "{$CFG->wwwroot}/theme/boost_training/_editor/actions.php?action=homemode&local=editing&sesskey={$sesskey}";
+    $templatecontext["homemode_form_action"] = $url;
 }
 
 echo $OUTPUT->render_from_template("theme_eadflix/frontpage", $templatecontext);
