@@ -130,6 +130,9 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
     $templatecontext["footercount"] = 0;
     $templatecontext["footercontents"] = [];
     $templatecontext["footer_background_color"] = get_config("theme_eadflix", "footer_background_color");
+    if (!isset($templatecontext["footer_background_color"][3])) {
+        $templatecontext["footer_background_color"] = get_config("theme_eadflix", "brandcolor");
+    }
     for ($i = 1; $i <= 4; $i++) {
         $footertitle = get_config("theme_eadflix", "footer_title_{$i}");
         $footerhtml = get_config("theme_eadflix", "footer_html_{$i}");
