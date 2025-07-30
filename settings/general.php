@@ -49,10 +49,10 @@ $page->add($setting);
 $PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
 
 // Login Background image setting.
-$name = "theme_eadflix/loginbackgroundimage";
-$title = get_string("loginbackgroundimage", "theme_boost_training");
-$description = get_string("loginbackgroundimage_desc", "theme_boost_training");
-$setting = new admin_setting_configstoredfile($name, $title, $description, "loginbackgroundimage");
+$setting = new admin_setting_configstoredfile("theme_eadflix/loginbackgroundimage",
+    get_string("loginbackgroundimage", "theme_boost_training"),
+    get_string("loginbackgroundimage_desc", "theme_boost_training"),
+    "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);
 
