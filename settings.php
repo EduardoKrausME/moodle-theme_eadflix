@@ -24,11 +24,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($ADMIN->fulltree) {
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingeadflix',
-        get_string('configtitle', 'theme_eadflix'));
+if (is_siteadmin()) {
+    $title = get_string("pluginname", "theme_eadflix") . " - ";
+    $title .= get_string("quickstart_title", "theme_boost_training");
+    $url = new core\url("/theme/boost_training/quickstart/?savetheme=eadflix");
+    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link", $title, $url));
 
-    $ADMIN->add('themes', new admin_category('theme_eadflix', get_string('pluginname', 'theme_eadflix')));
+    $settings = new theme_boost_admin_settingspage_tabs("themesettingeadflix",
+        get_string("configtitle", "theme_eadflix"));
+
+    $ADMIN->add("themes", new admin_category("theme_eadflix",
+        get_string("pluginname", "theme_eadflix")));
 
     require_once("settings/general.php");
     require_once("settings/advanced.php");
