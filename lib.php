@@ -183,7 +183,7 @@ function theme_eadflix_get_pre_scss($theme) {
  *
  * @param $setting
  *
- * @return bool|\core\url
+ * @return bool|moodle_url
  *
  * @throws dml_exception
  */
