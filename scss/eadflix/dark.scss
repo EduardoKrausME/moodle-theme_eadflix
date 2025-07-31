@@ -170,6 +170,26 @@ html, body,
         border-bottom: 1px solid rgba(255, 255, 255, .05);
     }
 }
+.nav-tabs.nav-pills {
+    .nav-link {
+        color: #cccccc;
+        background-color: transparent;
+        border: none;
+        margin-right: 0.25rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        &:hover {
+            background-color: #2c2c3d;
+            color: #ffffff;
+        }
+        &.active,
+        &.active:focus,
+        &.active:hover {
+            background-color: var(--bs-primary);
+            color: #ffffff;
+        }
+    }
+}
 #header {
     a {
         color: var(--bs-white, #ffffff) !important;
