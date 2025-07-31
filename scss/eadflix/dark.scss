@@ -159,11 +159,6 @@ html, body,
     border: 1px solid rgba(255, 255, 255, .05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
     transition: all .3s ease;
-    &:hover {
-        background-color: #2a2a3f;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, .6);
-        transform: translateY(-2px);
-    }
     .card-header {
         background-color: rgba(255, 255, 255, .02);
         color: #ffffff;
