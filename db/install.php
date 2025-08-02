@@ -45,6 +45,9 @@ function xmldb_theme_eadflix_install() {
     $fs->create_file_from_pathname($filerecord, "{$CFG->dirroot}/theme/boost_training/pix/user-modal-background.jpg");
     set_config("background_profile_image", "/user-modal-background.jpg", "theme_eadflix");
 
+    set_config("brandcolor", "#1f3b9b", "theme_eadflix");
+    set_config("loginbackgroundimage", "", "theme_eadflix");
+
     set_config("scsspre", "", "theme_eadflix");
     set_config("scss", "", "theme_eadflix");
 
