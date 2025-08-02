@@ -24,6 +24,9 @@
 
 namespace theme_eadflix;
 
+use core\hook\output\before_html_attributes;
+use Exception;
+
 defined('MOODLE_INTERNAL') || die;
 require_once(__DIR__ . "/../../boost_training/classes/core_hook_output.php");
 
@@ -33,4 +36,24 @@ require_once(__DIR__ . "/../../boost_training/classes/core_hook_output.php");
  * @package theme_eadflix
  */
 class core_hook_output extends \theme_boost_training\core_hook_output {
+
+    /**
+     * Function before_html_attributes
+     *
+     * @throws Exception
+     */
+    public static function before_html_attributes(before_html_attributes $hook): void {
+        global $CFG;
+
+        $theme = $CFG->theme;
+        if (isset($_SESSION["SESSION"]->theme)) {
+            $theme = $_SESSION["SESSION"]->theme;
+        }
+        if ($theme != "eadflix") {
+            return;
+        }
+
+        $hook->add_attribute("data-themename", "eadflix");
+        $hook->add_attribute("data-background-color", get_config("theme_eadflix", "brandcolor"));
+    }
 }

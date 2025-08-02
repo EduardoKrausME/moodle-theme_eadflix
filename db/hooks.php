@@ -23,10 +23,15 @@
  */
 
 use core\hook\output\before_footer_html_generation;
+use core\hook\output\before_html_attributes;
 
 defined('MOODLE_INTERNAL') || die;
 
 $callbacks = [
+    [
+        "hook" => before_html_attributes::class,
+        "callback" => '\theme_eadflix\core_hook_output::before_html_attributes',
+    ],
     [
         "hook" => before_footer_html_generation::class,
         "callback" => 'theme_eadflix\core_hook_output::before_footer_html_generation',
