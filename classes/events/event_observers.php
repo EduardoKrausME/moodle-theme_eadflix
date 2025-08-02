@@ -24,6 +24,7 @@
 
 namespace theme_eadflix\events;
 
+use cache;
 use core\event\base;
 use core\event\course_module_deleted;
 use Exception;
@@ -49,9 +50,9 @@ class event_observers {
             case '\core\event\course_updated':
             case '\core\event\course_created':
             case '\core\event\config_log_created':
-                \cache::make("theme_eadflix", "course_cache")->purge();
-                \cache::make("theme_eadflix", "css_cache")->purge();
-                \cache::make("theme_boost_training", "frontpage_cache")->purge();
+                cache::make("theme_eadflix", "course_cache")->purge();
+                cache::make("theme_eadflix", "css_cache")->purge();
+                cache::make("theme_boost_training", "frontpage_cache")->purge();
                 break;
         }
     }
@@ -86,5 +87,17 @@ class event_observers {
                 $file->filename);
             $f->delete();
         }
+    }
+
+    /**
+     * Function enrolment
+     *
+     * @param base $event
+     * @return void
+     */
+    public static function enrolment(base $event) {
+        $cache = cache::make("theme_boost_training", "frontpage_cache");
+        $cachekey = "homemode_pages_{$event->relateduserid}";
+        $cache->delete($cachekey);
     }
 }

@@ -45,4 +45,12 @@ $observers = [
         "eventname" => '\core\event\course_module_deleted',
         "callback" => '\theme_eadflix\events\event_observers::course_module_deleted',
     ],
+    [
+        "eventname" => '\core\event\user_enrolment_created',
+        "callback" => '\theme_eadflix\events\event_observers::enrolment',
+    ],
+    [
+        "eventname" => '\core\event\user_enrolment_updated',
+        "callback" => '\theme_eadflix\events\event_observers::enrolment',
+    ],
 ];
