@@ -27,15 +27,12 @@ namespace theme_eadflix;
 use core\hook\output\before_html_attributes;
 use Exception;
 
-defined('MOODLE_INTERNAL') || die;
-require_once(__DIR__ . "/../../boost_training/classes/core_hook_output.php");
-
 /**
  * Class core_hook_output
  *
  * @package theme_eadflix
  */
-class core_hook_output extends \theme_boost_training\core_hook_output {
+class core_hook_output {
 
     /**
      * Function before_html_attributes
@@ -55,5 +52,18 @@ class core_hook_output extends \theme_boost_training\core_hook_output {
 
         $hook->add_attribute("data-themename", "eadflix");
         $hook->add_attribute("data-background-color", get_config("theme_eadflix", "brandcolor"));
+    }
+
+    /**
+     * Function before_footer_html_generation
+     *
+     * @throws Exception
+     */
+    public static function before_footer_html_generation() {
+        global $CFG;
+
+        require_once("{$CFG->dirroot}/theme/boost_training/classes/core_hook_output.php");
+
+        \theme_boost_training\core_hook_output::before_footer_html_generation();
     }
 }
