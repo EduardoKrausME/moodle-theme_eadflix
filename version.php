@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2025072900;
+$plugin->version = 2025080400;
 $plugin->requires = 2022010100;
-$plugin->release = "9.0.0";
+$plugin->release = "9.0.1";
 $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'theme_eadflix';
 $plugin->dependencies = [
