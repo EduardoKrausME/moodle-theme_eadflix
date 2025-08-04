@@ -29,22 +29,6 @@
  * @throws Exception
  */
 function xmldb_theme_eadflix_install() {
-    global $CFG;
-
-    // Profile background image.
-    $fs = get_file_storage();
-    $filerecord = [
-        "component" => "theme_eadflix",
-        "contextid" => context_system::instance()->id,
-        "userid" => get_admin()->id,
-        "filearea" => "background_profile_image",
-        "filepath" => "/",
-        "itemid" => 0,
-        "filename" => "user-modal-background.jpg",
-    ];
-    $fs->create_file_from_pathname($filerecord, "{$CFG->dirroot}/theme/boost_training/pix/user-modal-background.jpg");
-    set_config("background_profile_image", "/user-modal-background.jpg", "theme_eadflix");
-
     set_config("brandcolor", "#1f3b9b", "theme_eadflix");
     set_config("loginbackgroundimage", "", "theme_eadflix");
 
@@ -54,14 +38,4 @@ function xmldb_theme_eadflix_install() {
     set_config("course_summary", "0", "theme_eadflix");
 
     set_config("footer_background_color", "", "theme_eadflix");
-    set_config("footer_title_1", "", "theme_eadflix");
-    set_config("footer_html_1", "", "theme_eadflix");
-    set_config("footer_title_2", "", "theme_eadflix");
-    set_config("footer_html_2", "", "theme_eadflix");
-    set_config("footer_title_3", "", "theme_eadflix");
-    set_config("footer_html_3", "", "theme_eadflix");
-    set_config("footer_title_4", "", "theme_eadflix");
-    set_config("footer_html_4", "", "theme_eadflix");
-
-    set_config("footer_show_copywriter", "1", "theme_eadflix");
 }

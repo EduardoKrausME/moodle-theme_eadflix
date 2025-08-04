@@ -37,14 +37,4 @@ function xmldb_theme_eadflix_uninstall() {
     unset_config("course_summary", "theme_eadflix");
 
     unset_config("footer_background_color", "theme_eadflix");
-    unset_config("footer_title_1", "theme_eadflix");
-    unset_config("footer_html_1", "theme_eadflix");
-    unset_config("footer_title_2", "theme_eadflix");
-    unset_config("footer_html_2", "theme_eadflix");
-    unset_config("footer_title_3", "theme_eadflix");
-    unset_config("footer_html_3", "theme_eadflix");
-    unset_config("footer_title_4", "theme_eadflix");
-    unset_config("footer_html_4", "theme_eadflix");
-
-    unset_config("footer_show_copywriter", "theme_eadflix");
 }
