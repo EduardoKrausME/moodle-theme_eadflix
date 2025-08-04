@@ -28,16 +28,19 @@ global $PAGE, $CFG, $OUTPUT;
 require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
 // Footer section.
-$page = new admin_settingpage("theme_eadflix_footer", get_string("footersettings", "theme_boost_training"));
+$page = new admin_settingpage("theme_eadflix_footer",
+    get_string("footersettings", "theme_boost_training"));
 
-$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadflix/scss/colors.css\" />";
-foreach (theme_eadflix_colors() as $color) {
-    $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
-            "background" => $color,
-            "footercolor" => true,
-            "color" => $color,
-        ]);
-}
+$url = "{$CFG->wwwroot}/theme/boost_training/quickstart/?savetheme=eadflix#footer";
+$setting = new admin_setting_heading("theme_boost_training_quickstart_footer", "",
+    get_string("quickstart_settings_link", "theme_boost_training", $url));
+$page->add($setting);
+
+$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/boost_training/scss/colors.css\" />";
+$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/colors", [
+        "footercolor" => true,
+        "colors" => theme_eadflix_colors(),
+    ]);
 
 $setting = new admin_setting_configtext("theme_eadflix/footer_background_color",
     get_string("footer_background_color", "theme_boost_training"),
@@ -58,12 +61,12 @@ for ($i = 1; $i <= 4; $i++) {
         get_string("footer_heading", "theme_boost_training", $i), "");
     $page->add($setting);
 
-    $setting = new admin_setting_configtext("theme_eadflix/footer_title_{$i}",
+    $setting = new admin_setting_configtext("theme_boost_training/footer_title_{$i}",
         get_string("footer_title", "theme_boost_training", $i),
         get_string("footer_title_desc", "theme_boost_training", $i), "");
     $page->add($setting);
 
-    $setting = new admin_setting_confightmleditor("theme_eadflix/footer_html_{$i}",
+    $setting = new admin_setting_confightmleditor("theme_boost_training/footer_html_{$i}",
         get_string("footer_html", "theme_boost_training", $i),
         get_string("footer_html_desc", "theme_boost_training", $i), "");
     $page->add($setting);
@@ -73,7 +76,7 @@ $setting = new admin_setting_heading('theme_eadflix_footerblock_copywriter',
     get_string('footer_copywriter', 'theme_boost_training'), '');
 $page->add($setting);
 
-$setting = new admin_setting_configcheckbox('theme_eadflix/footer_show_copywriter',
+$setting = new admin_setting_configcheckbox('theme_boost_training/footer_show_copywriter',
     get_string('footer_show_copywriter', 'theme_boost_training'),
     get_string('footer_show_copywriter_desc', 'theme_boost_training'), 1);
 $page->add($setting);

@@ -27,17 +27,19 @@ defined('MOODLE_INTERNAL') || die;
 global $CFG, $OUTPUT, $PAGE;
 require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
-$page = new admin_settingpage("theme_eadflix_general", get_string("generalsettings", "theme_boost_training"));
-$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadflix/scss/colors.css\" />";
+$page = new admin_settingpage("theme_eadflix_general",
+    get_string("generalsettings", "theme_boost_training"));
 
-$config = theme_eadflix_get_config();
-foreach (theme_eadflix_colors() as $color) {
-    $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/color", [
-            "background" => $color,
-            "brandcolor" => true,
-            "color" => $color,
-        ]);
-}
+$url = "{$CFG->wwwroot}/theme/boost_training/quickstart/?savetheme=eadflix#brandcolor";
+$setting = new admin_setting_heading("theme_boost_training_quickstart_brandcolor", "",
+    get_string("quickstart_settings_link", "theme_boost_training", $url));
+$page->add($setting);
+
+$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/boost_training/scss/colors.css\" />";
+$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/colors", [
+        "brandcolor" => true,
+        "colors" => theme_eadflix_colors(),
+    ]);
 
 // We use an empty default value because the default colour should come from the preset.
 $setting = new admin_setting_configtext("theme_eadflix/brandcolor",
