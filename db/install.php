@@ -29,7 +29,6 @@
  * @throws Exception
  */
 function xmldb_theme_eadflix_install() {
-    set_config("brandcolor", "#1f3b9b", "theme_eadflix");
     set_config("loginbackgroundimage", "", "theme_eadflix");
 
     set_config("scsspre", "", "theme_eadflix");
