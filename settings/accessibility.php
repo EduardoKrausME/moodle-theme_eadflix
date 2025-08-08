@@ -25,19 +25,19 @@
 defined('MOODLE_INTERNAL') || die;
 
 $page = new admin_settingpage("theme_eadflix_accessibility",
-    get_string("settings_accessibility_heading", "theme_boost_training"));
+    get_string("settings_accessibility_heading", "theme_training"));
 
-$url = "{$CFG->wwwroot}/theme/boost_training/quickstart/?savetheme=eadflix#accessibility";
-$setting = new admin_setting_heading("theme_boost_training_quickstart_accessibility", "",
-    get_string("quickstart_settings_link", "theme_boost_training", $url));
+$url = "{$CFG->wwwroot}/theme/training/quickstart/?savetheme=eadflix#accessibility";
+$setting = new admin_setting_heading("theme_training_quickstart_accessibility", "",
+    get_string("quickstart_settings_link", "theme_training", $url));
 $page->add($setting);
 
-$page->add(new admin_setting_configcheckbox("theme_boost_training/enable_accessibility",
-    get_string("settings_accessibility", "theme_boost_training"),
-    get_string("settings_accessibility_desc", "theme_boost_training"), 1));
+$page->add(new admin_setting_configcheckbox("theme_training/enable_accessibility",
+    get_string("settings_accessibility", "theme_training"),
+    get_string("settings_accessibility_desc", "theme_training"), 1));
 
 if ($CFG->lang == "pt_br") {
-    $page->add(new admin_setting_configcheckbox("theme_boost_training/enable_vlibras",
+    $page->add(new admin_setting_configcheckbox("theme_training/enable_vlibras",
         "Habilitar VLibras",
         "", 0));
 }

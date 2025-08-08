@@ -26,17 +26,17 @@ defined('MOODLE_INTERNAL') || die;
 
 // User profile section.
 $page = new admin_settingpage("theme_eadflix_userprofile",
-    get_string("userprofilesettings", "theme_boost_training"));
+    get_string("userprofilesettings", "theme_training"));
 
-$url = "{$CFG->wwwroot}/theme/boost_training/quickstart/?savetheme=eadflix#user-profile";
-$setting = new admin_setting_heading("theme_boost_training_quickstart_userprofile", "",
-    get_string("quickstart_settings_link", "theme_boost_training", $url));
+$url = "{$CFG->wwwroot}/theme/training/quickstart/?savetheme=eadflix#user-profile";
+$setting = new admin_setting_heading("theme_training_quickstart_userprofile", "",
+    get_string("quickstart_settings_link", "theme_training", $url));
 $page->add($setting);
 
 // Profile background image.
-$setting = new admin_setting_configstoredfile("theme_boost_training/background_profile_image",
-    get_string("background_profile_image", "theme_boost_training"),
-    get_string("background_profile_image_desc", "theme_boost_training"),
+$setting = new admin_setting_configstoredfile("theme_training/background_profile_image",
+    get_string("background_profile_image", "theme_training"),
+    get_string("background_profile_image_desc", "theme_training"),
     "background_profile_image", 0,
     ["maxfiles" => 1, "accepted_types" => [".jpg", ".jpeg", ".svg", ".png"]]);
 $setting->set_updatedcallback("theme_reset_all_caches");

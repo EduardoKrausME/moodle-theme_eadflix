@@ -124,7 +124,7 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
     }
 
     if ($courseindex || $hasblocks) {
-        $templatecontext += theme_boost_training_progress_content();
+        $templatecontext += theme_training_progress_content();
     }
 
     $templatecontext["footercount"] = 0;
@@ -134,8 +134,8 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
         $templatecontext["footer_background_color"] = get_config("theme_eadflix", "brandcolor");
     }
     for ($i = 1; $i <= 4; $i++) {
-        $footertitle = get_config("theme_boost_training", "footer_title_{$i}");
-        $footerhtml = get_config("theme_boost_training", "footer_html_{$i}");
+        $footertitle = get_config("theme_training", "footer_title_{$i}");
+        $footerhtml = get_config("theme_training", "footer_html_{$i}");
 
         if (isset($footerhtml[20])) {
             $templatecontext["footercount"]++;
@@ -146,7 +146,7 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
         }
     }
 
-    $templatecontext["footer_show_copywriter"] = get_config("theme_boost_training", "footer_show_copywriter");
+    $templatecontext["footer_show_copywriter"] = get_config("theme_training", "footer_show_copywriter");
 
     echo $OUTPUT->render_from_template('theme_eadflix/drawers', $templatecontext);
 }

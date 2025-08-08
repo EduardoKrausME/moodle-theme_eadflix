@@ -32,5 +32,5 @@ $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'theme_eadflix';
 $plugin->dependencies = [
     "customfield_picture" => 2024100800,
-    "theme_boost_training" => 2025070200,
+    "theme_training" => 2025070200,
 ];

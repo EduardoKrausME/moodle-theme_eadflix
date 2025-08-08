@@ -77,9 +77,9 @@ class provider implements
         $draweropenindexpref = get_user_preferences(self::DRAWER_OPEN_INDEX, null, $userid);
 
         if (isset($draweropenindexpref)) {
-            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_boost_training');
+            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_training');
             if ($draweropenindexpref == 1) {
-                $preferencestring = get_string('privacy:drawerindexopen', 'theme_boost_training');
+                $preferencestring = get_string('privacy:drawerindexopen', 'theme_training');
             }
             writer::export_user_preference(
                 'theme_eadflix',
@@ -92,9 +92,9 @@ class provider implements
         $draweropenblockpref = get_user_preferences(self::DRAWER_OPEN_BLOCK, null, $userid);
 
         if (isset($draweropenblockpref)) {
-            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_boost_training');
+            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_training');
             if ($draweropenblockpref == 1) {
-                $preferencestring = get_string('privacy:drawerblockopen', 'theme_boost_training');
+                $preferencestring = get_string('privacy:drawerblockopen', 'theme_training');
             }
             writer::export_user_preference(
                 'theme_eadflix',

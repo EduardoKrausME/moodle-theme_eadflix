@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Advanced settings.
-$page = new admin_settingpage("theme_eadflix_advanced", get_string("advancedsettings", "theme_boost_training"));
+$page = new admin_settingpage("theme_eadflix_advanced", get_string("advancedsettings", "theme_training"));
 
 // Raw SCSS to include before the content.
 $setting = new admin_setting_scsscode('theme_eadflix/scsspre',

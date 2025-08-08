@@ -26,8 +26,8 @@ defined('MOODLE_INTERNAL') || die();
 
 if (is_siteadmin()) {
     $title = get_string("pluginname", "theme_eadflix") . " - ";
-    $title .= get_string("quickstart_title", "theme_boost_training");
-    $url = new moodle_url("/theme/boost_training/quickstart/?savetheme=eadflix");
+    $title .= get_string("quickstart_title", "theme_training");
+    $url = new moodle_url("/theme/training/quickstart/?savetheme=eadflix");
     $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link", $title, $url));
 
     $ADMIN->add("themes", new admin_category("theme_eadflix",

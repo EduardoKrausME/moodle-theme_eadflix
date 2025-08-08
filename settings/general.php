@@ -28,15 +28,15 @@ global $CFG, $OUTPUT, $PAGE;
 require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
 $page = new admin_settingpage("theme_eadflix_general",
-    get_string("generalsettings", "theme_boost_training"));
+    get_string("generalsettings", "theme_training"));
 
-$url = "{$CFG->wwwroot}/theme/boost_training/quickstart/?savetheme=eadflix#brandcolor";
-$setting = new admin_setting_heading("theme_boost_training_quickstart_brandcolor", "",
-    get_string("quickstart_settings_link", "theme_boost_training", $url));
+$url = "{$CFG->wwwroot}/theme/training/quickstart/?savetheme=eadflix#brandcolor";
+$setting = new admin_setting_heading("theme_training_quickstart_brandcolor", "",
+    get_string("quickstart_settings_link", "theme_training", $url));
 $page->add($setting);
 
-$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/boost_training/scss/colors.css\" />";
-$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/settings/colors", [
+$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/training/scss/colors.css\" />";
+$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_training/settings/colors", [
         "brandcolor" => true,
         "colors" => theme_eadflix_colors(),
     ]);
@@ -44,16 +44,16 @@ $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_boost_training/sett
 // We use an empty default value because the default colour should come from the preset.
 $setting = new admin_setting_configtext("theme_eadflix/brandcolor",
     get_string('brandcolor', 'theme_boost'),
-    get_string('brandcolor_desc', 'theme_boost_training') .
+    get_string('brandcolor_desc', 'theme_training') .
     "<div class='mb-3'>{$htmlselect}</div>",
     '#1a2a6c');
 $page->add($setting);
-$PAGE->requires->js_call_amd("theme_boost_training/settings", "minicolors", [$setting->get_id()]);
+$PAGE->requires->js_call_amd("theme_training/settings", "minicolors", [$setting->get_id()]);
 
 // Login Background image setting.
 $setting = new admin_setting_configstoredfile("theme_eadflix/loginbackgroundimage",
-    get_string("loginbackgroundimage", "theme_boost_training"),
-    get_string("loginbackgroundimage_desc", "theme_boost_training"),
+    get_string("loginbackgroundimage", "theme_training"),
+    get_string("loginbackgroundimage_desc", "theme_training"),
     "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);

@@ -24,5 +24,5 @@ namespace theme_eadflix\output;
  * @copyright based on work by 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class core_renderer extends \theme_boost_training\output\core_renderer {
+class core_renderer extends \theme_training\output\core_renderer {
 }
