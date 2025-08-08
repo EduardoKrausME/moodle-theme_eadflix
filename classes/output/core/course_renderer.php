@@ -34,5 +34,5 @@ namespace theme_eadflix\output\core;
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class course_renderer extends \theme_training\output\core\course_renderer {
+class course_renderer extends \theme_eadtraining\output\core\course_renderer {
 }

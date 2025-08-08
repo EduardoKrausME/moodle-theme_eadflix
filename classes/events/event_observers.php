@@ -52,7 +52,7 @@ class event_observers {
             case '\core\event\config_log_created':
                 cache::make("theme_eadflix", "course_cache")->purge();
                 cache::make("theme_eadflix", "css_cache")->purge();
-                cache::make("theme_training", "frontpage_cache")->purge();
+                cache::make("theme_eadtraining", "frontpage_cache")->purge();
                 break;
         }
     }
@@ -96,7 +96,7 @@ class event_observers {
      * @return void
      */
     public static function enrolment(base $event) {
-        $cache = cache::make("theme_training", "frontpage_cache");
+        $cache = cache::make("theme_eadtraining", "frontpage_cache");
         $cachekey = "homemode_pages_{$event->relateduserid}";
         $cache->delete($cachekey);
     }

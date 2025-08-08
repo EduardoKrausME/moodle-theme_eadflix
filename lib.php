@@ -251,8 +251,8 @@ function theme_eadflix_colors() {
  * @throws coding_exception
  */
 function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
-    require_once(__DIR__ . "/../training/lib.php");
-    theme_training_coursemodule_standard_elements($formwrapper, $mform);
+    require_once(__DIR__ . "/../eadtraining/lib.php");
+    theme_eadtraining_coursemodule_standard_elements($formwrapper, $mform);
 }
 
 /**
@@ -266,8 +266,8 @@ function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
  * @throws coding_exception
  */
 function theme_eadflix_coursemodule_edit_post_actions($data, $course) {
-    require_once(__DIR__ . "/../training/lib.php");
-    return theme_training_coursemodule_edit_post_actions($data, $course);
+    require_once(__DIR__ . "/../eadtraining/lib.php");
+    return theme_eadtraining_coursemodule_edit_post_actions($data, $course);
 }
 
 /**
@@ -277,7 +277,7 @@ function theme_eadflix_coursemodule_edit_post_actions($data, $course) {
  * @throws dml_exception
  */
 function theme_eadflix_get_config() {
-    $configboosttraining = get_config("theme_training");
+    $configboosteadtraining = get_config("theme_eadtraining");
     $configeadflix = get_config("theme_eadflix");
-    return (object)array_replace((array)$configboosttraining, (array)$configeadflix);
+    return (object)array_replace((array)$configboosteadtraining, (array)$configeadflix);
 }

@@ -62,8 +62,8 @@ class core_hook_output {
     public static function before_footer_html_generation() {
         global $CFG;
 
-        require_once("{$CFG->dirroot}/theme/training/classes/core_hook_output.php");
+        require_once("{$CFG->dirroot}/theme/eadtraining/classes/core_hook_output.php");
 
-        \theme_training\core_hook_output::before_footer_html_generation();
+        \theme_eadtraining\core_hook_output::before_footer_html_generation();
     }
 }

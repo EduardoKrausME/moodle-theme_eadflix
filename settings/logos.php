@@ -28,9 +28,9 @@ defined('MOODLE_INTERNAL') || die;
 $page = new admin_settingpage("theme_eadflix_logos",
     get_string("logossettings", "admin"));
 
-$url = "{$CFG->wwwroot}/theme/training/quickstart/?savetheme=eadflix#logos";
-$setting = new admin_setting_heading("theme_training_quickstart_logos", "",
-    get_string("quickstart_settings_link", "theme_training", $url));
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#logos";
+$setting = new admin_setting_heading("theme_eadtraining_quickstart_logos", "",
+    get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 
 // Small logo file setting.

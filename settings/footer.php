@@ -29,56 +29,56 @@ require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
 // Footer section.
 $page = new admin_settingpage("theme_eadflix_footer",
-    get_string("footersettings", "theme_training"));
+    get_string("footersettings", "theme_eadtraining"));
 
-$url = "{$CFG->wwwroot}/theme/training/quickstart/?savetheme=eadflix#footer";
-$setting = new admin_setting_heading("theme_training_quickstart_footer", "",
-    get_string("quickstart_settings_link", "theme_training", $url));
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#footer";
+$setting = new admin_setting_heading("theme_eadtraining_quickstart_footer", "",
+    get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 
-$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/training/scss/colors.css\" />";
-$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_training/settings/colors", [
+$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining/scss/colors.css\" />";
+$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "footercolor" => true,
         "colors" => theme_eadflix_colors(),
     ]);
 
 $setting = new admin_setting_configtext("theme_eadflix/footer_background_color",
-    get_string("footer_background_color", "theme_training"),
-    get_string("footer_background_color_desc", "theme_training") . $htmlselect,
+    get_string("footer_background_color", "theme_eadtraining"),
+    get_string("footer_background_color_desc", "theme_eadtraining") . $htmlselect,
     "#1a2a6c");
 $setting->set_updatedcallback("theme_reset_all_caches");
-$PAGE->requires->js_call_amd("theme_training/settings", "minicolors", [$setting->get_id()]);
+$PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
 $page->add($setting);
 
 $setting = new admin_setting_heading("theme_eadflix_footer_heading_description",
-    get_string("footer_heading_description_title", "theme_training"),
-    get_string("footer_heading_description_desc", "theme_training"));
+    get_string("footer_heading_description_title", "theme_eadtraining"),
+    get_string("footer_heading_description_desc", "theme_eadtraining"));
 $page->add($setting);
 
 for ($i = 1; $i <= 4; $i++) {
 
     $setting = new admin_setting_heading("theme_eadflix_footer_heading_{$i}",
-        get_string("footer_heading", "theme_training", $i), "");
+        get_string("footer_heading", "theme_eadtraining", $i), "");
     $page->add($setting);
 
-    $setting = new admin_setting_configtext("theme_training/footer_title_{$i}",
-        get_string("footer_title", "theme_training", $i),
-        get_string("footer_title_desc", "theme_training", $i), "");
+    $setting = new admin_setting_configtext("theme_eadtraining/footer_title_{$i}",
+        get_string("footer_title", "theme_eadtraining", $i),
+        get_string("footer_title_desc", "theme_eadtraining", $i), "");
     $page->add($setting);
 
-    $setting = new admin_setting_confightmleditor("theme_training/footer_html_{$i}",
-        get_string("footer_html", "theme_training", $i),
-        get_string("footer_html_desc", "theme_training", $i), "");
+    $setting = new admin_setting_confightmleditor("theme_eadtraining/footer_html_{$i}",
+        get_string("footer_html", "theme_eadtraining", $i),
+        get_string("footer_html_desc", "theme_eadtraining", $i), "");
     $page->add($setting);
 }
 
 $setting = new admin_setting_heading('theme_eadflix_footerblock_copywriter',
-    get_string('footer_copywriter', 'theme_training'), '');
+    get_string('footer_copywriter', 'theme_eadtraining'), '');
 $page->add($setting);
 
-$setting = new admin_setting_configcheckbox('theme_training/footer_show_copywriter',
-    get_string('footer_show_copywriter', 'theme_training'),
-    get_string('footer_show_copywriter_desc', 'theme_training'), 1);
+$setting = new admin_setting_configcheckbox('theme_eadtraining/footer_show_copywriter',
+    get_string('footer_show_copywriter', 'theme_eadtraining'),
+    get_string('footer_show_copywriter_desc', 'theme_eadtraining'), 1);
 $page->add($setting);
 
 $settings->add($page);

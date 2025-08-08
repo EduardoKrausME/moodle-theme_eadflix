@@ -24,5 +24,5 @@ namespace theme_eadflix;
  * @copyright based on work by  2021 Adrian Greeve <adrian@moodle.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class eadflixnavbar extends \theme_training\trainingnavbar {
+class eadflixnavbar extends \theme_eadtraining\eadtrainingnavbar {
 }
