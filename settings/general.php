@@ -39,13 +39,14 @@ $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining
 $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "brandcolor" => true,
         "colors" => theme_eadflix_colors(),
+        "defaultcolor" => theme_eadtraining_default_color("brandcolor", "#1a2a6c", "theme_eadflix"),
     ]);
 
 // We use an empty default value because the default colour should come from the preset.
 $setting = new admin_setting_configtext("theme_eadflix/brandcolor",
     get_string('brandcolor', 'theme_boost'),
     get_string('brandcolor_desc', 'theme_eadtraining') .
-    "<div class='mb-3'>{$htmlselect}</div>",
+    $htmlselect,
     '#1a2a6c');
 $page->add($setting);
 $PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
