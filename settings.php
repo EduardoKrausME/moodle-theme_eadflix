@@ -24,19 +24,24 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if (is_siteadmin()) {
-    $title = get_string("pluginname", "theme_eadflix") . " - ";
-    $title .= get_string("quickstart_title", "theme_eadtraining");
-    $url = new moodle_url("/theme/eadtraining/quickstart/?savetheme=eadflix");
-    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link", $title, $url));
+require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
 
-    $ADMIN->add("themes", new admin_category("theme_eadflix",
-        get_string("pluginname", "theme_eadflix")));
+if ($hassiteconfig) {
+    $pluginname = get_string("pluginname", "theme_eadflix");
+    $title = "{$pluginname} - " . get_string("advancedsettings");
+    $url = new moodle_url("/admin/settings.php?section=themesettingeadflix");
+    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link1", $title, $url));
+
+    $title = "{$pluginname} - " . get_string("quickstart_title", "theme_eadtraining");
+    $url = new moodle_url("/theme/eadtraining/quickstart/?savetheme=eadflix");
+    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link2", $title, $url));
 }
 
 if ($ADMIN->fulltree) {
-    $settings = new theme_boost_admin_settingspage_tabs("themesettingeadflix",
-        get_string("configtitle", "theme_eadflix"));
+    $settings = new theme_boost_admin_settingspage_tabs(
+        "themesettingeadflix",
+        get_string("configtitle", "theme_eadflix")
+    );
 
     require_once("settings/general.php");
     require_once("settings/advanced.php");
