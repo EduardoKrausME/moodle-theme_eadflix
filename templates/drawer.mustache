@@ -44,33 +44,12 @@
             {{#pix}} e/cancel, core {{/pix}}
         </button>
         {{$drawerheading}}{{/drawerheading}}
+        {{^drawercloseonresize}}{{/drawercloseonresize}}
         <div class="drawerheadercontent hidden">
             {{$drawerheadercontent}}{{/drawerheadercontent}}
         </div>
     </div>
     <div class="drawercontent drag-container" data-usertour="scroller">
-        {{#isprogress}}
-                <div class="course-progressbar-wrapper">
-                    <div class="progress-info">
-                        <div class="progress-label">
-                            <span>{{#str}}completed{{/str}} {{{progress}}}%</span>
-                        </div>
-                        <div class="progress-percentage progress-count">
-                            <span>{{{progress_completed}}} / {{{progress_count}}}</span>
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar bg-primary"
-                             role="progressbar"
-                             aria-valuenow="0"
-                             aria-valuemin="0"
-                             aria-valuemax="100"
-                             style="width: {{{progress}}}%;"
-                             title="{{{progress}}}%"
-                             data-toggle="tooltip"></div>
-                    </div>
-                </div>
-        {{/isprogress}}
         {{$drawercontent}}{{/drawercontent}}
     </div>
 </div>

@@ -72,6 +72,30 @@
         {{$drawerstate}}show-drawer-left{{/drawerstate}}
         {{$tooltipplacement}}right{{/tooltipplacement}}
         {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
+        {{$drawershowprogress}}
+            <div class="course-progressbar-wrapper">
+                {{#isprogress}}
+                    <div class="progress-info">
+                        <div class="progress-label">
+                            <span>{{#str}}completed{{/str}} {{{progress}}}%</span>
+                        </div>
+                        <div class="progress-percentage progress-count">
+                            <span>{{{progress_completed}}} / {{{progress_count}}}</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary"
+                             role="progressbar"
+                             aria-valuenow="0"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             style="width: {{{progress}}}%;"
+                             title="{{{progress}}}%"
+                             data-toggle="tooltip"></div>
+                    </div>
+                {{/isprogress}}
+            </div>
+        {{/drawershowprogress}}
     {{/ theme_eadflix/drawer}}
 {{/courseindex}}
 {{#hasblocks}}
