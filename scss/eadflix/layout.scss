@@ -18,14 +18,3 @@
         max-width: 98.7%;
     }
 }
-@media (min-width: 992px) {
-    .drawer-left, .drawer-right {
-        top: 0 !important;
-        height: 100vh !important;
-        left: 99px !important;
-        background: transparent !important;
-    }
-    #page.drawers.show-drawer-left {
-        margin-left: 443px !important;
-    }
-}
