@@ -26,8 +26,8 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG, $PAGE, $OUTPUT, $USER, $DB;
 
-require_once($CFG->libdir . "/behat/lib.php");
-require_once($CFG->dirroot . "/course/lib.php");
+require_once("{$CFG->libdir}/behat/lib.php");
+require_once("{$CFG->dirroot}/course/lib.php");
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
@@ -68,7 +68,7 @@ $templatecontext = [
     "bodyattributes" => $bodyattributes,
     "primarymoremenu" => $primarymenu["moremenu"],
     "secondarymoremenu" => $secondarynavigation ?: false,
-    "mobileprimarynav" => $primarymenu["mobileprimarynav"],
+    "mobileprimarynav" => $primarymenu["moremenu"]["nodearray"],
     "usermenu" => $primarymenu["user"],
     "langmenu" => $primarymenu["lang"],
     "forceblockdraweropen" => $forceblockdraweropen,

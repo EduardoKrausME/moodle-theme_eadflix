@@ -25,31 +25,31 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/behat/lib.php');
-require_once($CFG->dirroot . '/course/lib.php');
+require_once("{$CFG->libdir}/behat/lib.php");
+require_once("{$CFG->dirroot}/course/lib.php");
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
 if (isloggedin()) {
-    $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
-    $blockdraweropen = (get_user_preferences('drawer-open-block') == true);
+    $courseindexopen = (get_user_preferences("drawer-open-index", true) == true);
+    $blockdraweropen = (get_user_preferences("drawer-open-block") == true);
 } else {
     $courseindexopen = false;
     $blockdraweropen = false;
 }
 
-if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
+if (defined("BEHAT_SITE_RUNNING") && get_user_preferences("behat_keep_drawer_closed") != 1) {
     $blockdraweropen = true;
 }
 
-$extraclasses = ['uses-drawers'];
+$extraclasses = ["uses-drawers"];
 if ($courseindexopen) {
-    $extraclasses[] = 'drawer-open-index';
+    $extraclasses[] = "drawer-open-index";
 }
 
-$blockshtml = $OUTPUT->blocks('side-pre');
-$hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+$blockshtml = $OUTPUT->blocks("side-pre");
+$hasblocks = (strpos($blockshtml, "data-block=") !== false || !empty($addblockbutton));
 if (!$hasblocks) {
     $blockdraweropen = false;
 }
@@ -65,7 +65,7 @@ $secondarynavigation = false;
 $overflow = "";
 if ($PAGE->has_secondary_navigation()) {
     $tablistnav = $PAGE->has_tablist_secondary_navigation();
-    $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
+    $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, "nav-tabs", true, $tablistnav);
     $secondarynavigation = $moremenu->export_for_template($OUTPUT);
     $overflowdata = $PAGE->secondarynav->get_overflow_menu_data();
     if (!is_null($overflowdata)) {
@@ -74,7 +74,7 @@ if ($PAGE->has_secondary_navigation()) {
 }
 
 $primary = new core\navigation\output\primary($PAGE);
-$renderer = $PAGE->get_renderer('core');
+$renderer = $PAGE->get_renderer("core");
 $primarymenu = $primary->export_for_template($renderer);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions() && !$PAGE->has_secondary_navigation();
 // If the settings menu will be included in the header then don't add it here.
@@ -84,29 +84,29 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
-    'sidepreblocks' => $blockshtml,
-    'hasblocks' => $hasblocks,
-    'bodyattributes' => $bodyattributes,
-    'courseindexopen' => $courseindexopen,
-    'blockdraweropen' => $blockdraweropen,
-    'courseindex' => $courseindex,
-    'primarymoremenu' => $primarymenu['moremenu'],
-    'secondarymoremenu' => $secondarynavigation ?: false,
-    'mobileprimarynav' => $primarymenu['mobileprimarynav'],
-    'usermenu' => $primarymenu['user'],
-    'langmenu' => $primarymenu['lang'],
-    'forceblockdraweropen' => $forceblockdraweropen,
-    'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'overflow' => $overflow,
-    'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton,
+    "sitename" => format_string($SITE->shortname, true, ["context" => context_course::instance(SITEID), "escape" => false]),
+    "output" => $OUTPUT,
+    "sidepreblocks" => $blockshtml,
+    "hasblocks" => $hasblocks,
+    "bodyattributes" => $bodyattributes,
+    "courseindexopen" => $courseindexopen,
+    "blockdraweropen" => $blockdraweropen,
+    "courseindex" => $courseindex,
+    "primarymoremenu" => $primarymenu["moremenu"],
+    "secondarymoremenu" => $secondarynavigation ?: false,
+    "mobileprimarynav" => $primarymenu["moremenu"]["nodearray"],
+    "usermenu" => $primarymenu["user"],
+    "langmenu" => $primarymenu["lang"],
+    "forceblockdraweropen" => $forceblockdraweropen,
+    "regionmainsettingsmenu" => $regionmainsettingsmenu,
+    "hasregionmainsettingsmenu" => !empty($regionmainsettingsmenu),
+    "overflow" => $overflow,
+    "headercontent" => $headercontent,
+    "addblockbutton" => $addblockbutton,
 ];
 
 if (optional_param("embed-frame-top", 0, PARAM_INT)) {
-    echo $OUTPUT->render_from_template('theme_eadflix/drawers_embed', $templatecontext);
+    echo $OUTPUT->render_from_template("theme_eadflix/drawers_embed", $templatecontext);
 } else {
     if (strpos($_SERVER["REQUEST_URI"], "course/view.php") || strpos($_SERVER["REQUEST_URI"], "course/section.php")) {
         $templatecontext["hasnavbarcourse"] = true;
@@ -114,9 +114,9 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
         if (strpos($_SERVER["REQUEST_URI"], "course/view.php")) {
             $templatecontext["course_summary"] = get_config("theme_eadflix", "course_summary");
             if ($templatecontext["course_summary"]) {
-                $options = ['context' => $this->page->context];
+                $options = ["context" => $this->page->context];
                 $summary = file_rewrite_pluginfile_urls(
-                    $this->page->course->summary, 'pluginfile.php', $this->page->context->id, 'course', 'summary', null);
+                    $this->page->course->summary, "pluginfile.php", $this->page->context->id, "course", "summary", null);
                 $summary = format_text($summary, $this->page->course->summaryformat, $options);
                 $templatecontext["course_summary"] = $summary;
             }
@@ -148,5 +148,5 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
 
     $templatecontext["footer_show_copywriter"] = get_config("theme_eadtraining", "footer_show_copywriter");
 
-    echo $OUTPUT->render_from_template('theme_eadflix/drawers', $templatecontext);
+    echo $OUTPUT->render_from_template("theme_eadflix/drawers", $templatecontext);
 }
