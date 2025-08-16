@@ -1,18 +1,31 @@
 .courseindex {
     .courseindex-section {
+        background: #ffffff1a;
         border: 1px solid rgba($primary, 0.3);
+        .courseindex-sectioncontent {
+            background: #0000004f;
+            border-radius: 0 0 14px 14px;
+        }
     }
     .courseindex-item {
         &.courseindex-section-title {
             background: rgba($primary, 0.1);
+            a {
+                color: #eaeefc;
+            }
         }
         &:hover,
         &:focus {
-            background: $primary;
+            background: #626262;
             .courseindex-link,
             .courseindex-chevron {
                 color: #ffffff;
             }
+        }
+        &:hover.pageitem,
+        &:focus.pageitem,
+        &.pageitem.pageitem {
+            background-color: #2e2e2e;
         }
         .courseindex-link,
         .courseindex-chevron {
