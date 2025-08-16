@@ -99,6 +99,8 @@ $spacers: (
         6: ($spacer * 3)
 ) !default;
 
+$navbar-height: 60px !default;
+
 // Behat site specific variable values.
 $behatsite: false !default;
 $enable-transitions: not $behatsite !default;
