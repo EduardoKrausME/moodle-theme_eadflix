@@ -46,59 +46,59 @@
 }}
 
 {{< theme_eadflix/drawer }}
-{{$id}}theme_eadflix-drawers-primary{{/id}}
-{{$drawerclasses}}drawer drawer-left drawer-primary{{/drawerclasses}}
-{{$drawercloseonresize}}1{{/drawercloseonresize}}
-{{$drawerheading}}
-{{# output.should_display_navbar_logo }}
-    <img src="{{output.get_compact_logo_url}}" class="logo py-1 h-100" alt="{{sitename}}">
-{{/ output.should_display_navbar_logo }}
-{{^ output.should_display_navbar_logo }}
-    <span class="sitename" title="{{{ sitename }}}">{{{ sitename }}}</span>
-{{/ output.should_display_navbar_logo }}
-{{/drawerheading}}
-{{$drawercontent}}
-<div class="list-group">
-    {{#mobileprimarynav}}
-        {{#haschildren}}
-            <a id="drop-down-{{sort}}" href="#"
-               class="list-group-item list-group-item-action icons-collapse-expand {{^isopen}}collapsed {{/isopen}}d-flex"
-               data-toggle="collapse" data-target="#drop-down-menu-{{sort}}"
-               aria-expanded="{{#isopen}}true{{/isopen}}{{^isopen}}false{{/isopen}}"
-               aria-controls="drop-down-menu-{{sort}}">
-                {{{text}}}
-                <span class="ms-auto expanded-icon icon-no-margin mx-2">
-                        {{#pix}} t/expanded, core {{/pix}}
-                    <span class="sr-only">
-                        {{#str}} collapse, core {{/str}}
-                    </span>
-                    </span>
-                <span class="ms-auto collapsed-icon icon-no-margin mx-2">
-                        {{#pix}} t/collapsed, core {{/pix}}
-                    <span class="sr-only">
-                        {{#str}} expand, core {{/str}}
-                    </span>
-                    </span>
-            </a>
-            <div class="collapse {{#isopen}}show {{/isopen}}list-group-item p-0 border-0" role="menu"
-                 id="drop-down-menu-{{sort}}" aria-labelledby="drop-down-{{sort}}">
-                {{#children}}
-                    {{^divider}}
-                        <a href="{{{url}}}"
-                           class="ps-5 {{^isactive}}bg-light{{/isactive}}{{#isactive}}active{{/isactive}} list-group-item list-group-item-action">{{{text}}}</a>
-                    {{/divider}}
-                {{/children}}
-            </div>
-        {{/haschildren}}
-        {{^haschildren}}
-            <a href="{{{url}}}"
-               class="list-group-item list-group-item-action {{#isactive}}active{{/isactive}} {{#classes}}{{.}} {{/classes}}"
-               {{#isactive}}aria-current="true"{{/isactive}}>
-                {{{text}}}
-            </a>
-        {{/haschildren}}
-    {{/mobileprimarynav}}
-</div>
-{{/drawercontent}}
-{{$drawerstate}}show-drawer-primary{{/drawerstate}}
+    {{$id}}theme_eadflix-drawers-primary{{/id}}
+    {{$drawerclasses}}drawer drawer-left drawer-primary{{/drawerclasses}}
+    {{$drawercloseonresize}}1{{/drawercloseonresize}}
+    {{$drawerheading}}
+        {{# output.should_display_navbar_logo }}
+            <img src="{{output.get_compact_logo_url}}" class="logo py-1 h-100" alt="{{sitename}}">
+        {{/ output.should_display_navbar_logo }}
+        {{^ output.should_display_navbar_logo }}
+            <span class="sitename" title="{{{ sitename }}}">{{{ sitename }}}</span>
+        {{/ output.should_display_navbar_logo }}
+    {{/drawerheading}}
+    {{$drawercontent}}
+        <div class="list-group">
+            {{#mobileprimarynav}}
+                {{#haschildren}}
+                    <a id="drop-down-{{sort}}" href="#"
+                       class="list-group-item list-group-item-action icons-collapse-expand {{^isopen}}collapsed {{/isopen}}d-flex"
+                       data-toggle="collapse" data-target="#drop-down-menu-{{sort}}"
+                       aria-expanded="{{#isopen}}true{{/isopen}}{{^isopen}}false{{/isopen}}"
+                       aria-controls="drop-down-menu-{{sort}}">
+                        {{{text}}}
+                        <span class="ms-auto expanded-icon icon-no-margin mx-2">
+                                {{#pix}} t/expanded, core {{/pix}}
+                            <span class="sr-only">
+                                {{#str}} collapse, core {{/str}}
+                            </span>
+                            </span>
+                        <span class="ms-auto collapsed-icon icon-no-margin mx-2">
+                                {{#pix}} t/collapsed, core {{/pix}}
+                            <span class="sr-only">
+                                {{#str}} expand, core {{/str}}
+                            </span>
+                            </span>
+                    </a>
+                    <div class="collapse {{#isopen}}show {{/isopen}}list-group-item p-0 border-0" role="menu"
+                         id="drop-down-menu-{{sort}}" aria-labelledby="drop-down-{{sort}}">
+                        {{#children}}
+                            {{^divider}}
+                                <a href="{{{url}}}"
+                                   class="ps-5 {{^isactive}}bg-light{{/isactive}}{{#isactive}}active{{/isactive}} list-group-item list-group-item-action">{{{text}}}</a>
+                            {{/divider}}
+                        {{/children}}
+                    </div>
+                {{/haschildren}}
+                {{^haschildren}}
+                    <a href="{{{url}}}"
+                       class="list-group-item list-group-item-action {{#isactive}}active{{/isactive}} {{#classes}}{{.}} {{/classes}}"
+                       {{#isactive}}aria-current="true"{{/isactive}}>
+                        {{{text}}}
+                    </a>
+                {{/haschildren}}
+            {{/mobileprimarynav}}
+        </div>
+    {{/drawercontent}}
+    {{$drawerstate}}show-drawer-primary{{/drawerstate}}
 {{/ theme_eadflix/drawer}}
