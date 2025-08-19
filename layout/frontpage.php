@@ -88,7 +88,7 @@ for ($i = 1; $i <= 4; $i++) {
     $footertitle = $config->{"footer_title_{$i}"};
     $footerhtml = $config->{"footer_html_{$i}"};
 
-    if (isset($footerhtml[20])) {
+    if (isset($footerhtml[5])) {
         $templatecontext["footercount"]++;
         $templatecontext["footercontents"][] = [
             "footertitle" => $footertitle,
