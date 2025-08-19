@@ -147,6 +147,7 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
     }
 
     $templatecontext["footer_show_copywriter"] = get_config("theme_eadtraining", "footer_show_copywriter");
+    $templatecontext["editing"] = $PAGE->user_is_editing();
 
     echo $OUTPUT->render_from_template("theme_eadflix/drawers", $templatecontext);
 }
