@@ -49,9 +49,4 @@ $setting = new admin_setting_configselect("theme_eadtraining/course_summary_bann
     0, $options);
 $page->add($setting);
 
-$setting = new admin_setting_configcheckbox("theme_eadtraining/svg_animate",
-    get_string("svg_animate", "theme_eadtraining"),
-    get_string("svg_animate_desc", "theme_eadtraining"), 0);
-$page->add($setting);
-
 $settings->add($page);
