@@ -75,10 +75,12 @@
             </div>
         </div>
     </div>
-    <div class="d-flex align-items-start">
-        {{$progress}}
-            {{> block_myoverview/progress-bar}}
-        {{/progress}}
-        {{$menu}}{{/menu}}
+    <div class="d-flex flex-column">
+        <div class="card-footer card-footer-progress border-0 w-100">
+            {{$progress}}
+                {{> theme_eadflix/block_myoverview/progress-bar}}
+            {{/progress}}
+            {{$menu}}{{/menu}}
+        </div>
     </div>
 </div>

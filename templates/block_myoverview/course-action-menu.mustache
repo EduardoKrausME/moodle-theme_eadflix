@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template eadflix/block_myoverview/course-action-menu
+    @template theme_eadflix/block_myoverview/course-action-menu
 
     This template renders action menu for each course.
 
@@ -26,7 +26,7 @@
 }}
 
 <div class="ms-auto dropdown">
-    <button class="btn btn-link btn-icon icon-size-3 coursemenubtn"
+    <button class="btn btn-icon icon-size-3 coursemenubtn"
             type="button"
             data-bs-toggle="dropdown"
             aria-haspopup="true"
@@ -38,8 +38,7 @@
         <a class="dropdown-item {{#isfavourite}}hidden{{/isfavourite}}" href="#"
            data-action="add-favourite"
            data-course-id="{{id}}"
-           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
-            >
+           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
             {{#str}} addtofavourites, block_myoverview {{/str}}
             <div class="sr-only">
                 {{#str}} aria:addtofavourites, block_myoverview {{/str}} {{{fullname}}}
@@ -48,8 +47,7 @@
         <a class="dropdown-item {{^isfavourite}}hidden{{/isfavourite}}" href="#"
            data-action="remove-favourite"
            data-course-id="{{id}}"
-           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
-            >
+           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
             {{#str}} removefromfavourites, block_myoverview {{/str}}
             <div class="sr-only">
                 {{#str}} aria:removefromfavourites, block_myoverview {{/str}} {{{fullname}}}
@@ -58,8 +56,7 @@
         <a class="dropdown-item {{^hidden}}hidden{{/hidden}}" href="#"
            data-action="show-course"
            data-course-id="{{id}}"
-           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
-            >
+           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
             {{#str}} show, block_myoverview {{/str}}
             <div class="sr-only">
                 {{#str}} aria:showcourse, block_myoverview, {{fullname}} {{/str}}
@@ -68,8 +65,7 @@
         <a class="dropdown-item {{#hidden}}hidden{{/hidden}}" href="#"
            data-action="hide-course"
            data-course-id="{{id}}"
-           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}"
-            >
+           aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
             {{#str}} hidecourse, block_myoverview {{/str}}
             <div class="sr-only">
                 {{#str}} aria:hidecourse, block_myoverview, {{fullname}} {{/str}}

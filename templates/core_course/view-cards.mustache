@@ -15,9 +15,9 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_eadflix/block_myoverview/view-cards
+    @template theme_eadflix/core_course/view-cards
 
-    This template renders the cards view for the myoverview block.
+    This template renders the carousel for the starredcourses block.
 
     Example context (json):
     {
@@ -25,25 +25,18 @@
             {
                 "name": "Assignment due 1",
                 "viewurl": "https://moodlesite/course/view.php?id=2",
-                "courseimage": "https://moodlesite/pluginfile/123/course/overviewfiles/123.jpg",
-                "fullname": "Course 3 for \"Statistical and Computational Tools\" ",
-                "hasprogress": true,
-                "progress": 10,
-                "coursecategory": "Category 1",
-                "visible": true
+                "courseimageurl": "https://moodlesite/pluginfile/123/course/overviewfiles/123.jpg",
+                "fullname": "course 3",
+                "isfavourite": true,
+                "coursecategory": "Category 1"
             }
         ]
     }
 }}
 
+
 {{< core_course/coursecards }}
-    {{$progress}}
-        {{#hasprogress}}
-            <div class="card-footer card-footer-progress border-0 w-100">
-                {{> theme_eadflix/block_myoverview/progress-bar}}
-            </div>
-        {{/hasprogress}}
-    {{/progress}}
+    {{$classes}}flex-nowrap overflow-auto{{/classes}}
     {{$coursename}}
         <span class="multiline" title="{{fullname}}">
             <span class="sr-only">{{{fullname}}}</span>
