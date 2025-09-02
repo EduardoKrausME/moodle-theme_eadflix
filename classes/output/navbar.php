@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_eadflix;
+namespace theme_eadflix\output;
 
 /**
  * Creates a navbar for boost that allows easy control of the navbar items.
@@ -24,5 +24,5 @@ namespace theme_eadflix;
  * @copyright based on work by  2021 Adrian Greeve <adrian@moodle.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class eadflixnavbar extends \theme_eadtraining\eadtrainingnavbar {
+class navbar extends \theme_eadtraining\output\navbar {
 }
