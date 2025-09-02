@@ -37,7 +37,7 @@
     <div class="input-group justify-content-center">
         <div class="custom-control form-switch">
             <input type="checkbox" {{#checked}} checked {{/checked}}
-                   id="{{uniqid}}-editingswitch" name="setmode"
+                   id="{{{uniqid}}}-editingswitch" name="setmode"
                    class="form-check-input"
                    data-context="{{{pagecontextid}}}"
                    data-pageurl="{{{pageurl}}}"
@@ -52,6 +52,6 @@
 
 {{#js}}
     require(["core/edit_switch"], function(editSwitch) {
-        editSwitch.init("{{uniqid}}-editingswitch");
+        editSwitch.init("{{{uniqid}}}-editingswitch");
     });
 {{/js}}

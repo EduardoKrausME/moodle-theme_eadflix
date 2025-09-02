@@ -51,7 +51,7 @@
     {{$drawercloseonresize}}1{{/drawercloseonresize}}
     {{$drawerheading}}
         {{# output.should_display_navbar_logo }}
-            <img src="{{output.get_compact_logo_url}}" class="logo py-1 h-100" alt="{{sitename}}">
+            <img src="{{{output.get_compact_logo_url}}}" class="logo py-1 h-100" alt="{{{sitename}}}">
         {{/ output.should_display_navbar_logo }}
         {{^ output.should_display_navbar_logo }}
             <span class="sitename" title="{{{ sitename }}}">{{{ sitename }}}</span>
@@ -61,11 +61,11 @@
         <div class="list-group">
             {{#mobileprimarynav}}
                 {{#haschildren}}
-                    <a id="drop-down-{{sort}}" href="#"
+                    <a id="drop-down-{{{sort}}}" href="#"
                        class="list-group-item list-group-item-action icons-collapse-expand {{^isopen}}collapsed {{/isopen}}d-flex"
-                       data-toggle="collapse" data-target="#drop-down-menu-{{sort}}"
+                       data-toggle="collapse" data-target="#drop-down-menu-{{{sort}}}"
                        aria-expanded="{{#isopen}}true{{/isopen}}{{^isopen}}false{{/isopen}}"
-                       aria-controls="drop-down-menu-{{sort}}">
+                       aria-controls="drop-down-menu-{{{sort}}}">
                         {{{text}}}
                         <span class="ms-auto expanded-icon icon-no-margin mx-2">
                                 {{#pix}} t/expanded, core {{/pix}}
@@ -81,7 +81,7 @@
                             </span>
                     </a>
                     <div class="collapse {{#isopen}}show {{/isopen}}list-group-item p-0 border-0" role="menu"
-                         id="drop-down-menu-{{sort}}" aria-labelledby="drop-down-{{sort}}">
+                         id="drop-down-menu-{{{sort}}}" aria-labelledby="drop-down-{{{sort}}}">
                         {{#children}}
                             {{^divider}}
                                 <a href="{{{url}}}"

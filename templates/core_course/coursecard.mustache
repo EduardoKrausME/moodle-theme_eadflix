@@ -37,17 +37,17 @@
 <div class="card course-card mx-1" role="listitem"
      data-region="course-content"
      data-course-id="{{{id}}}">
-    <a href="{{viewurl}}" tabindex="-1">
+    <a href="{{{viewurl}}}" tabindex="-1">
         <div class="card-img-top">
             <div class="background-image"
                  style="background-image: url('{{{courseimage}}}');"></div>
-            <span class="sr-only">{{fullname}}</span>
+            <span class="sr-only">{{{fullname}}}</span>
             <div class="categoryarea">
                 {{$coursecategory}}{{/coursecategory}}
             </div>
         </div>
     </a>
-    <div class="card-body pe-1 course-info-container" id="course-info-container-{{id}}-{{uniqid}}">
+    <div class="card-body pe-1 course-info-container" id="course-info-container-{{{id}}}-{{{uniqid}}}">
         <div class="d-flex align-items-start">
             <div class="w-100 text-truncate">
                 {{#showshortname}}
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 {{/showshortname}}
-                <a href="{{viewurl}}" class="aalink coursename me-2 mb-1">
+                <a href="{{{viewurl}}}" class="aalink coursename me-2 mb-1">
                     {{> core_course/favouriteicon }}
                         <span class="sr-only">
                             {{#str}}aria:coursename, core_course{{/str}}

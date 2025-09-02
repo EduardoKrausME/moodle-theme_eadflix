@@ -33,7 +33,7 @@
     }
 }}
 <div class="d-flex align-items-center">
-    <div id="searchinput-navbar-{{uniqid}}" class="simplesearchform">
+    <div id="searchinput-navbar-{{{uniqid}}}" class="simplesearchform">
         <div id="searchform-navbar">
             <form autocomplete="off" action="{{{ action }}}" method="get" accept-charset="utf-8"
                   class="mform d-flex flex-wrap align-items-center searchform-navbar">
@@ -41,11 +41,11 @@
                     <input type="hidden" name="{{ name }}" value="{{ value }}">
                 {{/hiddenfields}}
                 <div class="input-group">
-                    <label for="searchinput-{{uniqid}}">
+                    <label for="searchinput-{{{uniqid}}}">
                         <span class="sr-only">{{{ searchstring }}}</span>
                     </label>
                     <input type="text"
-                           id="searchinput-{{uniqid}}"
+                           id="searchinput-{{{uniqid}}}"
                            class="form-control withclear"
                            placeholder="{{{ searchstring }}}"
                            aria-label="{{{ searchstring }}}"
@@ -66,7 +66,7 @@
 
 {{#js}}
     require(["jquery"], function($) {
-        var container = $("#searchinput-navbar-{{uniqid}}");
+        var container = $("#searchinput-navbar-{{{uniqid}}}");
         var opensearch = container.find(`[data-action="opensearch"]`);
         var input = container.find(`[data-region="input"]`);
         var submit = container.find(`[data-action="submit"]`);

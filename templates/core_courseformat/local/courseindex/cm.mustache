@@ -39,9 +39,9 @@
         d-flex
         {{#indent}} indented {{/indent}}
         {{#hasdelegatedsection}}py-0{{/hasdelegatedsection}}"
-    id="course-index-cm-{{id}}"
+    id="course-index-cm-{{{id}}}"
     data-for="cm"
-    data-id="{{id}}"
+    data-id="{{{id}}}"
     role="treeitem">
     {{^hasdelegatedsection}}
         <span class="completioninfo" data-for="cm_completion" data-value="NaN"></span>
@@ -79,6 +79,6 @@
 </li>
 {{#js}}
 require(['core_courseformat/local/courseindex/cm'], function(component) {
-    component.init('course-index-cm-{{id}}');
+    component.init('course-index-cm-{{{id}}}');
 });
 {{/js}}

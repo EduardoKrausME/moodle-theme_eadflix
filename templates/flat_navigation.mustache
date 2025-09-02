@@ -56,24 +56,24 @@
         ]
     }
 }}
-<nav class="list-group" aria-label="{{firstcollectionlabel}}">
+<nav class="list-group" aria-label="{{{firstcollectionlabel}}}">
 <ul>
 {{# flatnavigation }}
     {{#showdivider}}
         </ul>
         </nav>
-        <nav class="list-group mt-1" aria-label="{{get_collectionlabel}}">
+        <nav class="list-group mt-1" aria-label="{{{get_collectionlabel}}}">
         <ul>
     {{/showdivider}}
     {{#action}}
             <li>
                 <a class="list-group-item list-group-item-action {{#isactive}}active{{/isactive}} {{#classes}}{{.}} {{/classes}}"
-                   href="{{{action}}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}"
-                   data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}"
-                   data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}"
-                   data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}"
+                   href="{{{action}}}" data-key="{{{key}}}" data-isexpandable="{{{isexpandable}}}"
+                   data-indent="{{{get_indent}}}" data-showdivider="{{{showdivider}}}" data-type="{{{type}}}"
+                   data-nodetype="{{{nodetype}}}" data-collapse="{{{collapse}}}" data-forceopen="{{{forceopen}}}"
+                   data-isactive="{{{isactive}}}" data-hidden="{{{hidden}}}" data-preceedwithhr="{{{preceedwithhr}}}"
                    {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
-                    <div class="ms-{{get_indent}}">
+                    <div class="ms-{{{get_indent}}}">
                         <div class="d-flex">
                             {{#icon.pix}}
                                 <span class="flex-shrink-0">
@@ -88,13 +88,13 @@
     {{/action}}
     {{^action}}
             <li>
-                <div class="list-group-item {{#classes}}{{.}} {{/classes}}" data-key="{{key}}"
-                     data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}"
-                     data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}"
-                     data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}"
-                     data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}"
+                <div class="list-group-item {{#classes}}{{.}} {{/classes}}" data-key="{{{key}}}"
+                     data-isexpandable="{{{isexpandable}}}" data-indent="{{{get_indent}}}"
+                     data-showdivider="{{{showdivider}}}" data-type="{{{type}}}" data-nodetype="{{{nodetype}}}"
+                     data-collapse="{{{collapse}}}" data-forceopen="{{{forceopen}}}" data-isactive="{{{isactive}}}"
+                     data-hidden="{{{hidden}}}" data-preceedwithhr="{{{preceedwithhr}}}"
                      {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
-                    <div class="ms-{{get_indent}}">
+                    <div class="ms-{{{get_indent}}}">
                         <div class="d-flex">
                             {{#icon.pix}}
                                 <span class="flex-shrink-0">

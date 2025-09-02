@@ -23,7 +23,7 @@
     {
     }
 }}
-<div id="recentlyaccessedcourses-view-{{uniqid}}" data-region="recentlyaccessedcourses-view">
+<div id="recentlyaccessedcourses-view-{{{uniqid}}}" data-region="recentlyaccessedcourses-view">
     <div data-region="loading-placeholder">
         <div class="card-grid mx-0 mt-5 row row-cols-1 row-cols-sm-2 row-cols-md-3 flex-nowrap"
              style="height: 13.05rem">
@@ -46,7 +46,7 @@
     </div>
     <div class="hidden text-xs-center text-center mt-3" data-region="empty-message">
         <img class="empty-placeholder-image-lg mt-1"
-             src="{{nocoursesimgurl}}"
+             src="{{{nocoursesimgurl}}}"
              alt="">
         <p class="text-muted mt-3">{{#str}} nocourses, block_recentlyaccessedcourses {{/str}}</p>
     </div>
