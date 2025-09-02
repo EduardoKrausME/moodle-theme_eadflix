@@ -23,8 +23,7 @@ namespace theme_eadflix\output\core;
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class
-admin_renderer extends \core_admin_renderer {
+class admin_renderer extends \core_admin_renderer {
     /**
      * Display the admin notifications page.
      *
