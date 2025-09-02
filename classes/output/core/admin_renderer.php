@@ -66,8 +66,9 @@ admin_renderer extends \core_admin_renderer {
         $output .= $this->output->heading(get_string('notifications', 'admin'));
         $output .= $this->upgrade_news_message();
         $output .= $this->maturity_info($maturity);
-        $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) :
-            '';
+        if (empty($CFG->disableupdatenotifications)) {
+            $output .= $this->available_updates($availableupdates, $availableupdatesfetch);
+        }
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->development_libs_directories_warning($devlibdir);
         $output .= $this->themedesignermode_warning($themedesignermode);
