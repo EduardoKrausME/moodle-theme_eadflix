@@ -40,8 +40,8 @@ $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining
 $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "footercolor" => true,
         "colors" => theme_eadflix_colors(),
-        "defaultcolor" => theme_eadtraining_default_color("brandcolor", "#1a2a6c", "theme_eadflix"),
-        "defaultcolorfooter" => theme_eadtraining_default_color("footer_background_color", "#1a2a6c", "theme_eadflix"),
+        "defaultcolor" => theme_eadtraining_default("brandcolor", "#1a2a6c", "theme_eadflix"),
+        "defaultcolorfooter" => theme_eadtraining_default("footer_background_color", "#1a2a6c", "theme_eadflix"),
     ]);
 
 $setting = new admin_setting_configtext("theme_eadflix/footer_background_color",

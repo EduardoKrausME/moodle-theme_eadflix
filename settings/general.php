@@ -39,7 +39,7 @@ $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining
 $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "brandcolor" => true,
         "colors" => theme_eadflix_colors(),
-        "defaultcolor" => theme_eadtraining_default_color("brandcolor", "#1a2a6c", "theme_eadflix"),
+        "defaultcolor" => theme_eadtraining_default("brandcolor", "#1a2a6c", "theme_eadflix"),
     ]);
 
 // We use an empty default value because the default colour should come from the preset.
