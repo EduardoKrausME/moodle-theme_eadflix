@@ -38,6 +38,8 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
 
+$top_scroll_background_color: $primary !default;
+
 // stylelint-disable
 $theme-colors: () !default;
 $theme-colors: map-merge((
