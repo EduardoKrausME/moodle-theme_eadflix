@@ -149,9 +149,10 @@ function theme_eadflix_get_precompiled_css() {
  * @param theme_config $theme The theme config object.
  *
  * @return string
+ * @throws Exception
  */
 function theme_eadflix_get_pre_scss($theme) {
-    $scss = "";
+    $scss = theme_eadtraining_get_pre_scss($theme);
     $configurable = [
         // Config key => [variableName, ...].
         "brandcolor" => ["primary"],
