@@ -31,9 +31,6 @@
 function xmldb_theme_eadflix_install() {
     set_config("loginbackgroundimage", "", "theme_eadflix");
 
-    set_config("scsspre", "", "theme_eadflix");
-    set_config("scss", "", "theme_eadflix");
-
     set_config("course_summary", "0", "theme_eadflix");
 
     set_config("footer_background_color", "", "theme_eadflix");
