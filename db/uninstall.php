@@ -31,9 +31,6 @@
 function xmldb_theme_eadflix_uninstall() {
     unset_config("startcolor", "theme_eadflix");
 
-    unset_config("scsspre", "theme_eadflix");
-    unset_config("scss", "theme_eadflix");
-
     unset_config("course_summary", "theme_eadflix");
 
     unset_config("footer_background_color", "theme_eadflix");
