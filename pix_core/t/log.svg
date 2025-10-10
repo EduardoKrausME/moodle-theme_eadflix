@@ -1,6 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" preserveAspectRatio="xMinYMid meet" overflow="visible">
-    <path fill="#fff" opacity=".6" d="M2.5 0h12v1.5h-12zM2.5 11.5h12V13h-12z"/>
-    <path fill="#fff" d="M2.5 5.5h12V7h-12z"/>
-    <path fill="#fff" opacity=".6" d="M2.5 2.5H10V4H2.5zM2.5 14.5h9V16h-9z"/>
-    <path fill="#fff" d="M2.5 8.5h6V10h-6z"/>
-</svg>
+<svg height="16" preserveAspectRatio="xMinYMid meet" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><path d="m2.5 0h12v1.5h-12zm0 11.5h12v1.5h-12z" opacity=".6"/><path d="m2.5 5.5h12v1.5h-12z"/><path d="m2.5 2.5h7.5v1.5h-7.5zm0 12h9v1.5h-9z" opacity=".6"/><path d="m2.5 8.5h6v1.5h-6z"/></g></svg>
