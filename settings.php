@@ -50,4 +50,5 @@ if ($ADMIN->fulltree) {
     require_once("settings/logos.php");
     require_once("settings/course.php");
     require_once("settings/footer.php");
+    require_once("settings/login.php");
 }
