@@ -61,9 +61,6 @@
 {{#courseindex}}
     {{< theme_eadflix/drawer }}
         {{$id}}theme_eadflix-drawers-courseindex{{/id}}
-        {{$drawerheadercontent}}
-        {{> theme_eadflix/courseindexdrawercontrols}}
-        {{/drawerheadercontent}}
         {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
         {{$drawercontent}}
             {{{courseindex}}}
