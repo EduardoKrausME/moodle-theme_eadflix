@@ -23,6 +23,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use theme_eadtraining\admin\setting_scss;
+
 /**
  * Post process the CSS tree.
  *
@@ -53,8 +55,29 @@ function theme_eadflix_get_extra_scss($theme) {
             }";
     }
 
-    // Always return the background image with the scss when we have it.
-    return !empty($theme->settings->scss) ? "{$theme->settings->scss}  \n  {$content}" : $content;
+    $scsspos = "";
+    if (isset($theme->settings->scsspos[5])) {
+        $settingscss = new setting_scss("test", "test", "", "");
+        $result = $settingscss->validate($theme->settings->scsspos);
+        if ($result === true) {
+            $scsspos = $theme->settings->scsspos;
+        } else {
+            $scsspos = "
+                #page::before {
+                    content: 'theme_eadflix::scsspos Error: {$result}';
+                    color: #c00;
+                    display: block;
+                    padding: 8px 12px;
+                    white-space: pre-wrap;
+                    background: #FFEB3B;
+                    margin: 14px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                } ";
+        }
+    }
+
+    return "{$content}\n{$scsspos}";
 }
 
 /**
@@ -134,16 +157,6 @@ function theme_eadflix_get_main_scss_content($theme) {
 }
 
 /**
- * Get compiled css.
- *
- * @return string compiled css
- */
-function theme_eadflix_get_precompiled_css() {
-    global $CFG;
-    return file_get_contents("{$CFG->dirroot}/theme/eadflix/scss/style.css");
-}
-
-/**
  * Get SCSS to prepend.
  *
  * @param theme_config $theme The theme config object.
@@ -171,8 +184,25 @@ function theme_eadflix_get_pre_scss($theme) {
     }
 
     // Prepend pre-scss.
-    if (!empty($theme->settings->scsspre)) {
-        $scss .= $theme->settings->scsspre;
+    if (isset($theme->settings->scsspre[5])) {
+        $settingscss = new setting_scss("test", "test", "", "");
+        $result = $settingscss->validate($theme->settings->scsspre);
+        if ($result === true) {
+            $scss .= $theme->settings->scsspre;
+        } else {
+            $scss .= "
+                #page::before {
+                    content: 'theme_eadflix::scsspre Error: {$result}';
+                    color: #c00;
+                    display: block;
+                    padding: 8px 12px;
+                    white-space: pre-wrap;
+                    background: #FFEB3B;
+                    margin: 14px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                } ";
+        }
     }
 
     return $scss;
