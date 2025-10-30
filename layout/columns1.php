@@ -39,4 +39,3 @@ if (empty($PAGE->layout_options['noactivityheader'])) {
 }
 
 echo $OUTPUT->render_from_template('theme_eadflix/columns1', $templatecontext);
-
