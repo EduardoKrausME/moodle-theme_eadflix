@@ -13,10 +13,16 @@
     }
 }
 
-body.pagelayout-course {
+/**
+ * Course header/menu rules by format:
+ * - Edwiser formats: remove extra spacing above the banner while keeping the menu positioning.
+ * - Tiles format: keep the banner visible and place the secondary navigation below it.
+ */
+body#page-course-view.pagelayout-course[class*="format-edwiser"] {
     #page-header {
         position: relative;
         z-index: 3;
+        margin-top: 0;
         .course-header-image,
         .page-header-image {
             position: relative;
@@ -36,6 +42,21 @@ body.pagelayout-course {
     .tertiary-navigation {
         position: relative;
         z-index: 1;
-        margin-top: 0.75rem;
+        margin-top: 0;
+    }
+}
+
+body#page-course-view.pagelayout-course.format-tiles {
+    #page-header {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 0.75rem;
+    }
+
+    .secondary-navigation,
+    .tertiary-navigation {
+        position: relative;
+        z-index: 1;
+        margin-top: 0;
     }
 }
