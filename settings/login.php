@@ -25,35 +25,34 @@
 defined('MOODLE_INTERNAL') || die;
 
 global $CFG, $OUTPUT, $PAGE;
-require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
 
 $page = new admin_settingpage("theme_iuna_login",
-    get_string("loginsettings", "theme_eadtraining"));
+    get_string("loginsettings", "theme_iuna"));
 
 $options = [
-    "aurora" => get_string("logintheme_aurora", "theme_eadtraining"),
-    "dark-elegante" => get_string("logintheme_dark-elegante", "theme_eadtraining"),
-    "selva-canopy" => get_string("logintheme_selva-canopy", "theme_eadtraining"),
-    "clean-minimal" => get_string("logintheme_clean-minimal", "theme_eadtraining"),
-    "clean-outline" => get_string("logintheme_clean-outline", "theme_eadtraining"),
+    "aurora" => get_string("logintheme_aurora", "theme_iuna"),
+    "dark-elegante" => get_string("logintheme_dark-elegante", "theme_iuna"),
+    "selva-canopy" => get_string("logintheme_selva-canopy", "theme_iuna"),
+    "clean-minimal" => get_string("logintheme_clean-minimal", "theme_iuna"),
+    "clean-outline" => get_string("logintheme_clean-outline", "theme_iuna"),
 ];
 $setting = new admin_setting_configselect("theme_iuna/logintheme",
-    get_string("logintheme", "theme_eadtraining"),
-    get_string("logintheme_desc", "theme_eadtraining"),
+    get_string("logintheme", "theme_iuna"),
+    get_string("logintheme_desc", "theme_iuna"),
     "dark-elegante", $options);
 $page->add($setting);
 
 // Login Background image setting.
 $setting = new admin_setting_configstoredfile("theme_iuna/loginbackgroundimage",
-    get_string("loginbackgroundimage", "theme_eadtraining"),
-    get_string("loginbackgroundimage_desc", "theme_eadtraining"), "loginbackgroundimage");
+    get_string("loginbackgroundimage", "theme_iuna"),
+    get_string("loginbackgroundimage_desc", "theme_iuna"), "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);
 
 // Small logo file setting.
 $setting = new admin_setting_configstoredfile("theme_iuna/loginlogo",
-    get_string("loginlogo", "theme_eadtraining"),
-    get_string("loginlogo_desc", "theme_eadtraining"),
+    get_string("loginlogo", "theme_iuna"),
+    get_string("loginlogo_desc", "theme_iuna"),
     "loginlogo", 0,
     ["maxfiles" => 1, "accepted_types" => [".jpg", ".jpeg", ".svg", ".png"]]);
 $setting->set_updatedcallback("theme_reset_all_caches");

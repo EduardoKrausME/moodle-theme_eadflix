@@ -77,9 +77,9 @@ class provider implements
         $draweropenindexpref = get_user_preferences(self::DRAWER_OPEN_INDEX, null, $userid);
 
         if (isset($draweropenindexpref)) {
-            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_eadtraining');
+            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_iuna');
             if ($draweropenindexpref == 1) {
-                $preferencestring = get_string('privacy:drawerindexopen', 'theme_eadtraining');
+                $preferencestring = get_string('privacy:drawerindexopen', 'theme_iuna');
             }
             writer::export_user_preference(
                 'theme_iuna',
@@ -92,9 +92,9 @@ class provider implements
         $draweropenblockpref = get_user_preferences(self::DRAWER_OPEN_BLOCK, null, $userid);
 
         if (isset($draweropenblockpref)) {
-            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_eadtraining');
+            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_iuna');
             if ($draweropenblockpref == 1) {
-                $preferencestring = get_string('privacy:drawerblockopen', 'theme_eadtraining');
+                $preferencestring = get_string('privacy:drawerblockopen', 'theme_iuna');
             }
             writer::export_user_preference(
                 'theme_iuna',

@@ -1,5 +1,6 @@
 @media (min-width: 768px) {
-    body {
+    body#page-site-index,
+    body.pagelayout-course {
         padding-top: 0 !important;
     }
     #page.drawers {

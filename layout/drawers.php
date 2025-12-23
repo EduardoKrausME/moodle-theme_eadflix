@@ -124,7 +124,7 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
     }
 
     if ($courseindex || $hasblocks) {
-        $templatecontext += theme_eadtraining_progress_content();
+        $templatecontext += theme_iuna_progress_content();
     }
 
     $templatecontext["footercount"] = 0;

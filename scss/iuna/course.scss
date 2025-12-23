@@ -13,18 +13,29 @@
     }
 }
 
-#page-header {
-    position: relative;
-    z-index: 2;
-    .course-header-image,
-    .page-header-image {
+body.pagelayout-course {
+    #page-header {
+        position: relative;
+        z-index: 3;
+        .course-header-image,
+        .page-header-image {
+            position: relative;
+            z-index: 2;
+            box-shadow: none;
+            filter: none;
+            &::before,
+            &::after {
+                box-shadow: none;
+                filter: none;
+                background: transparent;
+            }
+        }
+    }
+
+    .secondary-navigation,
+    .tertiary-navigation {
         position: relative;
         z-index: 1;
+        margin-top: 0.75rem;
     }
-}
-
-.secondary-navigation,
-.tertiary-navigation {
-    position: relative;
-    z-index: 3;
 }

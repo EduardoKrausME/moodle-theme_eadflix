@@ -33,4 +33,8 @@ $definitions = [
         "mode" => cache_store::MODE_APPLICATION,
         "ttl" => 6 * 60 * 60, // 6h.
     ],
+    "frontpage_cache" => [
+        "mode" => cache_store::MODE_APPLICATION,
+        "ttl" => 1 * 24 * 60 * 60, // 1d.
+    ],
 ];

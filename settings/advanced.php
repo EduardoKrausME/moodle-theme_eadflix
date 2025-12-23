@@ -22,12 +22,12 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use theme_eadtraining\admin\setting_scss;
+use theme_boost\admin\setting_scss;
 
 defined('MOODLE_INTERNAL') || die;
 
 // Advanced settings.
-$page = new admin_settingpage("theme_iuna_advanced", get_string("advancedsettings", "theme_eadtraining"));
+$page = new admin_settingpage("theme_iuna_advanced", get_string("advancedsettings", "theme_iuna"));
 
 // Raw SCSS to include before the content.
 $setting = new setting_scss(

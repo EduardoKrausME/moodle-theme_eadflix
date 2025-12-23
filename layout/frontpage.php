@@ -107,14 +107,13 @@ if (isset($config->homemode) && $config->homemode) {
     $PAGE->requires->jquery_plugin("ui-css");
 
     if ($editing) {
-        $PAGE->requires->js_call_amd("theme_eadtraining/frontpage", "editingswitch", []);
-        $PAGE->requires->js_call_amd("theme_eadtraining/frontpage", "block_order", []);
     }
 }
-if ($editing) {
+$editoractions = "{$CFG->dirroot}/theme/iuna/_editor/actions.php";
+if ($editing && file_exists($editoractions)) {
     $sesskey = sesskey();
     $templatecontext["editing"] = true;
-    $url = "{$CFG->wwwroot}/theme/eadtraining/_editor/actions.php?action=homemode&local=editing&sesskey={$sesskey}";
+    $url = "{$CFG->wwwroot}/theme/iuna/_editor/actions.php?action=homemode&local=editing&sesskey={$sesskey}";
     $templatecontext["homemode_form_action"] = $url;
 }
 

@@ -39,5 +39,5 @@ namespace theme_iuna;
  * @copyright based on work by 2016 Frédéric Massart - FMCorz.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class autoprefixer extends \theme_eadtraining\autoprefixer {
+class autoprefixer extends \theme_boost\autoprefixer {
 }

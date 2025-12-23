@@ -25,27 +25,22 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Course settings.
-$page = new admin_settingpage("theme_iuna_course", get_string("coursesettings", "theme_eadtraining"));
-
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#courses";
-$setting = new admin_setting_heading("theme_iuna_quickstart_courses", "",
-    get_string("quickstart_settings_link", "theme_eadtraining", $url));
-$page->add($setting);
+$page = new admin_settingpage("theme_iuna_course", get_string("coursesettings", "theme_iuna"));
 
 $setting = new admin_setting_configcheckbox("theme_iuna/course_summary",
-    get_string("course_summary", "theme_eadtraining"),
-    get_string("course_summary_desc", "theme_eadtraining"),
+    get_string("course_summary", "theme_iuna"),
+    get_string("course_summary_desc", "theme_iuna"),
     0);
 $page->add($setting);
 
 $options = [
-    0 => get_string("course_summary_banner_none", "theme_eadtraining"),
-    1 => get_string("course_summary_banner_simple", "theme_eadtraining"),
-    2 => get_string("course_summary_banner_title", "theme_eadtraining"),
+    0 => get_string("course_summary_banner_none", "theme_iuna"),
+    1 => get_string("course_summary_banner_simple", "theme_iuna"),
+    2 => get_string("course_summary_banner_title", "theme_iuna"),
 ];
 $setting = new admin_setting_configselect("theme_iuna/course_summary_banner",
-    get_string("course_summary_banner", "theme_eadtraining"),
-    get_string("course_summary_banner_desc", "theme_eadtraining"),
+    get_string("course_summary_banner", "theme_iuna"),
+    get_string("course_summary_banner_desc", "theme_iuna"),
     0, $options);
 $page->add($setting);
 
