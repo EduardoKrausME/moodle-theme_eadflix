@@ -48,6 +48,7 @@ It features an activity block system that turns uploaded images into block-style
 * Many changes were made to the structure and order of items, especially on the **Course Category** page.
 * Selected courses now appear **above** the categories, not below.
 * Buttons are now arranged **inline**, not stacked vertically.
+* Fix renderer class + per-format course header/menu.
 
 ### "My Courses" Page:
 
