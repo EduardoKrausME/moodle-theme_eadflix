@@ -17,7 +17,7 @@
 /**
  * A drawer based layout for the boost theme.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -106,13 +106,13 @@ $templatecontext = [
 ];
 
 if (optional_param("embed-frame-top", 0, PARAM_INT)) {
-    echo $OUTPUT->render_from_template("theme_eadflix/drawers_embed", $templatecontext);
+    echo $OUTPUT->render_from_template("theme_iuna/drawers_embed", $templatecontext);
 } else {
     if (strpos($_SERVER["REQUEST_URI"], "course/view.php") || strpos($_SERVER["REQUEST_URI"], "course/section.php")) {
         $templatecontext["hasnavbarcourse"] = true;
 
         if (strpos($_SERVER["REQUEST_URI"], "course/view.php")) {
-            $templatecontext["course_summary"] = get_config("theme_eadflix", "course_summary");
+            $templatecontext["course_summary"] = get_config("theme_iuna", "course_summary");
             if ($templatecontext["course_summary"]) {
                 $options = ["context" => $this->page->context];
                 $summary = file_rewrite_pluginfile_urls(
@@ -129,13 +129,13 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
 
     $templatecontext["footercount"] = 0;
     $templatecontext["footercontents"] = [];
-    $templatecontext["footer_background_color"] = get_config("theme_eadflix", "footer_background_color");
+    $templatecontext["footer_background_color"] = get_config("theme_iuna", "footer_background_color");
     if (!isset($templatecontext["footer_background_color"][3])) {
-        $templatecontext["footer_background_color"] = get_config("theme_eadflix", "brandcolor");
+        $templatecontext["footer_background_color"] = get_config("theme_iuna", "brandcolor");
     }
     for ($i = 1; $i <= 4; $i++) {
-        $footertitle = get_config("theme_eadtraining", "footer_title_{$i}");
-        $footerhtml = get_config("theme_eadtraining", "footer_html_{$i}");
+        $footertitle = get_config("theme_iuna", "footer_title_{$i}");
+        $footerhtml = get_config("theme_iuna", "footer_html_{$i}");
 
         if (isset($footerhtml[5])) {
             $templatecontext["footercount"]++;
@@ -146,8 +146,8 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
         }
     }
 
-    $templatecontext["footer_show_copywriter"] = get_config("theme_eadtraining", "footer_show_copywriter");
+    $templatecontext["footer_show_copywriter"] = get_config("theme_iuna", "footer_show_copywriter");
     $templatecontext["editing"] = $PAGE->user_is_editing();
 
-    echo $OUTPUT->render_from_template("theme_eadflix/drawers", $templatecontext);
+    echo $OUTPUT->render_from_template("theme_iuna/drawers", $templatecontext);
 }

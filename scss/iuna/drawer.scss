@@ -1,0 +1,24 @@
+@media (min-width: 992px) {
+    .drawer-left {
+        top: 0 !important;
+        height: 100vh !important;
+        left: 99px !important;
+        background: #ffffff0d !important;
+    }
+    .drawer-right {
+        top: 0 !important;
+        height: 100vh !important;
+        right: 0 !important;
+        left: auto !important;
+        background: #ffffff0d !important;
+    }
+    #page.drawers.show-drawer-left {
+        margin-left: 479px !important;
+    }
+    #page.drawers.show-drawer-right {
+        margin-right: 360px !important;
+    }
+}
+.drawer {
+    z-index: 1050;
+}

@@ -17,27 +17,27 @@
 /**
  * Theme Settings File
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$page = new admin_settingpage("theme_eadflix_accessibility",
+$page = new admin_settingpage("theme_iuna_accessibility",
     get_string("settings_accessibility_heading", "theme_eadtraining"));
 
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#accessibility";
-$setting = new admin_setting_heading("theme_eadtraining_quickstart_accessibility", "",
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#accessibility";
+$setting = new admin_setting_heading("theme_iuna_quickstart_accessibility", "",
     get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 
-$page->add(new admin_setting_configcheckbox("theme_eadtraining/enable_accessibility",
+$page->add(new admin_setting_configcheckbox("theme_iuna/enable_accessibility",
     get_string("settings_accessibility", "theme_eadtraining"),
     get_string("settings_accessibility_desc", "theme_eadtraining"), 1));
 
 if ($CFG->lang == "pt_br") {
-    $page->add(new admin_setting_configcheckbox("theme_eadtraining/enable_vlibras",
+    $page->add(new admin_setting_configcheckbox("theme_iuna/enable_vlibras",
         "Habilitar VLibras",
         "", 0));
 }

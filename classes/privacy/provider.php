@@ -15,15 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for theme_eadflix.
+ * Privacy Subsystem implementation for theme_iuna.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2018 Andrew Nicols <andrew@nicols.co.uk>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_eadflix\privacy;
+namespace theme_iuna\privacy;
 
 use core_privacy\local\metadata\collection;
 use core_privacy\local\request\approved_contextlist;
@@ -82,7 +82,7 @@ class provider implements
                 $preferencestring = get_string('privacy:drawerindexopen', 'theme_eadtraining');
             }
             writer::export_user_preference(
-                'theme_eadflix',
+                'theme_iuna',
                 self::DRAWER_OPEN_INDEX,
                 $draweropenindexpref,
                 $preferencestring
@@ -97,7 +97,7 @@ class provider implements
                 $preferencestring = get_string('privacy:drawerblockopen', 'theme_eadtraining');
             }
             writer::export_user_preference(
-                'theme_eadflix',
+                'theme_iuna',
                 self::DRAWER_OPEN_BLOCK,
                 $draweropenblockpref,
                 $preferencestring

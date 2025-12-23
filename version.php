@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * EadFlix.
+ * Iuna.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,9 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version = 2025111600;
 $plugin->release = "9.3.0";
-$plugin->requires = 2022010100;
+$plugin->requires = 2025121900;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->component = "theme_eadflix";
+$plugin->component = "theme_iuna";
 $plugin->dependencies = [
     "theme_eadtraining" => 2025091801,
 ];

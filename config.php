@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * EadFlix config.
+ * Iuna config.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,16 +27,16 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . "/lib.php");
 
-$THEME->name = "eadflix";
+$THEME->name = "iuna";
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
 $THEME->editor_scss = ["editor"];
 $THEME->parents = ["eadtraining"];
 $THEME->usefallback = false;
-$THEME->extrascsscallback = "theme_eadflix_get_extra_scss";
-$THEME->prescsscallback = "theme_eadflix_get_pre_scss";
+$THEME->extrascsscallback = "theme_iuna_get_extra_scss";
+$THEME->prescsscallback = "theme_iuna_get_pre_scss";
 $THEME->scss = function ($theme) {
-    return theme_eadflix_get_main_scss_content($theme);
+    return theme_iuna_get_main_scss_content($theme);
 };
 
 $THEME->layouts = [

@@ -17,12 +17,12 @@
 /**
  * Class core_hook_output
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_eadflix;
+namespace theme_iuna;
 
 use core\hook\output\before_html_attributes;
 use Exception;
@@ -30,7 +30,7 @@ use Exception;
 /**
  * Class core_hook_output
  *
- * @package theme_eadflix
+ * @package theme_iuna
  */
 class core_hook_output {
 
@@ -46,12 +46,12 @@ class core_hook_output {
         if (isset($_SESSION["SESSION"]->theme)) {
             $theme = $_SESSION["SESSION"]->theme;
         }
-        if ($theme != "eadflix") {
+        if ($theme != "iuna") {
             return;
         }
 
-        $hook->add_attribute("data-themename", "eadflix");
-        $hook->add_attribute("data-background-color", get_config("theme_eadflix", "brandcolor"));
+        $hook->add_attribute("data-themename", "iuna");
+        $hook->add_attribute("data-background-color", get_config("theme_iuna", "brandcolor"));
     }
 
     /**

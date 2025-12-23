@@ -17,7 +17,7 @@
 /**
  * Logos file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,11 +25,11 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Logos section.
-$page = new admin_settingpage("theme_eadflix_logos",
+$page = new admin_settingpage("theme_iuna_logos",
     get_string("logossettings", "admin"));
 
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#logos";
-$setting = new admin_setting_heading("theme_eadtraining_quickstart_logos", "",
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#logos";
+$setting = new admin_setting_heading("theme_iuna_quickstart_logos", "",
     get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 

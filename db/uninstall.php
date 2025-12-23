@@ -17,21 +17,21 @@
 /**
  * Theme custom uninstall.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * Theme_eadflix uninstall function.
+ * Theme_iuna uninstall function.
  *
  * @return void
  * @throws Exception
  */
-function xmldb_theme_eadflix_uninstall() {
-    unset_config("startcolor", "theme_eadflix");
+function xmldb_theme_iuna_uninstall() {
+    unset_config("startcolor", "theme_iuna");
 
-    unset_config("course_summary", "theme_eadflix");
+    unset_config("course_summary", "theme_iuna");
 
-    unset_config("footer_background_color", "theme_eadflix");
+    unset_config("footer_background_color", "theme_iuna");
 }

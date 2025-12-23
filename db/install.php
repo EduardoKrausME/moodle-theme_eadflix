@@ -17,21 +17,21 @@
 /**
  * Theme custom Installation.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * Theme_eadflix install function.
+ * Theme_iuna install function.
  *
  * @return void
  * @throws Exception
  */
-function xmldb_theme_eadflix_install() {
-    set_config("loginbackgroundimage", "", "theme_eadflix");
+function xmldb_theme_iuna_install() {
+    set_config("loginbackgroundimage", "", "theme_iuna");
 
-    set_config("course_summary", "0", "theme_eadflix");
+    set_config("course_summary", "0", "theme_iuna");
 
-    set_config("footer_background_color", "", "theme_eadflix");
+    set_config("footer_background_color", "", "theme_iuna");
 }

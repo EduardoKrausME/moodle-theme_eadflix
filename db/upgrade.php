@@ -17,19 +17,19 @@
 /**
  * Upgrade file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * function xmldb_supervideo_upgrade
+ * function xmldb_theme_iuna_upgrade
  *
  * @param int $oldversion
  *
  * @return bool
  * @throws Exception
  */
-function xmldb_theme_eadflix_upgrade($oldversion) {
+function xmldb_theme_iuna_upgrade($oldversion) {
     return true;
 }

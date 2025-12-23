@@ -40,3 +40,21 @@
         display: none;
     }
 }
+
+.activitychooser,
+.chooserdialogue {
+    .modal-content,
+    .moodle-dialogue-wrap {
+        background-color: var(--bs-body-bg, #ffffff);
+        color: var(--bs-body-color, #212529);
+    }
+    .modal-body,
+    .moodle-dialogue-bd {
+        background-color: var(--bs-body-bg, #ffffff);
+    }
+    .form-control,
+    .btn,
+    .dropdown-menu {
+        color: inherit;
+    }
+}

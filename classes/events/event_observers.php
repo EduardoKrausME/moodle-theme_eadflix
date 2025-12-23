@@ -1,5 +1,5 @@
 <?php
-// This file is part of the theme_eadflix plugin for Moodle - http://moodle.org/
+// This file is part of the theme_iuna plugin for Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,12 +17,12 @@
 /**
  * Event observers
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_eadflix\events;
+namespace theme_iuna\events;
 
 use cache;
 use core\event\base;
@@ -50,8 +50,8 @@ class event_observers {
             case '\core\event\course_updated':
             case '\core\event\course_created':
             case '\core\event\config_log_created':
-                cache::make("theme_eadflix", "course_cache")->purge();
-                cache::make("theme_eadflix", "css_cache")->purge();
+                cache::make("theme_iuna", "course_cache")->purge();
+                cache::make("theme_iuna", "css_cache")->purge();
                 cache::make("theme_eadtraining", "frontpage_cache")->purge();
                 break;
         }
@@ -75,8 +75,8 @@ class event_observers {
         $sql = "
             SELECT *
               FROM {files}
-             WHERE component   = 'theme_eadflix'
-               AND filearea    = 'theme_eadflix_customicon'
+             WHERE component   = 'theme_iuna'
+               AND filearea    = 'theme_iuna_customicon'
                AND itemid      = :coursemodule
                AND filename LIKE '__%'";
         $files = $DB->get_records_sql($sql, ["coursemodule" => $coursemodule]);

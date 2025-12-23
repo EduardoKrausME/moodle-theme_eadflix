@@ -12,3 +12,19 @@
         color: #ffffff !important;
     }
 }
+
+#page-header {
+    position: relative;
+    z-index: 2;
+    .course-header-image,
+    .page-header-image {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.secondary-navigation,
+.tertiary-navigation {
+    position: relative;
+    z-index: 3;
+}

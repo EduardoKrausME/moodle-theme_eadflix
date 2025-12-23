@@ -17,7 +17,7 @@
 /**
  * Course file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,14 +25,14 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Course settings.
-$page = new admin_settingpage("theme_eadflix_course", get_string("coursesettings", "theme_eadtraining"));
+$page = new admin_settingpage("theme_iuna_course", get_string("coursesettings", "theme_eadtraining"));
 
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#courses";
-$setting = new admin_setting_heading("theme_eadtraining_quickstart_courses", "",
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#courses";
+$setting = new admin_setting_heading("theme_iuna_quickstart_courses", "",
     get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 
-$setting = new admin_setting_configcheckbox("theme_eadtraining/course_summary",
+$setting = new admin_setting_configcheckbox("theme_iuna/course_summary",
     get_string("course_summary", "theme_eadtraining"),
     get_string("course_summary_desc", "theme_eadtraining"),
     0);
@@ -43,7 +43,7 @@ $options = [
     1 => get_string("course_summary_banner_simple", "theme_eadtraining"),
     2 => get_string("course_summary_banner_title", "theme_eadtraining"),
 ];
-$setting = new admin_setting_configselect("theme_eadtraining/course_summary_banner",
+$setting = new admin_setting_configselect("theme_iuna/course_summary_banner",
     get_string("course_summary_banner", "theme_eadtraining"),
     get_string("course_summary_banner_desc", "theme_eadtraining"),
     0, $options);

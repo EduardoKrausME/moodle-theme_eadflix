@@ -17,7 +17,7 @@
 /**
  * Login file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 global $CFG, $OUTPUT, $PAGE;
 require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
 
-$page = new admin_settingpage("theme_eadtraining_login",
+$page = new admin_settingpage("theme_iuna_login",
     get_string("loginsettings", "theme_eadtraining"));
 
 $options = [
@@ -37,21 +37,21 @@ $options = [
     "clean-minimal" => get_string("logintheme_clean-minimal", "theme_eadtraining"),
     "clean-outline" => get_string("logintheme_clean-outline", "theme_eadtraining"),
 ];
-$setting = new admin_setting_configselect("theme_eadtraining/logintheme",
+$setting = new admin_setting_configselect("theme_iuna/logintheme",
     get_string("logintheme", "theme_eadtraining"),
     get_string("logintheme_desc", "theme_eadtraining"),
     "dark-elegante", $options);
 $page->add($setting);
 
 // Login Background image setting.
-$setting = new admin_setting_configstoredfile("theme_eadtraining/loginbackgroundimage",
+$setting = new admin_setting_configstoredfile("theme_iuna/loginbackgroundimage",
     get_string("loginbackgroundimage", "theme_eadtraining"),
     get_string("loginbackgroundimage_desc", "theme_eadtraining"), "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);
 
 // Small logo file setting.
-$setting = new admin_setting_configstoredfile("theme_eadtraining/loginlogo",
+$setting = new admin_setting_configstoredfile("theme_iuna/loginlogo",
     get_string("loginlogo", "theme_eadtraining"),
     get_string("loginlogo_desc", "theme_eadtraining"),
     "loginlogo", 0,

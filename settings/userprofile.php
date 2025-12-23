@@ -17,7 +17,7 @@
 /**
  * User profile file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,16 +25,16 @@
 defined('MOODLE_INTERNAL') || die;
 
 // User profile section.
-$page = new admin_settingpage("theme_eadflix_userprofile",
+$page = new admin_settingpage("theme_iuna_userprofile",
     get_string("userprofilesettings", "theme_eadtraining"));
 
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#user-profile";
-$setting = new admin_setting_heading("theme_eadtraining_quickstart_userprofile", "",
+$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#user-profile";
+$setting = new admin_setting_heading("theme_iuna_quickstart_userprofile", "",
     get_string("quickstart_settings_link", "theme_eadtraining", $url));
 $page->add($setting);
 
 // Profile background image.
-$setting = new admin_setting_configstoredfile("theme_eadtraining/background_profile_image",
+$setting = new admin_setting_configstoredfile("theme_iuna/background_profile_image",
     get_string("background_profile_image", "theme_eadtraining"),
     get_string("background_profile_image_desc", "theme_eadtraining"),
     "background_profile_image", 0,

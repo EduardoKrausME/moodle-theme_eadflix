@@ -1,4 +1,7 @@
 @media (min-width: 768px) {
+    body {
+        padding-top: 0 !important;
+    }
     #page.drawers {
         padding: 0;
         margin: 0 0 0 100px;

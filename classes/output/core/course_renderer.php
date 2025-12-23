@@ -20,17 +20,17 @@
  * This is built using the boost template to allow for new theme"s using
  * Moodle"s new Boost theme engine
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_eadflix\output\core;
+namespace theme_iuna\output\core;
 
 /**
  * This class has function for core course renderer
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

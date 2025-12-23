@@ -17,7 +17,7 @@
 /**
  * A frontpage based layout for the boost theme.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -79,7 +79,7 @@ $templatecontext = [
     "addblockbutton" => $addblockbutton,
 ];
 
-$config = theme_eadflix_get_config();
+$config = theme_iuna_get_config();
 
 $templatecontext["footercount"] = 0;
 $templatecontext["footercontents"] = [];
@@ -118,4 +118,4 @@ if ($editing) {
     $templatecontext["homemode_form_action"] = $url;
 }
 
-echo $OUTPUT->render_from_template("theme_eadflix/frontpage", $templatecontext);
+echo $OUTPUT->render_from_template("theme_iuna/frontpage", $templatecontext);

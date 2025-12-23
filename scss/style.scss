@@ -174,25 +174,25 @@ $fa-version: "6.3.0" !default;
 @import "../../eadtraining/scss/moodle/acctoolbar";
 @import "../../eadtraining/scss/moodle/format-block";
 
-// EadFlix
-@import "eadflix/admin";
-@import "eadflix/blocks";
-@import "eadflix/course";
-@import "eadflix/drawer";
-@import "eadflix/search";
-@import "eadflix/login";
-@import "eadflix/sticky-footer";
-@import "eadflix/popover-region";
-@import "eadflix/modal";
-@import "eadflix/layout";
-@import "eadflix/navbar";
-@import "eadflix/courseindex";
-@import "eadflix/primarynavigation";
-@import "eadflix/acctoolbar";
-@import "eadflix/format-block";
+// Iuna
+@import "iuna/admin";
+@import "iuna/blocks";
+@import "iuna/course";
+@import "iuna/drawer";
+@import "iuna/search";
+@import "iuna/login";
+@import "iuna/sticky-footer";
+@import "iuna/popover-region";
+@import "iuna/modal";
+@import "iuna/layout";
+@import "iuna/navbar";
+@import "iuna/courseindex";
+@import "iuna/primarynavigation";
+@import "iuna/acctoolbar";
+@import "iuna/format-block";
 
-// EadFlix Dark
-@import "eadflix/dark";
+// Iuna Dark
+@import "iuna/dark";
 
 //
 // Preset CSS
