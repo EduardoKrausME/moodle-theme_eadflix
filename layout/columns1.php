@@ -17,7 +17,7 @@
 /**
  * A one column layout for the boost theme.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -38,4 +38,4 @@ if (empty($PAGE->layout_options['noactivityheader'])) {
     $templatecontext['headercontent'] = $header->export_for_template($renderer);
 }
 
-echo $OUTPUT->render_from_template('theme_eadflix/columns1', $templatecontext);
+echo $OUTPUT->render_from_template('theme_iuna/columns1', $templatecontext);

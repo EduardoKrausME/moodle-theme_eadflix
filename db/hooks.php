@@ -17,7 +17,7 @@
 /**
  * Hooks
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,10 +30,10 @@ defined('MOODLE_INTERNAL') || die;
 $callbacks = [
     [
         "hook" => before_html_attributes::class,
-        "callback" => '\theme_eadflix\core_hook_output::before_html_attributes',
+        "callback" => '\theme_iuna\core_hook_output::before_html_attributes',
     ],
     [
         "hook" => before_footer_html_generation::class,
-        "callback" => 'theme_eadflix\core_hook_output::before_footer_html_generation',
+        "callback" => 'theme_iuna\core_hook_output::before_footer_html_generation',
     ],
 ];

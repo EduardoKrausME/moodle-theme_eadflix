@@ -17,7 +17,7 @@
 /**
  * Settings file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,20 +27,20 @@ defined('MOODLE_INTERNAL') || die();
 require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
 
 if ($hassiteconfig) {
-    $pluginname = get_string("pluginname", "theme_eadflix");
+    $pluginname = get_string("pluginname", "theme_iuna");
     $title = "{$pluginname} - " . get_string("advancedsettings");
-    $url = new moodle_url("/admin/settings.php?section=themesettingeadflix");
-    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link1", $title, $url));
+    $url = new moodle_url("/admin/settings.php?section=themesettingiuna");
+    $ADMIN->add("themes", new admin_externalpage("theme_iuna_link1", $title, $url));
 
     $title = "{$pluginname} - " . get_string("quickstart_title", "theme_eadtraining");
-    $url = new moodle_url("/theme/eadtraining/quickstart/?savetheme=eadflix");
-    $ADMIN->add("themes", new admin_externalpage("theme_eadflix_link2", $title, $url));
+    $url = new moodle_url("/theme/eadtraining/quickstart/?savetheme=iuna");
+    $ADMIN->add("themes", new admin_externalpage("theme_iuna_link2", $title, $url));
 }
 
 if ($ADMIN->fulltree) {
     $settings = new theme_boost_admin_settingspage_tabs(
-        "themesettingeadflix",
-        get_string("configtitle", "theme_eadflix")
+        "themesettingiuna",
+        get_string("configtitle", "theme_iuna")
     );
 
     require_once("settings/general.php");

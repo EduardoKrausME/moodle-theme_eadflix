@@ -17,7 +17,7 @@
 /**
  * Advanced file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,11 +27,11 @@ use theme_eadtraining\admin\setting_scss;
 defined('MOODLE_INTERNAL') || die;
 
 // Advanced settings.
-$page = new admin_settingpage("theme_eadflix_advanced", get_string("advancedsettings", "theme_eadtraining"));
+$page = new admin_settingpage("theme_iuna_advanced", get_string("advancedsettings", "theme_eadtraining"));
 
 // Raw SCSS to include before the content.
 $setting = new setting_scss(
-    "theme_eadflix/scsspre",
+    "theme_iuna/scsspre",
     get_string("rawscsspre", "theme_boost"),
     get_string("rawscsspre_desc", "theme_boost"),
     "", PARAM_RAW
@@ -41,7 +41,7 @@ $page->add($setting);
 
 // Raw SCSS to include after the content.
 $setting = new setting_scss(
-    "theme_eadflix/scsspos",
+    "theme_iuna/scsspos",
     get_string("rawscss", "theme_boost"),
     get_string("rawscss_desc", "theme_boost"),
     "", PARAM_RAW

@@ -17,7 +17,7 @@
 /**
  * Events file
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,30 +27,30 @@ defined('MOODLE_INTERNAL') || die();
 $observers = [
     [
         "eventname" => '\core\event\course_deleted',
-        "callback" => '\theme_eadflix\events\event_observers::process_event',
+        "callback" => '\theme_iuna\events\event_observers::process_event',
     ],
     [
         "eventname" => '\core\event\course_updated',
-        "callback" => '\theme_eadflix\events\event_observers::process_event',
+        "callback" => '\theme_iuna\events\event_observers::process_event',
     ],
     [
         "eventname" => '\core\event\course_created',
-        "callback" => '\theme_eadflix\events\event_observers::process_event',
+        "callback" => '\theme_iuna\events\event_observers::process_event',
     ],
     [
         "eventname" => '\core\event\config_log_created',
-        "callback" => '\theme_eadflix\events\event_observers::process_event',
+        "callback" => '\theme_iuna\events\event_observers::process_event',
     ],
     [
         "eventname" => '\core\event\course_module_deleted',
-        "callback" => '\theme_eadflix\events\event_observers::course_module_deleted',
+        "callback" => '\theme_iuna\events\event_observers::course_module_deleted',
     ],
     [
         "eventname" => '\core\event\user_enrolment_created',
-        "callback" => '\theme_eadflix\events\event_observers::enrolment',
+        "callback" => '\theme_iuna\events\event_observers::enrolment',
     ],
     [
         "eventname" => '\core\event\user_enrolment_updated',
-        "callback" => '\theme_eadflix\events\event_observers::enrolment',
+        "callback" => '\theme_iuna\events\event_observers::enrolment',
     ],
 ];

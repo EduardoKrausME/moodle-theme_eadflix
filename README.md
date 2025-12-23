@@ -1,4 +1,12 @@
-## ✅ At EadFlix, Education is for Everyone
+## ✅ At Iuna, Education is for Everyone
+
+## ✅ Installation (Moodle 5.1.1+)
+
+1. Copy this theme folder to `/moodle/theme/iuna`.
+2. Log in as admin and visit **Site administration → Notifications** to install.
+3. Select **Iuna** as the active theme or assign it to specific categories.
+
+> This theme can be installed alongside the original theme without conflicts because it uses the `theme_iuna` component.
 
 ### **Accessibility Features**
 
@@ -14,7 +22,7 @@
 
 ## 🎬 Frontpage
 
-EadFlix offers two homepage options: the default Moodle page and a custom one with editable blocks featuring the following:
+Iuna offers two homepage options: the default Moodle page and a custom one with editable blocks featuring the following:
 
 * Four Netflix-style slideshows
 * Three types of banners
@@ -29,7 +37,7 @@ EadFlix offers two homepage options: the default Moodle page and a custom one wi
 
 ![Course image](https://github.com/user-attachments/assets/8f6cc718-cc3f-46a6-a5c2-b9978ec36fed)
 
-EadFlix has a modern course page with an optional info banner enabled via settings.
+Iuna has a modern course page with an optional info banner enabled via settings.
 
 It features an activity block system that turns uploaded images into block-style activities. This works for both Topics and Weekly formats.
 
@@ -59,7 +67,7 @@ Even better: the "Made by" text can be removed directly in the settings at no ad
 
 ![Profile area](https://github.com/user-attachments/assets/b59edb65-daa1-4748-94d3-a2b99453d41c)
 
-A modern profile displayed in a popup, with customizable top section and background. This is the new user profile experience at EadFlix.
+A modern profile displayed in a popup, with customizable top section and background. This is the new user profile experience at Iuna.
 
 ## 🙌 Thanks and Sponsorship
 

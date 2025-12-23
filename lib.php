@@ -17,7 +17,7 @@
 /**
  * Theme functions.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Frédéric Massart - FMCorz.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -31,8 +31,8 @@ use theme_eadtraining\admin\setting_scss;
  * @param string $tree        The CSS tree.
  * @param theme_config $theme The theme config object.
  */
-function theme_eadflix_css_tree_post_processor($tree, $theme) {
-    $prefixer = new theme_eadflix\autoprefixer($tree);
+function theme_iuna_css_tree_post_processor($tree, $theme) {
+    $prefixer = new theme_iuna\autoprefixer($tree);
     $prefixer->prefix();
 }
 
@@ -43,7 +43,7 @@ function theme_eadflix_css_tree_post_processor($tree, $theme) {
  *
  * @return string
  */
-function theme_eadflix_get_extra_scss($theme) {
+function theme_iuna_get_extra_scss($theme) {
     $content = "";
 
     // Sets the login background image.
@@ -64,7 +64,7 @@ function theme_eadflix_get_extra_scss($theme) {
         } else {
             $scsspos = "
                 #page::before {
-                    content: 'theme_eadflix::scsspos Error: {$result}';
+                    content: 'theme_iuna::scsspos Error: {$result}';
                     color: #c00;
                     display: block;
                     padding: 8px 12px;
@@ -94,16 +94,16 @@ function theme_eadflix_get_extra_scss($theme) {
  * @return bool
  * @throws moodle_exception
  */
-function theme_eadflix_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
+function theme_iuna_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if (strpos($filearea, "editor_") === 0) {
-            $fullpath = sha1("/{$context->id}/theme_eadflix/{$filearea}/{$args[0]}/{$args[1]}");
+            $fullpath = sha1("/{$context->id}/theme_iuna/{$filearea}/{$args[0]}/{$args[1]}");
             $fs = get_file_storage();
             if ($file = $fs->get_file_by_hash($fullpath)) {
                 return send_stored_file($file, 0, 0, false, $options);
             }
         } else {
-            $theme = theme_config::load("eadflix");
+            $theme = theme_config::load("iuna");
             // By default, theme files must be cache-able by both browsers and proxies.
             if (!array_key_exists("cacheability", $options)) {
                 $options["cacheability"] = "public";
@@ -112,7 +112,7 @@ function theme_eadflix_pluginfile($course, $cm, $context, $filearea, $args, $for
         }
         send_file_not_found();
     } else if ($context->contextlevel == CONTEXT_MODULE) {
-        $fullpath = sha1("/{$context->id}/theme_eadflix/{$filearea}/{$args[0]}/{$args[1]}");
+        $fullpath = sha1("/{$context->id}/theme_iuna/{$filearea}/{$args[0]}/{$args[1]}");
         $fs = get_file_storage();
         if ($file = $fs->get_file_by_hash($fullpath)) {
             return send_stored_file($file, 0, 0, false, $options);
@@ -127,7 +127,7 @@ function theme_eadflix_pluginfile($course, $cm, $context, $filearea, $args, $for
  *
  * @return array[]
  */
-function theme_eadflix_user_preferences(): array {
+function theme_iuna_user_preferences(): array {
     return [
         "drawer-open-block" => [
             "type" => PARAM_BOOL,
@@ -151,9 +151,9 @@ function theme_eadflix_user_preferences(): array {
  *
  * @return string
  */
-function theme_eadflix_get_main_scss_content($theme) {
+function theme_iuna_get_main_scss_content($theme) {
     global $CFG;
-    return file_get_contents("{$CFG->dirroot}/theme/eadflix/scss/style.scss");
+    return file_get_contents("{$CFG->dirroot}/theme/iuna/scss/style.scss");
 }
 
 /**
@@ -164,14 +164,14 @@ function theme_eadflix_get_main_scss_content($theme) {
  * @return string
  * @throws Exception
  */
-function theme_eadflix_get_pre_scss($theme) {
+function theme_iuna_get_pre_scss($theme) {
     $scss = theme_eadtraining_get_pre_scss($theme);
     $configurable = [
         // Config key => [variableName, ...].
         "brandcolor" => ["primary"],
     ];
 
-    $configboost = theme_eadflix_get_config();
+    $configboost = theme_iuna_get_config();
     // Prepend variables first.
     foreach ($configurable as $configkey => $targets) {
         $value = isset($configboost->{$configkey}) ? $configboost->{$configkey} : null;
@@ -192,7 +192,7 @@ function theme_eadflix_get_pre_scss($theme) {
         } else {
             $scss .= "
                 #page::before {
-                    content: 'theme_eadflix::scsspre Error: {$result}';
+                    content: 'theme_iuna::scsspre Error: {$result}';
                     color: #c00;
                     display: block;
                     padding: 8px 12px;
@@ -210,7 +210,7 @@ function theme_eadflix_get_pre_scss($theme) {
 
 
 /**
- * Function theme_eadflix_setting_file_url
+ * Function theme_iuna_setting_file_url
  *
  * @param $setting
  *
@@ -218,10 +218,10 @@ function theme_eadflix_get_pre_scss($theme) {
  *
  * @throws dml_exception
  */
-function theme_eadflix_setting_file_url($setting) {
+function theme_iuna_setting_file_url($setting) {
     global $CFG;
 
-    $filepath = get_config("theme_eadflix", $setting);
+    $filepath = get_config("theme_iuna", $setting);
     if (!$filepath) {
         return false;
     }
@@ -229,7 +229,7 @@ function theme_eadflix_setting_file_url($setting) {
 
     $url = moodle_url::make_file_url(
         "$CFG->wwwroot/pluginfile.php",
-        "/{$syscontext->id}/theme_eadflix/{$setting}/0{$filepath}");
+        "/{$syscontext->id}/theme_iuna/{$setting}/0{$filepath}");
 
     return $url;
 }
@@ -239,7 +239,7 @@ function theme_eadflix_setting_file_url($setting) {
  *
  * @return array
  */
-function theme_eadflix_colors() {
+function theme_iuna_colors() {
     return [
         "#1f3b9b", // Azul Escuro Luminoso.
         "#4c6aff", // Azul Neon Suave.
@@ -274,14 +274,14 @@ function theme_eadflix_colors() {
 }
 
 /**
- * theme_eadflix_coursemodule_standard_elements
+ * theme_iuna_coursemodule_standard_elements
  *
  * @param moodleform_mod $formwrapper The moodle quickforms wrapper object.
  * @param MoodleQuickForm $mform The actual form object (required to modify the form).
  *
  * @throws coding_exception
  */
-function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
+function theme_iuna_coursemodule_standard_elements(&$formwrapper, $mform) {
     require_once(__DIR__ . "/../eadtraining/lib.php");
     theme_eadtraining_coursemodule_standard_elements($formwrapper, $mform);
 }
@@ -296,19 +296,19 @@ function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
  *
  * @throws coding_exception
  */
-function theme_eadflix_coursemodule_edit_post_actions($data, $course) {
+function theme_iuna_coursemodule_edit_post_actions($data, $course) {
     require_once(__DIR__ . "/../eadtraining/lib.php");
     return theme_eadtraining_coursemodule_edit_post_actions($data, $course);
 }
 
 /**
- * theme_eadflix_get_config
+ * theme_iuna_get_config
  *
  * @return object
  * @throws dml_exception
  */
-function theme_eadflix_get_config() {
+function theme_iuna_get_config() {
     $configboosteadtraining = get_config("theme_eadtraining");
-    $configeadflix = get_config("theme_eadflix");
-    return (object)array_replace((array)$configboosteadtraining, (array)$configeadflix);
+    $configiuna = get_config("theme_iuna");
+    return (object)array_replace((array)$configboosteadtraining, (array)$configiuna);
 }

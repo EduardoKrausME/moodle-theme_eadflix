@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_eadflix/navbar
+    @template theme_iuna/navbar
 
     This template renders the top navbar.
 
@@ -58,7 +58,7 @@
      aria-label="{{#str}}sitemenubar, admin{{/str}}">
     <div class="container-fluid">
         <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers"
-                data-action="toggle" data-target="theme_eadflix-drawers-primary">
+                data-action="toggle" data-target="theme_iuna-drawers-primary">
             <span class="navbar-toggler-icon"></span>
             <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
         </button>
@@ -99,7 +99,7 @@
             {{/output.search_box}}
             {{!
                 {{#langmenu} }
-                    {{> theme_eadflix/language_menu } }
+                    {{> theme_iuna/language_menu } }
                     <div class="divider border-start h-75 align-self-center mx-1"></div>
                 {{/langmenu} }
             }}
@@ -112,18 +112,18 @@
      aria-label="{{#str}}sitemenubar, admin{{/str}}">
     <div class="container-fluid">
         <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers"
-                data-action="toggle" data-target="theme_eadflix-drawers-primary">
+                data-action="toggle" data-target="theme_iuna-drawers-primary">
             <span class="navbar-toggler-icon"></span>
             <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
         </button>
     </div>
 </nav>
 
-{{> theme_eadflix/primary-drawer-mobile }}
+{{> theme_iuna/primary-drawer-mobile }}
 
 {{#js}}
     require(["jquery"], function ($) {
-        function theme_eadflix_navbar_resize() {
+        function theme_iuna_navbar_resize() {
             var height = $(window).height();
             $("#page-wrapper").css({
                 "min-height": height,
@@ -134,7 +134,7 @@
             })
         }
 
-        $(window).resize(theme_eadflix_navbar_resize);
-        theme_eadflix_navbar_resize();
+        $(window).resize(theme_iuna_navbar_resize);
+        theme_iuna_navbar_resize();
     });
 {{/js}}

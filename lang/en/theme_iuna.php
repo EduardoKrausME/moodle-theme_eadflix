@@ -17,7 +17,7 @@
 /**
  * Language file.
  *
- * @package   theme_eadflix
+ * @package   theme_iuna
  * @copyright 2025 Eduardo Kraus {@link https://eduardokraus.com}
  * @copyright based on work by 2016 Frédéric Massart
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,8 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['cachedef_course_cache'] = 'Course data cache';
 $string['cachedef_course_module_cache'] = 'Course modules cache';
 $string['cachedef_css_cache'] = 'CSS stylesheets cache';
-$string['configtitle'] = 'EadFlix';
-$string['pluginname'] = 'EadFlix';
-$string['privacy:metadata'] = 'The EadFlix theme does not store any personal data about any user.';
+$string['configtitle'] = 'Iuna';
+$string['pluginname'] = 'Iuna';
+$string['privacy:metadata'] = 'The Iuna theme does not store any personal data about any user.';
 $string['privacy:metadata:preference:draweropenblock'] = 'The user\'s preference for hiding or showing the drawer with blocks.';
 $string['privacy:metadata:preference:draweropenindex'] = 'The user\'s preference for hiding or showing the drawer with course index.';
