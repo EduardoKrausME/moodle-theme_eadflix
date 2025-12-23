@@ -56,5 +56,7 @@
     .btn,
     .dropdown-menu {
         color: inherit;
+        background-color: var(--bs-body-bg, #ffffff);
+        border-color: var(--bs-border-color, #dee2e6);
     }
 }

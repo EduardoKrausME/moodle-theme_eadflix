@@ -24,5 +24,5 @@ namespace theme_iuna\output;
  * @copyright based on work by 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class core_renderer extends \theme_eadtraining\output\core_renderer {
+class core_renderer extends \theme_boost\output\core_renderer {
 }

@@ -26,17 +26,12 @@ defined('MOODLE_INTERNAL') || die;
 
 // User profile section.
 $page = new admin_settingpage("theme_iuna_userprofile",
-    get_string("userprofilesettings", "theme_eadtraining"));
-
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#user-profile";
-$setting = new admin_setting_heading("theme_iuna_quickstart_userprofile", "",
-    get_string("quickstart_settings_link", "theme_eadtraining", $url));
-$page->add($setting);
+    get_string("userprofilesettings", "theme_iuna"));
 
 // Profile background image.
 $setting = new admin_setting_configstoredfile("theme_iuna/background_profile_image",
-    get_string("background_profile_image", "theme_eadtraining"),
-    get_string("background_profile_image_desc", "theme_eadtraining"),
+    get_string("background_profile_image", "theme_iuna"),
+    get_string("background_profile_image_desc", "theme_iuna"),
     "background_profile_image", 0,
     ["maxfiles" => 1, "accepted_types" => [".jpg", ".jpeg", ".svg", ".png"]]);
 $setting->set_updatedcallback("theme_reset_all_caches");

@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use theme_eadtraining\admin\setting_scss;
+use theme_boost\admin\setting_scss;
 
 /**
  * Post process the CSS tree.
@@ -165,7 +165,9 @@ function theme_iuna_get_main_scss_content($theme) {
  * @throws Exception
  */
 function theme_iuna_get_pre_scss($theme) {
-    $scss = theme_eadtraining_get_pre_scss($theme);
+    global $CFG;
+    require_once("{$CFG->dirroot}/theme/boost/lib.php");
+    $scss = theme_boost_get_pre_scss($theme);
     $configurable = [
         // Config key => [variableName, ...].
         "brandcolor" => ["primary"],
@@ -282,8 +284,8 @@ function theme_iuna_colors() {
  * @throws coding_exception
  */
 function theme_iuna_coursemodule_standard_elements(&$formwrapper, $mform) {
-    require_once(__DIR__ . "/../eadtraining/lib.php");
-    theme_eadtraining_coursemodule_standard_elements($formwrapper, $mform);
+    require_once(__DIR__ . "/../boost/lib.php");
+    theme_boost_coursemodule_standard_elements($formwrapper, $mform);
 }
 
 /**
@@ -297,8 +299,8 @@ function theme_iuna_coursemodule_standard_elements(&$formwrapper, $mform) {
  * @throws coding_exception
  */
 function theme_iuna_coursemodule_edit_post_actions($data, $course) {
-    require_once(__DIR__ . "/../eadtraining/lib.php");
-    return theme_eadtraining_coursemodule_edit_post_actions($data, $course);
+    require_once(__DIR__ . "/../boost/lib.php");
+    return theme_boost_coursemodule_edit_post_actions($data, $course);
 }
 
 /**
@@ -308,7 +310,33 @@ function theme_iuna_coursemodule_edit_post_actions($data, $course) {
  * @throws dml_exception
  */
 function theme_iuna_get_config() {
-    $configboosteadtraining = get_config("theme_eadtraining");
+    $configboost = get_config("theme_boost");
     $configiuna = get_config("theme_iuna");
-    return (object)array_replace((array)$configboosteadtraining, (array)$configiuna);
+    return (object)array_replace((array)$configboost, (array)$configiuna);
+}
+
+/**
+ * Return the configured value or a default.
+ *
+ * @param string $setting
+ * @param mixed $default
+ * @param string $component
+ *
+ * @return mixed
+ */
+function theme_iuna_default(string $setting, $default, string $component = "theme_iuna") {
+    $value = get_config($component, $setting);
+    if ($value === false || $value === null || $value === "") {
+        return $default;
+    }
+    return $value;
+}
+
+/**
+ * Provide additional template context for progress info.
+ *
+ * @return array
+ */
+function theme_iuna_progress_content(): array {
+    return [];
 }

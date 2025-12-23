@@ -60,12 +60,6 @@ class core_hook_output {
      * @throws Exception
      */
     public static function before_footer_html_generation() {
-        global $CFG;
-
-        $file = "{$CFG->dirroot}/theme/eadtraining/classes/core_hook_output.php";
-        if (file_exists($file)) {
-            require_once($file);
-            \theme_eadtraining\core_hook_output::before_footer_html_generation();
-        }
+        return;
     }
 }

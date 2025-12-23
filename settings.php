@@ -24,17 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
-
 if ($hassiteconfig) {
     $pluginname = get_string("pluginname", "theme_iuna");
     $title = "{$pluginname} - " . get_string("advancedsettings");
     $url = new moodle_url("/admin/settings.php?section=themesettingiuna");
     $ADMIN->add("themes", new admin_externalpage("theme_iuna_link1", $title, $url));
 
-    $title = "{$pluginname} - " . get_string("quickstart_title", "theme_eadtraining");
-    $url = new moodle_url("/theme/eadtraining/quickstart/?savetheme=iuna");
-    $ADMIN->add("themes", new admin_externalpage("theme_iuna_link2", $title, $url));
 }
 
 if ($ADMIN->fulltree) {

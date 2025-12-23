@@ -29,58 +29,44 @@ require_once("{$CFG->dirroot}/theme/iuna/lib.php");
 
 // Footer section.
 $page = new admin_settingpage("theme_iuna_footer",
-    get_string("footersettings", "theme_eadtraining"));
-
-$url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=iuna#footer";
-$setting = new admin_setting_heading("theme_iuna_quickstart_footer", "",
-    get_string("quickstart_settings_link", "theme_eadtraining", $url));
-$page->add($setting);
-
-$htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining/scss/colors.css\" />";
-$htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
-        "footercolor" => true,
-        "colors" => theme_iuna_colors(),
-        "defaultcolor" => theme_eadtraining_default("brandcolor", "#1a2a6c", "theme_iuna"),
-        "defaultcolorfooter" => theme_eadtraining_default("footer_background_color", "#1a2a6c", "theme_iuna"),
-    ]);
+    get_string("footersettings", "theme_iuna"));
 
 $setting = new admin_setting_configtext("theme_iuna/footer_background_color",
-    get_string("footer_background_color", "theme_eadtraining"),
-    get_string("footer_background_color_desc", "theme_eadtraining") . $htmlselect,
+    get_string("footer_background_color", "theme_iuna"),
+    get_string("footer_background_color_desc", "theme_iuna"),
     "#1a2a6c");
 $setting->set_updatedcallback("theme_reset_all_caches");
-$PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
 $page->add($setting);
 
 $setting = new admin_setting_heading("theme_iuna_footer_heading_description",
-    get_string("footer_heading_description_title", "theme_eadtraining"),
-    get_string("footer_heading_description_desc", "theme_eadtraining"));
+    get_string("footer_heading_description_title", "theme_iuna"),
+    get_string("footer_heading_description_desc", "theme_iuna"));
 $page->add($setting);
 
 for ($i = 1; $i <= 4; $i++) {
 
     $setting = new admin_setting_heading("theme_iuna_footer_heading_{$i}",
-        get_string("footer_heading", "theme_eadtraining", $i), "");
+        get_string("footer_heading", "theme_iuna", $i), "");
     $page->add($setting);
 
     $setting = new admin_setting_configtext("theme_iuna/footer_title_{$i}",
-        get_string("footer_title", "theme_eadtraining", $i),
-        get_string("footer_title_desc", "theme_eadtraining", $i), "");
+        get_string("footer_title", "theme_iuna", $i),
+        get_string("footer_title_desc", "theme_iuna", $i), "");
     $page->add($setting);
 
     $setting = new admin_setting_confightmleditor("theme_iuna/footer_html_{$i}",
-        get_string("footer_html", "theme_eadtraining", $i),
-        get_string("footer_html_desc", "theme_eadtraining", $i), "");
+        get_string("footer_html", "theme_iuna", $i),
+        get_string("footer_html_desc", "theme_iuna", $i), "");
     $page->add($setting);
 }
 
 $setting = new admin_setting_heading('theme_iuna_footerblock_copywriter',
-    get_string('footer_copywriter', 'theme_eadtraining'), '');
+    get_string('footer_copywriter', 'theme_iuna'), '');
 $page->add($setting);
 
 $setting = new admin_setting_configcheckbox('theme_iuna/footer_show_copywriter',
-    get_string('footer_show_copywriter', 'theme_eadtraining'),
-    get_string('footer_show_copywriter_desc', 'theme_eadtraining'), 1);
+    get_string('footer_show_copywriter', 'theme_iuna'),
+    get_string('footer_show_copywriter_desc', 'theme_iuna'), 1);
 $page->add($setting);
 
 $settings->add($page);
