@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2026012500;
-$plugin->release = "9.4.1";
+$plugin->version = 2026012501;
+$plugin->release = "9.4.2";
 $plugin->requires = 2022010100;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->component = "theme_eadflix";
 $plugin->dependencies = [
-    "theme_eadtraining" => 2025091801,
+    "theme_eadtraining" => 2026012501,
 ];
