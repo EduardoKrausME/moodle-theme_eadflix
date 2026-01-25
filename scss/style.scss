@@ -133,6 +133,8 @@ $fa-version: "6.3.0" !default;
 @import "../../eadtraining/scss/moodle/course";
 @import "../../eadtraining/scss/moodle/coursemanagement";
 @import "../../eadtraining/scss/moodle/courselisting";
+@import "../../eadtraining/scss/moodle/courseoverview";
+@import "../../eadtraining/scss/moodle/modchooser";
 @import "../../eadtraining/scss/moodle/drawer";
 @import "../../eadtraining/scss/moodle/filemanager";
 @import "../../eadtraining/scss/moodle/message";
@@ -172,6 +174,7 @@ $fa-version: "6.3.0" !default;
 @import "../../eadtraining/scss/moodle/dropdown";
 @import "../../eadtraining/scss/moodle/task-indicator";
 @import "../../eadtraining/scss/moodle/acctoolbar";
+@import "../../eadtraining/scss/moodle/minicolors";
 @import "../../eadtraining/scss/moodle/format-block";
 
 // EadFlix
