@@ -114,10 +114,10 @@ if (optional_param("embed-frame-top", 0, PARAM_INT)) {
         if (strpos($_SERVER["REQUEST_URI"], "course/view.php")) {
             $templatecontext["course_summary"] = get_config("theme_eadflix", "course_summary");
             if ($templatecontext["course_summary"]) {
-                $options = ["context" => $this->page->context];
+                $options = ["context" => $PAGE->context];
                 $summary = file_rewrite_pluginfile_urls(
-                    $this->page->course->summary, "pluginfile.php", $this->page->context->id, "course", "summary", null);
-                $summary = format_text($summary, $this->page->course->summaryformat, $options);
+                    $PAGE->course->summary, "pluginfile.php", $PAGE->context->id, "course", "summary", null);
+                $summary = format_text($summary, $PAGE->course->summaryformat, $options);
                 $templatecontext["course_summary"] = $summary;
             }
         }
