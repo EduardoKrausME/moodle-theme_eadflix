@@ -165,7 +165,7 @@ function theme_eadflix_get_main_scss_content($theme) {
  * @throws Exception
  */
 function theme_eadflix_get_pre_scss($theme) {
-    $scss = theme_eadtraining_get_pre_scss($theme);
+    $scss = krausthemes__get_pre_scss($theme);
     $configurable = [
         // Config key => [variableName, ...].
         "brandcolor" => ["primary"],
