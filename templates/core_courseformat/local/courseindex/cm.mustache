@@ -78,7 +78,16 @@
     {{/hasdelegatedsection}}
 </li>
 {{#js}}
-require(['core_courseformat/local/courseindex/cm'], function(component) {
-    component.init('course-index-cm-{{{id}}}');
-});
+    require(['core_courseformat/local/courseindex/cm'], function(component) {
+        component.init('#course-index-cm-{{{id}}}');
+
+        if (new URL(M.cfg.wwwroot).pathname !== "/") {
+            const img = document.querySelector('#course-index-cm-{{{id}}} img[src^="/theme"]');
+            if (img) {
+                if (img.getAttribute('src').startsWith('/theme')) {
+                    img.src = img.getAttribute('src').replace('/theme', `${M.cfg.wwwroot}/theme`);
+                }
+            }
+        }
+    });
 {{/js}}
