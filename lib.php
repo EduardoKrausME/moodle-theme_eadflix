@@ -23,6 +23,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use core\output\notification;
+use theme_eadflix\thumb_generator;
 use theme_eadtraining\admin\setting_scss;
 
 /**
@@ -112,11 +114,24 @@ function theme_eadflix_pluginfile($course, $cm, $context, $filearea, $args, $for
         }
         send_file_not_found();
     } else if ($context->contextlevel == CONTEXT_MODULE) {
-        $fullpath = sha1("/{$context->id}/theme_eadflix/{$filearea}/{$args[0]}/{$args[1]}");
         $fs = get_file_storage();
-        if ($file = $fs->get_file_by_hash($fullpath)) {
-            return send_stored_file($file, 0, 0, false, $options);
+        $fullpath = sha1("/{$context->id}/theme_eadflix/{$filearea}/{$args[0]}/{$args[1]}");
+        if (!$file = $fs->get_file_by_hash($fullpath)) {
+            return false;
         }
+        if ($filearea == "theme_eadflix_customimage" || $filearea == "theme_eadflix_customicon") {
+            $thumb = (new thumb_generator())
+                ->set_height(($filearea == 'theme_eadflix_customicon') ? 50 : 150)
+                ->set_cache_filearea("{$filearea}_thumb")
+                ->set_cache_itemid($args[0])
+                ->get_or_create($file, $context);
+            if ($thumb) {
+                return send_stored_file($thumb, 0, 0, false, $options);
+            }
+        }
+
+        // Fallback: image original.
+        return send_stored_file($file, 0, 0, false, $options);
     } else {
         send_file_not_found();
     }
@@ -165,22 +180,33 @@ function theme_eadflix_get_main_scss_content($theme) {
  * @throws Exception
  */
 function theme_eadflix_get_pre_scss($theme) {
-    $scss = krausthemes__get_pre_scss($theme);
-    $configurable = [
-        // Config key => [variableName, ...].
-        "brandcolor" => ["primary"],
-    ];
+    global $CFG;
 
-    $configboost = theme_eadflix_get_config();
-    // Prepend variables first.
-    foreach ($configurable as $configkey => $targets) {
-        $value = isset($configboost->{$configkey}) ? $configboost->{$configkey} : null;
-        if (empty($value)) {
-            continue;
+    $primarycolorscss = "";
+    $brandcolor = get_config("theme_boost", "brandcolor");
+    if (isset($brandcolor[3]) && preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $brandcolor)) {
+        $primarycolorscss = "\$primary: {$brandcolor};\n";
+    }
+    $courseid = optional_param("courseid", 0, PARAM_INT);
+    if ($courseid) {
+        $coursecolor = get_config("theme_eadflix", "override_course_color_{$courseid}");
+        if (isset($coursecolor[3]) && preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $coursecolor)) {
+            $primarycolorscss = "\$primary: {$coursecolor};\n";
         }
-        array_map(function ($target) use (&$scss, $value) {
-            $scss .= "\${$target}: {$value};\n";
-        }, (array)$targets);
+    }
+    $scss = $primarycolorscss;
+
+    if ($topscrollbackgroundcolor = get_config("theme_eadflix", "top_scroll_background_color")) {
+        $scss .= "\$top_scroll_background_color: {$topscrollbackgroundcolor};\n";
+    }
+
+    $callbacks = get_plugins_with_function("krausthemes__get_pre_scss");
+    foreach ($callbacks as $plugins) {
+        foreach ($plugins as $callback) {
+            if ($newscss = $callback()) {
+                $scss = $newscss;
+            }
+        }
     }
 
     // Prepend pre-scss.
@@ -208,6 +234,63 @@ function theme_eadflix_get_pre_scss($theme) {
     return $scss;
 }
 
+/**
+ * Function theme_eadflix_progress_content
+ *
+ * @return array
+ * @throws coding_exception
+ */
+function theme_eadflix_progress_content() {
+    global $USER, $COURSE, $SESSION;
+
+    $completion = new completion_info($COURSE);
+
+    // First, let's make sure completion is enabled.
+    if (!$completion->is_enabled()) {
+        return ["isprogress" => false];
+    }
+
+    if (!$completion->is_tracked_user($USER->id)) {
+        $SESSION->notifications[] = (object) [
+            "message" => get_string("notenrolledincourse", "theme_eadflix"),
+            "type" => notification::NOTIFY_WARNING,
+        ];
+        return ["isprogress" => false];
+    }
+
+    // Before we check how many modules have been completed see if the course has.
+    if ($completion->is_course_complete($USER->id)) {
+        return [
+            "isprogress" => true,
+            "progress" => 100,
+        ];
+    }
+
+    // Get the number of modules that support completion.
+    $modules = $completion->get_activities();
+    $count = count($modules);
+    if (!$count) {
+        return ["isprogress" => false];
+    }
+
+    // Get the number of modules that have been completed.
+    $completed = 0;
+    foreach ($modules as $module) {
+        $data = $completion->get_data($module, true, $USER->id);
+        if (($data->completionstate == COMPLETION_INCOMPLETE) || ($data->completionstate == COMPLETION_COMPLETE_FAIL)) {
+            $completed += 0;
+        } else {
+            $completed += 1;
+        };
+    }
+
+    return [
+        "isprogress" => true,
+        "progress" => intval(($completed / $count) * 100),
+        "progress_completed" => $completed,
+        "progress_count" => $count,
+    ];
+}
 
 /**
  * Function theme_eadflix_setting_file_url
@@ -219,17 +302,13 @@ function theme_eadflix_get_pre_scss($theme) {
  * @throws dml_exception
  */
 function theme_eadflix_setting_file_url($setting) {
-    global $CFG;
-
     $filepath = get_config("theme_eadflix", $setting);
     if (!$filepath) {
         return false;
     }
     $syscontext = context_system::instance();
 
-    $url = moodle_url::make_file_url(
-        "$CFG->wwwroot/pluginfile.php",
-        "/{$syscontext->id}/theme_eadflix/{$setting}/0{$filepath}");
+    $url = moodle_url::make_pluginfile_url($syscontext->id, "theme_eadflix", $setting, 0, "/", $filepath);
 
     return $url;
 }
@@ -289,10 +368,10 @@ function theme_eadflix_coursemodule_standard_elements(&$formwrapper, $mform) {
 /**
  * Hook the add/edit of the course module.
  *
- * @param moodleform $data Data from the form submission.
+ * @param stdClass $data Data from the form submission.
  * @param stdClass $course The course.
  *
- * @return moodleform
+ * @return stdClass
  *
  * @throws coding_exception
  */
