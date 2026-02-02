@@ -31,4 +31,5 @@ namespace theme_eadflix;
  * - Caches the generated thumb as a stored_file (fast on next requests).
  * - All options are configured via set_XXXX().
  */
-class thumb_generator extends \theme_eadtraining\thumb_generator {}
+class thumb_generator extends \theme_eadtraining\thumb_generator {
+}
