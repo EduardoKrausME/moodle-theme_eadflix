@@ -32,7 +32,7 @@ use Exception;
  *
  * @package theme_eadflix
  */
-class core_hook_output {
+class hook_callbacks {
 
     /**
      * Function before_html_attributes
