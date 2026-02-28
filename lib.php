@@ -200,15 +200,6 @@ function theme_eadflix_get_pre_scss($theme) {
         $scss .= "\$top_scroll_background_color: {$topscrollbackgroundcolor};\n";
     }
 
-    $callbacks = get_plugins_with_function("krausthemes__get_pre_scss");
-    foreach ($callbacks as $plugins) {
-        foreach ($plugins as $callback) {
-            if ($newscss = $callback()) {
-                $scss = $newscss;
-            }
-        }
-    }
-
     // Prepend pre-scss.
     if (isset($theme->settings->scsspre[5])) {
         $settingscss = new setting_scss("test", "test", "", "");
