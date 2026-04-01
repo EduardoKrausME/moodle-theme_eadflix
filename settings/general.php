@@ -27,35 +27,46 @@ defined('MOODLE_INTERNAL') || die;
 global $CFG, $OUTPUT, $PAGE;
 require_once("{$CFG->dirroot}/theme/eadflix/lib.php");
 
-$page = new admin_settingpage("theme_eadflix_general",
-    get_string("generalsettings", "theme_eadtraining"));
+$page = new admin_settingpage(
+    "theme_eadflix_general",
+    get_string("generalsettings", "theme_eadtraining")
+);
 
 $url = "{$CFG->wwwroot}/theme/eadtraining/quickstart/?savetheme=eadflix#brandcolor";
-$setting = new admin_setting_heading("theme_eadtraining_quickstart_brandcolor", "",
-    get_string("quickstart_settings_link", "theme_eadtraining", $url));
+$setting = new admin_setting_heading(
+    "theme_eadtraining_quickstart_brandcolor", "",
+    get_string("quickstart_settings_link", "theme_eadtraining", $url)
+);
 $page->add($setting);
 
 $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining/scss/colors.css\" />";
 $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "brandcolor" => true,
         "colors" => theme_eadflix_colors(),
-        "defaultcolor" => theme_eadtraining_default("brandcolor", "#1a2a6c", '/^#[a-fA-F0-9]{6}([a-fA-F0-9]{2})?$/', "theme_eadflix"),
+        "defaultcolor" => theme_eadtraining_default(
+            "brandcolor", "#1a2a6c",
+            '/^#[a-fA-F0-9]{6}([a-fA-F0-9]{2})?$/', "theme_eadflix"
+        ),
     ]);
 
 // We use an empty default value because the default colour should come from the preset.
-$setting = new admin_setting_configtext("theme_eadflix/brandcolor",
+$setting = new admin_setting_configtext(
+    "theme_eadflix/brandcolor",
     get_string('brandcolor', 'theme_boost'),
     get_string('brandcolor_desc', 'theme_eadtraining') .
     $htmlselect,
-    '#1a2a6c');
+    '#1a2a6c'
+);
 $page->add($setting);
 $PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
 
 // Login Background image setting.
-$setting = new admin_setting_configstoredfile("theme_eadflix/loginbackgroundimage",
+$setting = new admin_setting_configstoredfile(
+    "theme_eadflix/loginbackgroundimage",
     get_string("loginbackgroundimage", "theme_eadtraining"),
     get_string("loginbackgroundimage_desc", "theme_eadtraining"),
-    "loginbackgroundimage");
+    "loginbackgroundimage"
+);
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);
 
