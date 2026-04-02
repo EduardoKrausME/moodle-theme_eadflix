@@ -24,20 +24,17 @@
 
 use core\hook\output\before_footer_html_generation;
 use core\hook\output\before_html_attributes;
+use theme_eadtraining\hook_callbacks;
 
 defined('MOODLE_INTERNAL') || die;
 
 $callbacks = [
     [
         "hook" => before_html_attributes::class,
-        "callback" => \theme_eadtraining\hook_callbacks::class . "::before_html_attributes",
+        "callback" => hook_callbacks::class . "::before_html_attributes",
     ],
     [
         "hook" => before_footer_html_generation::class,
-        "callback" => \theme_eadtraining\hook_callbacks::class . "::before_footer_html_generation",
-    ],
-    [
-        "hook" => \core\hook\output\before_standard_footer_html_generation::class,
-        "callback" => \theme_eadtraining\hook_callbacks::class . "::standard_footer_html",
+        "callback" => hook_callbacks::class . "::before_footer_html_generation",
     ],
 ];
