@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once("../eadtraining/renderers.php");
+require_once(__DIR__."/../eadtraining/renderers.php");
 
 /**
  * Class theme_eadflix_core_course_management_renderer
