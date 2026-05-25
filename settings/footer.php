@@ -40,16 +40,16 @@ $htmlselect = "<link rel=\"stylesheet\" href=\"{$CFG->wwwroot}/theme/eadtraining
 $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/settings/colors", [
         "footercolor" => true,
         "colors" => theme_eadflix_colors(),
-        "defaultcolor" => theme_eadtraining_default("brandcolor", "#1a2a6c",
+        "defaultcolor" => theme_eadtraining_default("brandcolor", "#314755",
             '/^#[a-fA-F0-9]{6}([a-fA-F0-9]{2})?$/', "theme_eadflix"),
-        "defaultcolorfooter" => theme_eadtraining_default("footer_background_color", "#1a2a6c",
+        "defaultcolorfooter" => theme_eadtraining_default("footer_background_color", "#314755",
             '/^#[a-fA-F0-9]{6}([a-fA-F0-9]{2})?$/', "theme_eadflix"),
     ]);
 
 $setting = new admin_setting_configtext("theme_eadflix/footer_background_color",
     get_string("footer_background_color", "theme_eadtraining"),
     get_string("footer_background_color_desc", "theme_eadtraining") . $htmlselect,
-    "#1a2a6c");
+    "#314755");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
 $page->add($setting);

@@ -44,7 +44,7 @@ $htmlselect .= "\n\n" . $OUTPUT->render_from_template("theme_eadtraining/setting
         "brandcolor" => true,
         "colors" => theme_eadflix_colors(),
         "defaultcolor" => theme_eadtraining_default(
-            "brandcolor", "#1a2a6c",
+            "brandcolor", "#314755",
             '/^#[a-fA-F0-9]{6}([a-fA-F0-9]{2})?$/', "theme_eadflix"
         ),
     ]);
@@ -55,7 +55,7 @@ $setting = new admin_setting_configtext(
     get_string('brandcolor', 'theme_boost'),
     get_string('brandcolor_desc', 'theme_eadtraining') .
     $htmlselect,
-    '#1a2a6c'
+    '#314755'
 );
 $page->add($setting);
 $PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
