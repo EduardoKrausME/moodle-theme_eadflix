@@ -1,0 +1,23 @@
+# (RFC §4.1). Authors update their listing with an ordinary commit; camp
+# ingests and hash-pins it at each tagged release. Listing for theme_eadflix.
+
+name: "EadFlix"
+summary: "Immersive streaming-inspired theme designed to showcase your courses."
+description: |
+  Immersive streaming-inspired theme designed to showcase your courses.
+
+  At EadFlix, we believe in free education that is accessible to all, visually engaging in both content and design.
+
+  Key capabilities:
+  - Integration with VLibras for automatic translation into Brazilian Sign Language (Libras) - Portuguese (Brazil) only
+  - Text resizing and contrast adjustments
+  - Letter and line spacing customization
+
+  Supported Moodle versions in the supplied plugin list: 4.0 - 5.0.
+
+labels:
+  - fully-free
+category: "themes"
+links:
+  docs: https://github.com/EduardoKrausME/moodle-theme_eadflix#readme
+  issues: https://github.com/EduardoKrausME/moodle-theme_eadflix/issues
