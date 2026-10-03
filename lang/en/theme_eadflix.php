@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
 $string['cachedef_course_cache'] = 'Course data cache';
 $string['cachedef_course_module_cache'] = 'Course modules cache';
