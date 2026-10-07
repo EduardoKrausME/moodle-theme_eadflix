@@ -31,10 +31,10 @@ defined('MOODLE_INTERNAL') || die;
 $callbacks = [
     [
         "hook" => before_html_attributes::class,
-        "callback" => [hook_callbacks::class . "before_html_attributes"],
+        "callback" => [hook_callbacks::class, "before_html_attributes"],
     ],
     [
         "hook" => before_footer_html_generation::class,
-        "callback" => [hook_callbacks::class . "before_footer_html_generation"],
+        "callback" => [hook_callbacks::class, "before_footer_html_generation"],
     ],
 ];
