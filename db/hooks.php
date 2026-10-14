@@ -24,7 +24,7 @@
 
 use core\hook\output\before_footer_html_generation;
 use core\hook\output\before_html_attributes;
-use theme_eadtraining\hook_callbacks;
+use theme_eadflix\hook_callbacks;
 
 defined('MOODLE_INTERNAL') || die;
 

@@ -24,6 +24,7 @@
 
 namespace theme_eadflix;
 
+use core\hook\output\before_footer_html_generation;
 use core\hook\output\before_html_attributes;
 use Exception;
 
@@ -57,15 +58,16 @@ class hook_callbacks {
     /**
      * Function before_footer_html_generation
      *
+     * @param before_footer_html_generation $hook
      * @throws Exception
      */
-    public static function before_footer_html_generation() {
+    public static function before_footer_html_generation(before_footer_html_generation $hook) {
         global $CFG;
 
         $file = "{$CFG->dirroot}/theme/eadtraining/classes/core_hook_output.php";
         if (file_exists($file)) {
             require_once($file);
-            \theme_eadtraining\core_hook_output::before_footer_html_generation();
+            \theme_eadtraining\hook_callbacks::before_footer_html_generation($hook);
         }
     }
 }
