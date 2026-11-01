@@ -24,10 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-global $CFG, $OUTPUT, $PAGE;
+global $CFG, $OUTPUT, $PAGE, $SITE;
 require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
 
-$page = new admin_settingpage("theme_eadtraining_login",
+$page = new admin_settingpage("theme_eadflix_login",
     get_string("loginsettings", "theme_eadtraining"));
 
 $options = [
@@ -36,22 +36,46 @@ $options = [
     "selva-canopy" => get_string("logintheme_selva-canopy", "theme_eadtraining"),
     "clean-minimal" => get_string("logintheme_clean-minimal", "theme_eadtraining"),
     "clean-outline" => get_string("logintheme_clean-outline", "theme_eadtraining"),
+    "glassmorphism" => get_string("logintheme_glassmorphism", "theme_eadtraining"),
+    "serenity-med-blue" => get_string("logintheme_serenity-med-blue", "theme_eadtraining"),
+    "serenity-med-red" => get_string("logintheme_serenity-med-red", "theme_eadtraining"),
 ];
-$setting = new admin_setting_configselect("theme_eadtraining/logintheme",
+$mustachecontext = (object)[];
+// The EadFlix logo takes priority, followed by any pre-existing EadTraining logo.
+$url = theme_eadflix_setting_file_url("loginlogo");
+if (!$url) {
+    $url = theme_eadtraining_setting_file_url("loginlogo");
+}
+if (!$url) {
+    $url = $OUTPUT->get_logo_url();
+}
+$mustachecontext->logourl = $url ? $url->out(false) : null;
+$mustachecontext->sitename = format_string($SITE->fullname);
+$mustachecontext->themes = [];
+foreach ($options as $loginthemename => $option) {
+    $mustachecontext->themes[] = [
+        "login_theme" => $loginthemename,
+        "loginbackgroundimageurl" => $OUTPUT->image_url("login/{$loginthemename}", "theme_eadtraining")->out(false),
+    ];
+}
+$htmldescextra = $OUTPUT->render_from_template("theme_eadtraining/settings/login", $mustachecontext);
+$htmldescextra = preg_replace('/\s+/', ' ', $htmldescextra);
+
+$setting = new admin_setting_configselect("theme_eadflix/logintheme",
     get_string("logintheme", "theme_eadtraining"),
-    get_string("logintheme_desc", "theme_eadtraining"),
-    "dark-elegante", $options);
+    get_string("logintheme_desc", "theme_eadtraining") . $htmldescextra,
+    theme_eadtraining_default("logintheme", "dark-elegante", '/^[A-Za-z0-9-]+$/'), $options);
 $page->add($setting);
 
 // Login Background image setting.
-$setting = new admin_setting_configstoredfile("theme_eadtraining/loginbackgroundimage",
+$setting = new admin_setting_configstoredfile("theme_eadflix/loginbackgroundimage",
     get_string("loginbackgroundimage", "theme_eadtraining"),
     get_string("loginbackgroundimage_desc", "theme_eadtraining"), "loginbackgroundimage");
 $setting->set_updatedcallback("theme_reset_all_caches");
 $page->add($setting);
 
 // Small logo file setting.
-$setting = new admin_setting_configstoredfile("theme_eadtraining/loginlogo",
+$setting = new admin_setting_configstoredfile("theme_eadflix/loginlogo",
     get_string("loginlogo", "theme_eadtraining"),
     get_string("loginlogo_desc", "theme_eadtraining"),
     "loginlogo", 0,

@@ -110,6 +110,10 @@ $spacers: (
 
 $navbar-height: 60px !default;
 
+// Shared footer variables required by EadTraining's Moodle SCSS imports.
+$footer-bg: rgba(0, 0, 0, 0) !default;
+$footer-color: #333 !default;
+
 // Behat site specific variable values.
 $behatsite: false !default;
 $enable-transitions: not $behatsite !default;

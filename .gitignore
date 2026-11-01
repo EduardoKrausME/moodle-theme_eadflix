@@ -1,0 +1,3 @@
+# Generated output: Moodle compiles scss/style.scss at runtime.
+# Do not commit local Sass compiler output (including error-page CSS).
+/scss/style.css

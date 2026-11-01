@@ -46,8 +46,9 @@
     }
     .primary-navigation,
     #usernavigation {
-        a,
-        .popover-region {
+        // Only navigation triggers get icon-only styling, not links inside popovers.
+        .nav-link,
+        .popover-region-toggle {
             span.primary-navigation-tooltip {
                 display: none;
                 position: absolute;
@@ -84,7 +85,7 @@
             }
         }
         .nav-link,
-        .fa {
+        .popover-region-toggle .fa {
             display: flex !important;
             justify-content: center !important;
             height: 52px !important;
@@ -114,7 +115,7 @@
         [data-region=morebutton] {
             display: none;
         }
-        li {
+        &.primary-navigation li {
             width: 76px;
             a {
                 position: relative;
@@ -125,7 +126,7 @@
                 border-radius: 4px;
             }
         }
-        .nav-item {
+        &.primary-navigation .nav-item {
             &[data-key=""] {
                 .nav-link::before {
                     content: "\ef42";
@@ -170,10 +171,10 @@
                 content: "\e871";
             }
         }
-        .fa-bell::before {
+        .popover-region-toggle .fa-bell::before {
             content: "\e7f7";
         }
-        .fa-message::before {
+        .popover-region-toggle .fa-message::before {
             content: "\e0b9";
         }
         .fa-magnifying-glass::before {
