@@ -60,14 +60,4 @@ $setting = new admin_setting_configtext(
 $page->add($setting);
 $PAGE->requires->js_call_amd("theme_eadtraining/settings", "minicolors", [$setting->get_id()]);
 
-// Login Background image setting.
-$setting = new admin_setting_configstoredfile(
-    "theme_eadflix/loginbackgroundimage",
-    get_string("loginbackgroundimage", "theme_eadtraining"),
-    get_string("loginbackgroundimage_desc", "theme_eadtraining"),
-    "loginbackgroundimage"
-);
-$setting->set_updatedcallback("theme_reset_all_caches");
-$page->add($setting);
-
 $settings->add($page);

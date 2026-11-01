@@ -1,5 +1,12 @@
-.navbar .popover-region-container {
-    position: fixed;
-    right: 20px;
-    top: 70px;
+// Keep notification and message popovers beside the EadFlix desktop sidebar.
+// Fixed coordinates tied to the viewport placed the panel on the opposite edge.
+@media (min-width: 768px) {
+    .navbar-left-ottflix .popover-region-container {
+        position: absolute;
+        top: 0;
+        right: auto;
+        left: calc(100% + 12px);
+        width: min(380px, calc(100vw - 112px));
+        max-height: 80vh;
+    }
 }

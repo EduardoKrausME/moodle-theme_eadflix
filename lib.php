@@ -48,14 +48,7 @@ function theme_eadflix_css_tree_post_processor($tree, $theme) {
 function theme_eadflix_get_extra_scss($theme) {
     $content = "";
 
-    // Sets the login background image.
-    $loginbackgroundimageurl = $theme->setting_file_url("loginbackgroundimage", "loginbackgroundimage");
-    if (!empty($loginbackgroundimageurl)) {
-        $content .= "
-            body.pagelayout-login #page-wrapper {
-                background-image: url('$loginbackgroundimageurl'); background-size: cover;
-            }";
-    }
+    // The login layout applies its background via --login-bg; do not duplicate it in compiled SCSS.
 
     $scsspos = "";
     if (isset($theme->settings->scsspos[5])) {

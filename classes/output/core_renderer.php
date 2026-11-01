@@ -25,4 +25,24 @@ namespace theme_eadflix\output;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_eadtraining\output\core_renderer {
+
+    /**
+     * Use the configured login logo without replacing the site's navigation logo.
+     *
+     * @param int|null $maxwidth Maximum logo width.
+     * @param int|null $maxheight Maximum logo height.
+     * @return \moodle_url|false
+     */
+    public function get_logo_url($maxwidth = null, $maxheight = 200) {
+        if ($this->page->pagelayout === "login") {
+            $logo = theme_eadflix_setting_file_url("loginlogo");
+            if (!$logo) {
+                $logo = theme_eadtraining_setting_file_url("loginlogo");
+            }
+            if ($logo) {
+                return $logo;
+            }
+        }
+        return parent::get_logo_url($maxwidth, $maxheight);
+    }
 }

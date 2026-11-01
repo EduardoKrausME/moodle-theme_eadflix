@@ -25,12 +25,32 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// Reuse the parent's supported login layouts while preserving EadFlix-specific settings.
+require_once("{$CFG->dirroot}/theme/eadtraining/lib.php");
+
 $bodyattributes = $OUTPUT->body_attributes();
+$parentlogintheme = theme_eadtraining_default("logintheme", "dark-elegante", '/^[A-Za-z0-9-]+$/');
+$loginthemename = theme_eadtraining_default("logintheme", $parentlogintheme,
+    '/^[A-Za-z0-9-]+$/', "theme_eadflix");
+
+// Prefer the EadFlix image, retain older EadTraining settings as a fallback.
+$loginbackgroundimageurl = theme_eadflix_setting_file_url("loginbackgroundimage");
+if (!$loginbackgroundimageurl) {
+    $loginbackgroundimageurl = theme_eadtraining_setting_file_url("loginbackgroundimage");
+}
+if (!$loginbackgroundimageurl) {
+    $loginbackgroundimageurl = $OUTPUT->image_url("login/{$loginthemename}", "theme_eadtraining");
+}
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes,
+    "sitename" => format_string($SITE->shortname, true,
+        ["context" => context_course::instance(SITEID), "escape" => false]),
+    "output" => $OUTPUT,
+    "bodyattributes" => $bodyattributes,
+    "login_theme" => $loginthemename,
+    "footer_show_copywriter" => get_config("theme_eadtraining", "footer_show_copywriter"),
+    "languagemenu" => (new \core\output\language_menu($PAGE))->export_for_action_menu($OUTPUT),
+    "loginbackgroundimageurl" => $loginbackgroundimageurl->out(false),
 ];
 
-echo $OUTPUT->render_from_template('theme_eadflix/login', $templatecontext);
+echo $OUTPUT->render_from_template("theme_eadflix/login", $templatecontext);
