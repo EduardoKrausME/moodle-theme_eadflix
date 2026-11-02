@@ -22,19 +22,14 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use core\hook\output\before_footer_html_generation;
 use core\hook\output\before_html_attributes;
-use theme_eadflix\hook_callbacks;
+use theme_eadflix\hook\attributes;
 
 defined('MOODLE_INTERNAL') || die;
 
 $callbacks = [
     [
         "hook" => before_html_attributes::class,
-        "callback" => [hook_callbacks::class, "before_html_attributes"],
-    ],
-    [
-        "hook" => before_footer_html_generation::class,
-        "callback" => [hook_callbacks::class, "before_footer_html_generation"],
+        "callback" => [attributes::class, "before_html_attributes"],
     ],
 ];
