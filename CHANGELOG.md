@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.8.10 - 2026-11-21
+
+- Updated plugin release metadata and added repository security documentation; no runtime code changes.
+
+**Comparison:** [9.8.9...9.8.10](https://github.com/EduardoKrausME/moodle-theme_eadflix/compare/9.8.9...9.8.10)
+
 Entries below document changes verified between consecutive **published** GitHub release tags. Version-only entries identify releases without runtime file changes.
 
 ## 9.8.9 - 2026-11-02
